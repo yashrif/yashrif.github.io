@@ -540,7 +540,7 @@
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
-  column-gap: 4.8rem;
+  column-gap: 3.2rem;
   row-gap: 2.4rem;
 }
 
@@ -621,21 +621,21 @@
   gap: 1.2rem;
 }
 
-.services-widget-description {
+.services-description {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 
-.services-widget-description-container {
+.services-description-container {
   display: flex;
   flex-direction: column;
   gap: 3.6rem;
 }
 
-.services-widget-description-container .description {
+.services-description-container .description {
   justify-self: center;
   color: #333;
   font-size: 1.6rem;
@@ -646,8 +646,9 @@
 }
 
 
-.services-widget-description-container .learn-more {
-  padding: 2rem 3.2rem
+.services-description-container .learn-more {
+  padding: 2rem 2.4rem;
+  border-radius: 9px;
 }
 
 /* --------------------- */
@@ -655,7 +656,7 @@
 /* --------------------- */
 
 .section-experience {
-  background-color: #f8f7f1;
+  background-color: #f9f9f9;
   padding: 9.6rem 0;
 }
 
