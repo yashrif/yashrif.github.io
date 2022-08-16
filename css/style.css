@@ -256,7 +256,7 @@
 
 @keyframes bouncing-ball {
   0% {
-    transform: translate(50%, -200%);
+    transform: translate(75%, -200%);
   }
 
   25% {
@@ -303,7 +303,8 @@
 
   animation-name: bouncing-ball;
   animation-duration: 1.5s;
-  animation-timing-function: linear;
+  /* animation-timing-function: linear; */
+  animation-timing-function: cubic-bezier(.1, .1, .85, .70);
 }
 
 .hero-text {
@@ -415,7 +416,9 @@
   padding: 1.6rem 3.6rem;
   box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.15);
   border-radius: 9px;
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
+  background: linear-gradient(155deg, #fff, #fff, rgba(98, 83, 172, .25));
+
 
   position: absolute;
   top: 25%;
