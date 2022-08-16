@@ -519,3 +519,226 @@
   top: 15%;
   right: 15%;
 }
+
+
+/* ------------ */
+/* Hero Section */
+/* ------------ */
+
+.section-services {
+  /* height: 85vh; */
+  /* background-color: #f9f9f9; */
+  margin: 9.6rem 0;
+}
+
+.services {
+  padding: 0 2.4rem;
+}
+
+.services-widgets-description {
+  justify-self: end;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 4.8rem;
+  row-gap: 2.4rem;
+}
+
+.services-widgets-description .title {
+  color: #333;
+  font-weight: 700;
+  font-size: 3.2rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.services-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.services-widget {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 2rem 3.2rem;
+  border-radius: 9px;
+  /* background-color: #fff; */
+  border: 0.01px solid #fafafa;
+  box-shadow: 0 0.4rem 1.2rem rgba(0, 0, 0, 0.05);
+}
+
+.services-widget--1 {
+  background: linear-gradient(135deg, #ffff, #feecec, #fbc5c5, #f89f9f);
+}
+
+.services-widget--2 {
+  background: linear-gradient(135deg, #ffff, #e7f6f2, #b6e4d7, #86d3bc);
+}
+
+.services-widget--3 {
+  background: linear-gradient(135deg, #ffff, #fff9e8, #feedba, #fee28c);
+}
+
+.services-widget .icon {
+  color: #fff;
+  --ionicon-stroke-width: 5.2rem;
+  height: 2.4rem;
+  width: 2.4rem;
+  padding: 1.6rem;
+  border-radius: 50%;
+}
+
+
+.icon--1 {
+  background-color: #f03e3e;
+}
+
+.icon--2 {
+  background-color: #0ca678;
+}
+
+.icon--3 {
+  background-color: #fcc419;
+}
+
+.services-widget .title {
+  color: #333;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.services-widget .description {
+  color: #888;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.services-widget .icon-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.services-widget-description {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.services-widget-description-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+}
+
+.services-widget-description-container .description {
+  justify-self: center;
+  color: #333;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 55ch;
+  margin: "0 auto"
+}
+
+
+.services-widget-description-container .learn-more {
+  padding: 2rem 3.2rem
+}
+
+/* --------------------- */
+/* --------Experience----*/
+/* --------------------- */
+
+.section-experience {
+  background-color: #f8f7f1;
+  padding: 9.6rem 0;
+}
+
+.section-experience .title {
+  font-size: 3.2rem;
+  columns: #333;
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.experience {
+  padding: 0 2.4rem;
+}
+
+.experience-timeline {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 4.8rem;
+  /* row-gap: 4.8rem; */
+}
+
+
+.timeline-left {
+  justify-self: right;
+}
+
+.timeline-mid {
+  align-self: stretch;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.timeline-mid-outline {
+  padding: .6rem;
+  border: 2px dotted #aaa;
+  border-radius: 50%;
+}
+
+.timeline-mid-outline div {
+  padding: .6rem;
+  border-radius: 50%;
+}
+
+.timeline-mid-seperator {
+  align-self: stretch;
+  justify-self: center;
+  margin: .2rem 0;
+  border-left: 2px dotted #aaa
+}
+
+.timeline-mid-outline--1 div {
+  background-color: #f03e3e;
+}
+
+.timeline-mid-outline--2 div {
+  background-color: #0ca678;
+}
+
+.timeline-mid-outline--3 div {
+  background-color: #fcc419;
+}
+
+.timeline-right .title,
+.timeline-left .title {
+  color: #333;
+  text-align: left;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.6rem
+}
+
+.timeline-right .description,
+.timeline-left .description {
+  max-width: 60ch;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #888;
+  margin-bottom: 3.2rem;
+}
+
+.timeline-right .description--last,
+.timeline-left .description--last {
+  margin-bottom: 0rem;
+}

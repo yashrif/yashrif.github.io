@@ -25,7 +25,7 @@ Small font: 1.8
 - Primary: #fcda69 #7a68d7
 - Tints:
 
-- Shades: 
+- Shades:
 #caae54
 #8873ef
 
@@ -71,9 +71,9 @@ body {
   color: #555;
 }
 
-/*****************************/
+/*------------------------------*/
 /* GENRAL REUSABLE COMPONENTS */
-/*****************************/
+/*------------------------------*/
 
 .container {
   max-width: 120rem;
