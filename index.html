@@ -25,29 +25,40 @@
     <nav class="main-nav">
       <ul class="main-nav-lists">
         <li>
-          <a href="#" class="main-nav-list main-nav-list--hover">Services</a>
+          <a href="#services" class="main-nav-list main-nav-list--hover">Services</a>
         </li>
         <li>
-          <a href="#" class="main-nav-list main-nav-list--hover">Works</a>
+          <a href="#experience" class="main-nav-list main-nav-list--hover">Experience</a>
         </li>
         <li>
-          <a href="#" class="main-nav-list main-nav-list--hover">Notes</a>
+          <a href="#works" class="main-nav-list main-nav-list--hover">Works</a>
         </li>
         <li>
-          <a href="#" class="main-nav-list main-nav-list--hover">Experience</a>
+          <a href="#testimonials" class="main-nav-list main-nav-list--hover">Testimonials</a>
         </li>
       </ul>
     </nav>
 
-    <a href="#" class="main-nav-list main-nav-list--last">
+    <a href="#contacts" class="main-nav-list main-nav-list--last">
       <div class="container-formatting">
         <span>Contacts</span>
         <ion-icon class="icon icon--contact" name="call-outline"></ion-icon>
       </div>
     </a>
+
+    <div class="menu-bar">
+      <ion-icon class="icon--menu" name="menu-outline"></ion-icon>
+      <ion-icon class="menu--close hidden" name="close-outline"></ion-icon>
+    </div>
+
   </header>
 
   <main>
+
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Hero                                   -->
+    <!-- ----------------------------------------------------------------------- -->
+
     <section class="section-hero">
       <div class="hero">
         <div class="hero-text-box">
@@ -61,7 +72,7 @@
               design for companies all across the world
             </p>
           </div>
-          <a href="#" class="link btn btn--full margin-right-sm">
+          <a href="tel:01776809429" class="link btn btn--full margin-right-sm">
             <div class="container-formatting">
               <span>Let's Talk</span>
               <ion-icon class="icon" name="paper-plane-outline"></ion-icon>
@@ -110,7 +121,7 @@
             </div>
             <p class="hero-img-overview-count"><span>5+</span> Done</p>
             <p class="hero-img-overview-percentage">
-              <span>2%</span> vs last 7 days
+              <span>32%</span> vs last 7 days
             </p>
 
             <div class="hero-img-overview-circle"></div>
@@ -119,34 +130,14 @@
       </div>
     </section>
 
-    <section class="section-services">
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                Services                                 -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section id="services" class="section-services">
       <div class="container services">
         <div class="services-widgets-description">
-          <div></div>
-          <h2 class="title">My Services</h2>
-          <div class="services-widgets">
-            <div class="services-widget services-widget--1">
-              <ion-icon class="icon icon--1" name="rose-outline"></ion-icon>
-              <div class="icon-info">
-                <h3 class="title">UI/Ux</h3>
-                <p class="description">12 Projects</p>
-              </div>
-            </div>
-            <div class="services-widget services-widget--2">
-              <ion-icon class="icon icon--2" name="desktop-outline"></ion-icon>
-              <div class="icon-info">
-                <h3 class="title">Web Design</h3>
-                <p class="description">12 Projects</p>
-              </div>
-            </div>
-            <div class="services-widget services-widget--3">
-              <ion-icon class="icon icon--3" name="phone-portrait-outline"></ion-icon>
-              <div class="icon-info">
-                <h3 class="title">Mobile App Design</h3>
-                <p class="description">12 Projects</p>
-              </div>
-            </div>
-          </div>
+          <h2 class="services-widgets-description-title">My Services</h2>
           <div class="services-description">
             <div class="services-description-container">
               <p class="description">
@@ -154,19 +145,41 @@
                 Magni nam a nulla neque at, alias natus dolor accusamus eaque
                 numquam ipsum impedit repellat veniam in consequatur, minus
                 sapiente temporibus doloribus.</p>
-              <p class="description">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Magni nam a nulla neque at, alias natus dolor accusamus eaque
-                numquam ipsum impedit repellat </p>
+
               <div class="learn-more-container">
                 <a class="learn-more link btn btn--full" href="#">Learn more</a>
               </div>
             </div>
           </div>
+
+          <div class="services-widgets">
+            <div class="services-widget services-widget--1">
+              <ion-icon class="icon icon--1" name="rose-outline"></ion-icon>
+              <div class="services-widget--icon-info">
+                <h3 class="services-widget--title">UI/Ux</h3>
+                <p class="services-widget--description">12 Projects</p>
+              </div>
+            </div>
+            <div class="services-widget services-widget--2">
+              <ion-icon class="icon icon--2" name="desktop-outline"></ion-icon>
+              <div class="services-widget--icon-info">
+                <h3 class="services-widget--title">Web Design</h3>
+                <p class="services-widget--description">12 Projects</p>
+              </div>
+            </div>
+            <div class="services-widget services-widget--3">
+              <ion-icon class="icon icon--3" name="phone-portrait-outline"></ion-icon>
+              <div class="services-widget--icon-info">
+                <h3 class="services-widget--title">Mobile App Design</h3>
+                <p class="services-widget--description">12 Projects</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <section class="section-experience">
+    <section id="experience" class="section-experience">
       <div class="container experience">
         <h1 class="title">My Work Experience</h1>
         <div class="experience-timeline">
@@ -191,7 +204,7 @@
           </div>
 
           <div class="timeline-left timeline-left--2">
-            <h2 class="title">Noob's Den</h2>
+            <h2 class="title">Lazy's Den</h2>
             <p class="description">
               Aug 2021 - Sept 2022
             </p>
@@ -231,69 +244,167 @@
       </div>
     </section>
 
-    <section class="section-works">
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                  Works                                  -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section id="works" class="section-works">
       <div class="container works">
         <h2 class="title">My Works</h2>
         <div class="works-imgs">
-          <div class="works-img-container">
+          <div class="works-img-container works-img-container--1">
             <h3 class="img-title">Diary App</h3>
-            <img class="works-img" src="./img/mainMenu.png" alt="todo app" />
+            <p class="img-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad quos, ipsam at
+              maiores
+              obcaecati quae, </p>
+            <img class="works-img works-img--1" src="./img/mainMenu.png" alt="todo app" />
+            <a target="_blank" class="link btn btn--full works--link works--link--1"
+              href="https://github.com/Yashrif/Diary-To-Do-App.git">Learn
+              more</a>
           </div>
 
-          <div class="works-img-container">
-            <img class="works-img" src="./img/mainMenu.png" alt="todo app" />
+          <div class="works-img-container works-img-container--2">
+            <h3 class="img-title">Eden</h3>
+            <p class="img-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad quos, ipsam at
+              maiores
+              obcaecati quae, </p>
+            <img class="works-img works-img--2" src="./img/mainMenu.png" alt="todo app" />
+            <a target="_blank" class="link btn btn--full works--link works--link--2"
+              href="https://github.com/Yashrif/Diary-To-Do-App.git">Learn
+              more</a>
+          </div>
+
+          <div class="works-img-container works-img-container--3">
+            <h3 class="img-title">DocLab</h3>
+            <p class="img-description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad quos, ipsam at
+              maiores
+              obcaecati quae, </p>
+            <img class="works-img works-img--3" src="./img/doclab.png" alt="todo app" />
+            <a target="_blank" class="link btn btn--full works--link works--link--3"
+              href="https://github.com/Yashrif/doclab-frontend.git">Learn
+              more</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-testimonial">
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                              Testimonials                               -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section id="testimonials" class="section-testimonial">
       <div class="container testimonial">
         <div class="heading">
-          <h2 class="title">Client's Testimonial</h2>
+          <h2 class="title">Client's Kind Words</h2>
           <p class="title-details">During my journey I got the chance to works with many people. Here the thought some
             of them about my works
           </p>
         </div>
         <div class="client-testimonials">
-          <div class="client-testimonial">
-            <img class="client-img" src="./img/hero.png" alt="avatar" />
-            <p class="text">Very talented! Love his design. His every work has an artistic touch.</p>
-            <p class="client-name">Emon</p>
-            <p class="client-profession">Backend Developer</p>
-          </div>
-          <div class="client-testimonial-nav">
-            <div class="client-testimonial">
-              <img class="client-img" src="./img/hero.png" alt="avatar" />
-              <p class="text">Great staff. His every works in unique! Keep doing the great staff.</p>
-              <p class="client-name">Nazmul</p>
-              <p class="client-profession">Coder</p>
-            </div>
-
-            <div class="testimonial-navigation">
-              <button class="btn">
-                <ion-icon class="testimonial-navigation-icon" name="chevron-back-outline"></ion-icon>
-              </button>
-              <button class="btn">
-                <ion-icon class="testimonial-navigation-icon" name="chevron-forward-outline"></ion-icon>
-              </button>
-            </div>
-          </div>
-          <div class="client-testimonial">
-            <img class="client-img" src="./img/hero.png" alt="avatar" />
-            <p class="text">Love his every work. Can't wait to see more of his works!</p>
-            <p class="client-name">Mansib</p>
-            <p class="client-profession">Unknown</p>
-          </div>
+          <!-- ------------------------------- Script -------------------------------- -->
         </div>
-
       </div>
     </section>
 
+    <!-- ----------------------------------------------------------------------- -->
+    <!--                                Contacts                                 -->
+    <!-- ----------------------------------------------------------------------- -->
+
+    <section id="contacts" class="section-contacts">
+      <div class="container contacts">
+        <h2 class="contacts-title heading-secondary">Contact Me</h2>
+        <div class="contacts-container">
+          <div class="contacts-list-container">
+            <h3 class="contacts-list-title">Get in touch</h3>
+            <ul class="contacts-list">
+              <li>
+                <ion-icon class="icon icon--1" name="person-outline"></ion-icon>
+                <div>
+                  <h4>Name</h4>
+                  <p>Yashrif Arifin Swoccho</p>
+                </div>
+              </li>
+              <li>
+                <ion-icon class="icon icon--2" name="location-outline"></ion-icon>
+                <div>
+                  <h4>Address</h4>
+                  <p>Islamnagar, Savar, Dhaka</p>
+                </div>
+              </li>
+              <li>
+                <ion-icon class="icon icon--3" name="mail-outline"></ion-icon>
+                <div>
+                  <h4>Email</h4>
+                  <p>yaswoccho@gmail.com</p>
+                </div>
+              </li>
+              <li>
+                <ion-icon class="icon icon--4" name="call-outline"></ion-icon>
+                <div>
+                  <h4>Phone</h4>
+                  <p>01776809429</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- -------------------------------- Form --------------------------------- -->
+
+          <div class="contacts-message-container">
+            <h3 class="contacts-list-title">Send a message</h3>
+            <!-- <form class="contacts-message" action="index.html" method="post"> -->
+            <form class="contacts-message" action="#">
+              <div class="name">
+                <div class="form-group">
+                  <label for="first-name">First Name</label>
+                  <input type="text" class="form-control" id="first-name" placeholder="Yashrif" />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name</label>
+                  <input type="text" class="form-control" id="last-name" placeholder="Arifin" />
+                </div>
+              </div>
+              <div class="email-subject">
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input type="email" class="form-control" id="email" placeholder="me@email.com" />
+                </div>
+                <div class="form-group">
+                  <label for="subject">Subject</label>
+                  <input type="text" class="form-control" id="subject" placeholder="Subject" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message">Your message</label>
+                <textarea class="form-control message" id="message" rows="3"
+                  placeholder="Write your message here..."></textarea>
+              </div>
+              <button t class="btn btn--form">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <!-- ----------------------------------------------------------------------- -->
+  <!--                                 Footer                                  -->
+  <!-- ----------------------------------------------------------------------- -->
+
+  <footer>
+    <div class="container footer">
+      <p class="title">Yashrif</p>
+      <p class="copyright">
+        Copyright &copy; 2030 All rights reserved.
+      <p class="footer-text">Designed by Yashrif Arifin</p>
+    </div>
+  </footer>
+
+  <ion-icon class="home-arrow" name="arrow-up-outline"></ion-icon>
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>
