@@ -6,6 +6,7 @@ const ClientTestimonials = document.querySelector(".client-testimonials");
 const HomeArrow = document.querySelector(".home-arrow");
 const Form = document.querySelector(".contacts-message");
 const FormButton = document.querySelector(".btn--form");
+const CopyrightYear = document.querySelector("#copyright-year");
 
 /* ------------------------------- Sticky Nav and Home Arrow ------------------------------- */
 
@@ -86,7 +87,9 @@ const ClientTestimonialList = (content, index, direction) => {
     const html = `
     ${i === 2 ? `<div class="client-testimonial-nav">` : ""}
       <div class="client-testimonial client-testimonial--${i}">
-        <img class="client-img fade-in" src="./img/${content[index].img}" alt="avatar" />
+        <img class="client-img fade-in" src="./img/${
+          content[index].img
+        }" alt="avatar" />
         <p class="text ${direction === 0 ? "slide-right" : "slide-left"}">${
       content[index].text
     }</p>
@@ -94,8 +97,8 @@ const ClientTestimonialList = (content, index, direction) => {
           direction === 0 ? "slide-right" : "slide-left"
         }">${content[index].name}</p>
         <p class="client-profession ${
-      direction === 0 ? "slide-right" : "slide-left"
-    }">${content[index].profession}</p>
+          direction === 0 ? "slide-right" : "slide-left"
+        }">${content[index].profession}</p>
       </div>
 
     ${
@@ -139,4 +142,6 @@ const FormData = FormButton.addEventListener("click", () =>
   document.querySelectorAll(".form-control")
 );
 
-// console.log(FormData);
+/* ----------------------------- Copyright Year ----------------------------- */
+
+CopyrightYear.innerHTML = new Date().getFullYear();
