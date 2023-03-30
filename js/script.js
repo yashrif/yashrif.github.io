@@ -45,8 +45,20 @@ document.querySelector(".menu-bar").addEventListener("click", () => {
   document.querySelector(".menu--close").classList.toggle("visible");
   if (document.querySelector(".icon--menu").classList.contains("hidden")) {
     document.querySelector(".main-nav").classList.add("mobile-nav");
+    document.querySelector("body").classList.add("stop-scroll");
+    HomeArrow.style.right = "5.2rem";
+    if (window.scrollY >= Hero.clientHeight * 0.9) {
+      Header.style.right = "1.6rem";
+      Header.style.width = "calc(100% - 1.6rem)";
+    }
     // document.querySelector("body").classList.add("bg-darker");
-  } else document.querySelector(".main-nav").classList.remove("mobile-nav");
+  } else {
+    document.querySelector(".main-nav").classList.remove("mobile-nav");
+    document.querySelector("body").classList.remove("stop-scroll");
+    Header.style.right = "0";
+    Header.style.width = "100%";
+    HomeArrow.style.right = "3.6rem";
+  }
 });
 
 /* ------------------------------ Testimonials ------------------------------ */
