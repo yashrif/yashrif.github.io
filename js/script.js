@@ -52,6 +52,13 @@ document.querySelector(".menu-bar").addEventListener("click", () => {
   }
 });
 
+document.querySelector(".main-nav").addEventListener("click", () => {
+  document.querySelector(".icon--menu").classList.toggle("hidden");
+  document.querySelector(".menu--close").classList.toggle("visible");
+  document.querySelector(".main-nav").classList.remove("mobile-nav");
+  document.querySelector("html").classList.remove("stop-scroll");
+});
+
 /* ------------------------------ Testimonials ------------------------------ */
 let testimonialNumber = 0;
 
