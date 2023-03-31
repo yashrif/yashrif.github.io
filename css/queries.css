@@ -67,7 +67,9 @@
 
 }
 
-/* 944px  */
+/* -------------------------------------------------------------------------- */
+/*                                59em (944px)                                */
+/* -------------------------------------------------------------------------- */
 
 @media (max-width: 59em) {
   html {
@@ -82,7 +84,7 @@
 
   .main-nav {
     background-color: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1rem);
     position: absolute;
     top: 0;
     left: 0;
@@ -182,13 +184,13 @@
   .works-imgs {
     grid-template-columns: 1fr 1fr;
     justify-content: center;
-    gap: 3.2rem;
+    gap: 4.8rem;
   }
 
   .works-img-container--2 {
     grid-column: 1/-1;
     grid-row: 2;
-    width: 55%;
+    width: 50%;
     margin: 0 auto;
   }
 
@@ -198,7 +200,9 @@
 
 }
 
-/* 752px */
+/* -------------------------------------------------------------------------- */
+/*                                47em (752px)                                */
+/* -------------------------------------------------------------------------- */
 
 @media (max-width: 47em) {
 
@@ -206,14 +210,16 @@
 
   .services-widgets {
     grid-template-columns: 1fr 1fr;
-    row-gap: 4.8rem;
+    grid-auto-rows: 1fr;
+    gap: 4.8rem;
     align-items: stretch;
   }
 
   .services-widget--2 {
     grid-column: 1/-1;
     grid-row: 2;
-    width: 55%;
+    height: 100%;
+    width: 50%;
     margin: 0 auto;
   }
 
@@ -221,14 +227,14 @@
 
   .client-testimonials {
     grid-template-columns: 1fr 1fr;
-    row-gap: 4.8rem;
+    gap: 4.8rem;
     align-items: stretch;
   }
 
   .client-testimonial-nav {
     grid-column: 1/-1;
     grid-row: 2;
-    width: 55%;
+    width: 50%;
     margin: 0 auto;
   }
 
@@ -306,7 +312,9 @@
 
 }
 
-/* 400px */
+/* -------------------------------------------------------------------------- */
+/*                                25em (400px)                                */
+/* -------------------------------------------------------------------------- */
 
 @media (max-width: 25em) {
   html {
@@ -348,6 +356,12 @@
   .services-widget {
     width: 100%;
     margin: 0 auto;
+  }
+
+  .services-widget--2 {
+    grid-column: span 1;
+    grid-row: 3;
+    width: 100%;
   }
 
 

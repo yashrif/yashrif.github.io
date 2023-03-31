@@ -129,7 +129,7 @@ body {
 .btn:visited {
   font-size: 1.8rem;
   padding: 2.4rem 3.2rem;
-  border-radius: 16px;
+  border-radius: 1.6rem;
 }
 
 .btn--full:link,
@@ -159,7 +159,7 @@ body {
 
 .btn--full:hover .icon,
 .btn--full:active .icon {
-  transform: translate(3px, -3px);
+  transform: translate(.3rem, -.3rem);
 }
 
 .btn--outline:link,
