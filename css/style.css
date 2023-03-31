@@ -43,6 +43,10 @@
   box-shadow: 0 0.5rem 0.4rem -0.4rem rgba(123, 104, 215, 0.7);
 }
 
+.main-nav-list-contacts {
+  display: none !important;
+}
+
 .logo:link,
 .logo:visited {
   text-transform: capitalize !important;
