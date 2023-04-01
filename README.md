@@ -1,6 +1,6 @@
 # Yashrif Arifin&mdash;@yashrif
 
-Hi, I'm Yashrif&mdash;a student currently studying at JU who is passionate about making dynamic web and desktop applications. I'm currently working on a few projects, but I'm always looking for new opportunities to learn and grow.
+Hi, I'm Yashrif&mdash;a student currently studying at JU who is passionate about making dynamic web and desktop applications. I'm currently working on a few projects, but I'm always looking for new opportunities to learn and grow. More about me at [yashrif.github.io/Yashrif](https://yashrif.github.io/Yashrif).
 
 ## Get in touch
 
@@ -8,20 +8,8 @@ Hi, I'm Yashrif&mdash;a student currently studying at JU who is passionate about
 
 ## My github stats
 
-<p>
-    <div style="display: flex; justify-content: center; width: 100%">
-        <img align="left" style="width: 75%" src="https://github-readme-stats.vercel.app/api/top-langs?username=yashrif&show_icons=true&locale=en&layout=compact" alt="yashrif" />
-    </div>
-</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;justify-content: center;">
+        <img style="height: 100%; width: 90%; justify-self: center" src="https://github-readme-stats.vercel.app/api?username=yashrif&show_icons=true&locale=en" alt="yashrif" />
+        <img style="height: 100%; width: 90%; justify-self: center" style="width: 75%;" src="https://github-readme-streak-stats.herokuapp.com/?user=yashrif&" alt="yashrif" />
 
-<p>
-    <div style="display: flex; justify-content: center; width: 100%">
-        <img align="center" style="width: 75%" src="https://github-readme-stats.vercel.app/api?username=yashrif&show_icons=true&locale=en" alt="yashrif" />
-    </div>
-</p>
-
-<p>
-    <div style="display: flex; justify-content: center; width: 100%">
-        <img align="center" style="width: 75%" src="https://github-readme-streak-stats.herokuapp.com/?user=yashrif&" alt="yashrif" />
-    </div>
-</p>
+</div>
