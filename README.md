@@ -8,8 +8,5 @@ Hi, I'm Yashrif&mdash;a student currently studying at JU who is passionate about
 
 ## My github stats
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;justify-content: center;">
-        <img style="height: 100%; width: 90%; justify-self: center" src="https://github-readme-stats.vercel.app/api?username=yashrif&show_icons=true&locale=en" alt="yashrif" />
-        <img style="height: 100%; width: 90%; justify-self: center" style="width: 75%;" src="https://github-readme-streak-stats.herokuapp.com/?user=yashrif&" alt="yashrif" />
-
-</div>
+| [![Peace's github stats](https://github-readme-stats.vercel.app/api?username=yashrif&show_icons=true&locale=en&theme=dark)](https://github.com/Cyebukayire) | [![Top Langs](https://github-readme-streak-stats.herokuapp.com/?user=yashrif&theme=dark)](https://github.com/Cyebukayire) |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
