@@ -669,13 +669,7 @@
   border-radius: .9rem;
   opacity: 0;
   transition: all 0.5s linear;
-  background: linear-gradient(135deg, #feecec, #f9b2b2, #f68b8b, #f36565);
-}
-
-.services-widget--1:hover.services-widget--1::before,
-.services-widget--2:hover.services-widget--2::before,
-.services-widget--3:hover.services-widget--3::before {
-  opacity: 1;
+  background: linear-gradient(-135deg, #feecec, #f9b2b2, #f68b8b, #f36565);
 }
 
 .services-widget--2::before {
@@ -689,7 +683,7 @@
   border-radius: .9rem;
   opacity: 0;
   transition: all 0.5s linear;
-  background: linear-gradient(135deg, #e7f6f2, #9edbc9, #3db893, #55c1a1);
+  background: linear-gradient(180deg, #e7f6f2, #9edbc9, #3db893, #55c1a1);
 }
 
 .services-widget--3::before {
@@ -704,6 +698,12 @@
   opacity: 0;
   transition: all 0.5s linear;
   background: linear-gradient(135deg, #fff9e8, #fee7a3, #fdd047, #fdd65e);
+}
+
+.services-widget--1:hover.services-widget--1::before,
+.services-widget--2:hover.services-widget--2::before,
+.services-widget--3:hover.services-widget--3::before {
+  opacity: 1;
 }
 
 .services-widget .icon {
