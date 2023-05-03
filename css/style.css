@@ -271,28 +271,56 @@
 
 @keyframes bouncing-ball {
   0% {
-    transform: translate(75%, -200%);
+    transform: translate(75%, -100%)
   }
 
-  25% {
-    transform: translate(50%, -40%);
+  8% {
+    transform: translate(75%, 70%)
   }
 
-  38% {
-    transform: translate(35%, -90%);
+  18% {
+    transform: translate(75%, 20%)
   }
 
-  60% {
-    transform: translate(20%, -120%);
+  28% {
+    transform: translate(75%, 70%)
   }
 
-  82% {
-    transform: translate(5%, -90%);
+  39% {
+    transform: translate(75%, 35%)
   }
 
-  100% {
-    transform: translate(-10%, -40%);
+  48% {
+    transform: translate(75%, 70%)
   }
+
+  55% {
+    transform: translate(75%, 55%)
+  }
+
+  62% {
+    transform: translate(75%, 70%)
+  }
+
+  69% {
+    transform: translate(75%, 64%)
+  }
+
+  75% {
+    transform: translate(75%, 70%)
+  }
+
+  80% {
+    transform: translate(75%, 68%)
+  }
+
+  84% {
+    transform: translate(75%, 70%)
+  }
+
+  /* 100% {
+    transform: translate(75%, 70%)
+  } */
 }
 
 .hero-text-box-heading::before {
@@ -317,9 +345,9 @@
   z-index: 1;
 
   animation-name: bouncing-ball;
-  animation-duration: 1.5s;
+  animation-duration: 3s;
   /* animation-timing-function: linear; */
-  animation-timing-function: cubic-bezier(0.1, 0.1, 0.85, 0.7);
+  animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .hero-text {
@@ -1044,7 +1072,6 @@
   flex-direction: column;
   align-items: center;
   padding: 0 3.6rem 1.8rem;
-  background-color: rgba(255, 255, 255, 1);
   border-radius: 1.6rem;
 }
 
@@ -1400,7 +1427,7 @@ footer {
 
 @keyframes slide-right {
   0% {
-    transform: translateX(10rem);
+    transform: translateX(5rem);
     opacity: 0;
   }
 
@@ -1412,7 +1439,7 @@ footer {
 
 @keyframes slide-left {
   0% {
-    transform: translateX(-10rem);
+    transform: translateX(-5rem);
     opacity: 0;
   }
 
