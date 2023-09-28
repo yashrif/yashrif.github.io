@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 body {
-  @apply font-primary text-light-black-33;
+  @apply font-primary text-light-black-55;
 }
 
+/* -------------------------------- Container ------------------------------- */
 
+.container-body {
+  @apply mx-auto w-full max-w-[1320px] px-5;
+}
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,

@@ -1,10 +1,28 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Berkshire_Swash, Inter, Work_Sans } from "next/font/google";
 
-import "./globals.css";
+import Footer from "../components/common/Footer";
 import Header from "../components/common/Header";
+import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-work-sans",
+});
+
+const berkshireSwash = Berkshire_Swash({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-berkshire-swash",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Yashrif",
@@ -18,10 +36,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body
+        className={`${inter.variable} ${workSans.variable} ${berkshireSwash.variable}`}
+      >
         <div className="flex flex-col justify-between min-h-screen overflow-x-hidden">
           <Header />
           {children}
+          <Footer />
         </div>
       </body>
     </html>
