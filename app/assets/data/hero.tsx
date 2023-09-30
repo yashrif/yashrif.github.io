@@ -1,11 +1,9 @@
 import {
   IoLogoGithub,
   IoLogoLinkedin,
-  IoLogoPinterest,
-  IoLogoReddit,
-  IoPaperPlaneOutline
+  IoPaperPlaneOutline,
 } from "react-icons/io5";
-import {BsArrowUp} from "react-icons/bs";
+import { BsArrowUp, BsSteam } from "react-icons/bs";
 
 import { ColorScheme } from "@/app/Types/ColorScheme";
 
@@ -55,13 +53,8 @@ export const profileLinks = [
     icon: <IoLogoLinkedin />,
   },
   {
-    title: "Pinterest",
-    href: "https://www.pinterest.com/yaswoccho",
-    icon: <IoLogoPinterest />,
-  },
-  {
-    title: "Reddit",
-    href: "https://www.reddit.com/user/Yashrif_Arifin",
-    icon: <IoLogoReddit />,
+    title: "Steam",
+    href: "https://steamcommunity.com/profiles/76561198175046383/",
+    icon: <BsSteam />,
   },
 ];

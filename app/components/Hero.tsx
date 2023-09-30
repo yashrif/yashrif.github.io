@@ -14,16 +14,24 @@ import {
 import HeroImage from "@/app/assets/img/hero.png";
 import Button from "./common/Button";
 
+const MotionImage = motion(Image);
+
 const Hero = () => {
   return (
     <div className="flex flex-col gap-12">
-      <section className="lg:h-[calc(100vh-88px)] lg:overflow-hidden bg-light-violet-gray">
+      <section className="lg:h-[calc(100vh-88px)] bg-light-violet-gray">
         <div className="max-w-[1300px] h-full mx-auto px-8 grid grid-cols-[45fr_55fr] items-center">
           <div className="mt-8 z-20">
-            <div className="relative before:block before:w-[20%] before:pb-[20%] before:rounded-full before:bg-[linear-gradient(155deg,rgba(252,218,105,0.25),rgba(240,140,0,0.75))] before:shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.15) before:absolute before:top-0 before:right-[40%] before:-translate-x-[10%] before:-translate-y-[40%] before:z-10">
+            <div className="relative">
               <h1 className="font-tertiary text-[52px] leading-[1.1] font-bold text-light-black-33 tracking-[-0.5px] mb-8">
                 {title}
               </h1>
+              <motion.div
+                className="block w-[20%] pb-[20%] rounded-full bg-[linear-gradient(155deg,rgba(252,218,105,0.25),rgba(240,140,0,0.75))] shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.15) absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[100]"
+                variants={ballMotion}
+                initial={"rest"}
+                animate={"active"}
+              ></motion.div>
             </div>
             <div className="flex gap-4">
               <p className="text-3xl">&mdash;</p>
@@ -87,9 +95,22 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="self-end flex justify-center relative overflow-hidden  before:absolute before:block before:w-[65%] before:pb-[90%] before:rounded-[50%] before:bg-[linear-gradient(155deg,rgba(175,164,231,0.25),#6253ac)] before:bottom-0 before:left-2/4 before:-translate-x-2/4 before:translate-y-[20%] before:z-30">
-            <Image src={HeroImage} alt="hero" className="w-[60%] z-40" />
-          </div>
+          <motion.div
+            className="self-end flex justify-center relative overflow-hidden"
+            initial={"rest"}
+            animate={"active"}
+          >
+            <MotionImage
+              src={HeroImage}
+              alt="hero"
+              className="w-[60%] z-40"
+              variants={heroImageMotion}
+            />
+            <motion.div
+              className="absolute block w-[65%] pb-[90%] rounded-[50%] bg-[linear-gradient(155deg,rgba(175,164,231,0.25),#6253ac)] bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30"
+              variants={eclipseMotion}
+            ></motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
@@ -149,17 +170,54 @@ const profileIconMotion = {
 
 const ballMotion = {
   rest: {
-    y: "-200%",
+    y: "-500%",
+    x: "75%",
   },
   active: {
-    y: 0,
-    opacity: 1,
+    y: ["-500%", "-40%", "-160%", "-40%", "-96%", "-40%", "-57.6%", "-40%"],
+    x: ["75%", "41%", "20.6%", "8.36%", "1.02%", "-3.4%", "-8.1%", "-10%"],
     transition: {
       delay: 0.5,
+      type: "string",
+      duration: 2,
+    },
+  },
+};
+
+const heroImageMotion = {
+  rest: {
+    opacity: 0,
+    scale: 0,
+    transition: {
+      type: "tween",
+      ease: "easeOut",
+      duration: 0.5,
+    },
+  },
+  active: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delay: 0.5,
+      type: "tween",
+      ease: "easeOut",
+      duration: 0.5,
+    },
+  },
+};
+
+const eclipseMotion = {
+  rest: {
+    paddingBottom: 0,
+  },
+  active: {
+    paddingBottom: "100%",
+    transition: {
+      delay: 1,
       type: "spring",
-      mass: 0.5,
+      mass: 1,
       damping: 10,
-      stiffness: 12,
+      stiffness: 75,
     },
   },
 };

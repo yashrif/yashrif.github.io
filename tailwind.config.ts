@@ -26,8 +26,11 @@ const config: Config = {
           "black-33": "#333",
         },
       },
+      dropShadow: {
+        sm: "0 .4rem .4rem rgba(123, 104, 215, 0.25)",
+      },
       boxShadow: {
-        "md": "0 2.4rem 4.8rem rgba(0, 0, 0, 0.075)",
+        md: "0 2.4rem 4.8rem rgba(0, 0, 0, 0.075)",
         "nav-item": "0 0.5rem 0.4rem -0.4rem rgba(123, 104, 215, 0.7)",
       },
     },
