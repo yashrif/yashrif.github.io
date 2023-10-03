@@ -18,6 +18,9 @@ const config: Config = {
         light: {
           "yellow-69": "#fcda69",
           "yellow-54": "#caae54",
+          "yellow-17": "#e3b017",
+          "green-6c": "#0b956c",
+          "red-38": "#d83838",
           "violet-d7": "#7a68d7",
           "violet-ef": "#8873ef",
           "violet-gray": "#efedf6",
@@ -27,11 +30,16 @@ const config: Config = {
         },
       },
       dropShadow: {
-        sm: "0 .4rem .4rem rgba(123, 104, 215, 0.25)",
+        sm: "0 4px 4px rgba(123, 104, 215, 0.25)",
       },
       boxShadow: {
-        md: "0 2.4rem 4.8rem rgba(0, 0, 0, 0.075)",
-        "nav-item": "0 0.5rem 0.4rem -0.4rem rgba(123, 104, 215, 0.7)",
+        sm: " 0 12px 24px rgba(0, 0, 0, 0.1)",
+        md: "0 24px 48px rgba(0, 0, 0, 0.1)",
+        nav: "0 24px 48px rgba(123, 104, 215, 0.1)",
+        "nav-item": "0 5px 4px -4px rgba(123, 104, 215, 0.7)",
+      },
+      spacing: {
+        header: "5.5rem",
       },
     },
   },

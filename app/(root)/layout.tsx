@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Berkshire_Swash, Inter, Work_Sans } from "next/font/google";
 
-import Footer from "../components/common/Footer";
-import Header from "../components/common/Header";
 import "./globals.css";
 
 const inter = Inter({
@@ -39,10 +37,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${workSans.variable} ${berkshireSwash.variable}`}
       >
-        <div className="flex flex-col justify-between min-h-screen overflow-x-hidden">
-          <Header />
+        <div className="relative flex flex-col justify-between min-h-screen overflow-x-hidden">
           {children}
-          <Footer />
         </div>
       </body>
     </html>
