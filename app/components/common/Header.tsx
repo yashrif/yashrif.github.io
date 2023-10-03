@@ -63,10 +63,11 @@ const Header: FC<HeaderProps> = ({ inView }) => {
     else
       navControl.start({
         position: "absolute",
-        opacity: 1,
-        boxShadow: "none",
+        boxShadow: ["none", "none"],
         zIndex: "auto",
         transition: {
+          times: [0, 1],
+          delay: 0.1,
           duration: 0,
         },
       });
@@ -76,13 +77,6 @@ const Header: FC<HeaderProps> = ({ inView }) => {
     <motion.header
       className="absolute w-full grid grid-cols-[1.5fr_2.5fr_1.5fr] grid-rows-1 items-center bg-light-violet-gray h-header px-16"
       animate={navControl}
-      exit={{
-        opacity: 0,
-        y: "-100%",
-        transition: {
-          duration: 0.5,
-        },
-      }}
     >
       <MotionLink
         href="#"
@@ -126,7 +120,7 @@ const Header: FC<HeaderProps> = ({ inView }) => {
       >
         <p className={navItemTransition}>{contacts.title}</p>
         <motion.div
-          className="text-xl text-light-violet-d7 p-2 bg-white shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.1)] rounded-full"
+          className="text-xl text-light-violet-d7 p-2 bg-white shadow-[0_6px_12px_rgba(123,104,215,0.15)] rounded-full"
           variants={contactVariants}
         >
           <IoCallOutline />
@@ -162,9 +156,7 @@ const navItemVariants = {
 };
 
 const logoVariants = {
-  hidden: {
-    color: (theme?.colors as any)?.light?.["black-33"],
-  },
+  hidden: { color: (theme?.colors as any)?.light?.["black-33"] },
   visible: { color: (theme?.colors as any)?.light?.["black-33"] },
   hover: {
     color: (theme?.colors as any)?.light?.["yellow-54"],
@@ -229,12 +221,12 @@ const contactVariants = {
     rotate: 0,
   },
   hover: {
-    rotate: [0, 20, -20, 20, -20, 20, -20, 0],
-    scale: [1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1],
+    rotate: [0, 20, -20, 20, -20, 20, -20, 20, -20, 20, 0],
+    scale: [1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1],
     transition: {
       type: "tween",
       ease: "easeInOut",
-      duration: 1,
+      duration: 1.5,
       repeat: Infinity,
       repeatDelay: 1,
     },

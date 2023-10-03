@@ -47,7 +47,7 @@ const Timeline: React.FC<timelineType> = ({
           variants={timelineCenterCircleVariants}
         >
           <div
-            className={`p-2 rounded-full group-odd:bg-light-red-38 group-even:bg-light-green-6c group-[:nth-of-type(3n)]:bg-light-yellow-69`}
+            className={`p-2 rounded-full group-odd:bg-light-red-38 group-even:bg-light-green-6c group-[:nth-of-type(3n)]:bg-light-yellow-17`}
           ></div>
         </motion.div>
         <motion.div
