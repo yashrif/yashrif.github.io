@@ -45,6 +45,7 @@ const config: Config = {
           "violet-ef": "#8873ef",
           "violet-gray": "#efedf6",
           "gray-f6": "#efedf6",
+          "gray-aa": "#aaa",
           "black-55": "#555",
           "black-33": "#333",
         },

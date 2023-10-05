@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { FC, useRef, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 
-import { timelineData, title } from "../assets/data/experience";
+import { description, timelineData, title } from "../assets/data/experience";
 
 interface timelineType {
   organization: string;
@@ -13,52 +13,118 @@ interface timelineType {
   index?: number;
 }
 
-const Timeline: React.FC<timelineType> = ({
+const Timeline: FC<timelineType> = ({
   organization,
   designation,
   duration,
   description,
   index,
 }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 0.8", "1 0.8"],
+  });
+  const [firstRender, setFirstRender] = useState(true);
+
+  scrollYProgress.on("change", (latest) => {
+    if (firstRender && latest > 0)
+      setTimeout(() => {
+        setFirstRender(false);
+      }, 150);
+  });
+
   const titleStyle = "text-lg text-light-black-33 font-semibold capitalize";
   const descriptionStyle =
-    "text-sm font-medium text-[#666] max-w-[50ch] first-letter:capitalize mb-14 group-last:mb-4";
-
+    "text-sm font-medium text-[#666] max-w-[50ch] first-letter:capitalize";
   const isEven = (index as number) % 2 === 0;
 
   return (
     <motion.li
-      className="group grid grid-cols-[1fr_auto_1fr] gap-x-12 relative"
-      initial={"hidden"}
-      whileInView={"visible"}
-      viewport={{ once: true }}
+      ref={ref}
+      className="relative group grid grid-cols-[1fr_auto_1fr] grid-rows-1 gap-x-8 pb-12 last:pb-0"
+      initial="hidden"
+      animate={scrollYProgress.get() > 0 ? "visible" : "hidden"}
     >
       <motion.div
         className="justify-self-end group-even:justify-self-start flex flex-col gap-3 order-first group-even:order-last"
-        variants={isEven ? timelineRightVariants : timelineLeftVariants}
+        variants={
+          isEven
+            ? firstRender
+              ? timelineRightVariants
+              : timelineLRVariantsHold
+            : firstRender
+            ? timelineLeftVariants
+            : timelineLRVariantsHold
+        }
       >
         <h3 className={`${titleStyle} group-odd:text-right`}>{organization}</h3>
         <p className={`${descriptionStyle} group-odd:text-right`}>{duration}</p>
       </motion.div>
 
-      <div className="self-stretch grid grid-cols-1 grid-rows-[auto_1fr] order-2">
-        <motion.div
-          className="p-2 border-2 border-dotted border-[#aaa] rounded-full"
-          variants={timelineCenterCircleVariants}
-        >
-          <div
-            className={`p-2 rounded-full group-odd:bg-light-red-38 group-even:bg-light-green-6c group-[:nth-of-type(3n)]:bg-light-yellow-17`}
-          ></div>
-        </motion.div>
-        <motion.div
-          variants={timelineCenterLinesVariants}
-          className="self-stretch justify-self-center my-0.5 border-l-2 border-dotted border-l-[#aaa]"
-        ></motion.div>
+      <div className="z-40">
+        <figure>
+          <svg
+            height={75}
+            width={75}
+            viewBox="0 0 100 100"
+            transform="rotate(-90)"
+          >
+            <circle
+              cx={75}
+              cy={50}
+              r={22}
+              className="stroke-light-violet-gray stroke-[4] fill-light-violet-gray"
+            ></circle>
+
+            <motion.circle
+              cx={75}
+              cy={50}
+              r={20}
+              strokeDasharray={2}
+              strokeDashoffset={0}
+              className="stroke-light-gray-aa stroke-[4] fill-light-violet-gray"
+              style={{
+                pathLength: scrollYProgress,
+                // transition: "all 0.15s ease-out",
+              }}
+            ></motion.circle>
+
+            <circle
+              cx={75}
+              cy={50}
+              r={20}
+              strokeDasharray={2}
+              strokeDashoffset={0}
+              className="stroke-light-violet-gray stroke-[4] fill-light-violet-gray"
+            ></circle>
+
+            <motion.circle
+              cx={75}
+              cy={50}
+              r={10}
+              className="group-odd:fill-light-red-38 group-even:fill-light-green-6c group-[:nth-of-type(3n)]:fill-light-yellow-17"
+              variants={
+                firstRender
+                  ? timelineCircleVariantsOnce
+                  : timelineCircleVariants
+              }
+            ></motion.circle>
+          </svg>
+        </figure>
       </div>
 
       <motion.div
         className="justify-self-start group-even:justify-self-end flex flex-col gap-3 order-last group-even:order-first"
-        variants={isEven ? timelineLeftVariants : timelineRightVariants}
+        variants={
+          isEven
+            ? firstRender
+              ? timelineLeftVariants
+              : timelineLRVariantsHold
+            : firstRender
+            ? timelineRightVariants
+            : timelineLRVariantsHold
+        }
       >
         <h3 className={`${titleStyle} group-even:text-right`}>{designation}</h3>
         <p className={`${descriptionStyle} group-even:text-right`}>
@@ -70,6 +136,16 @@ const Timeline: React.FC<timelineType> = ({
 };
 
 const Experience = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 .845", "1 0.8"],
+  });
+  const [timelineScrollPosition, setTimelineScrollPosition] = useState(0);
+  scrollYProgress.on("change", (latest) => {
+    setTimelineScrollPosition(latest);
+  });
+
   return (
     <section id="experience" className="py-24 bg-light-violet-gray">
       <motion.div
@@ -79,24 +155,42 @@ const Experience = () => {
         viewport={{ once: true }}
         variants={experienceContainerVariants}
       >
-        <motion.h1 className="heading-secondary" variants={fadeInVariants}>
-          {title}
-        </motion.h1>
+        <div className="flex flex-col items-center justify-center">
+          <motion.h2 className="heading-secondary" variants={fadeInVariants}>
+            {title}
+          </motion.h2>
 
-        <ul className="list-none">
-          {timelineData.map(
-            ({ organization, designation, duration, description }, index) => (
-              <Timeline
-                key={index}
-                organization={organization}
-                designation={designation}
-                duration={duration}
-                description={description}
-                index={index}
-              />
-            )
-          )}
-        </ul>
+          <motion.p className="description" variants={fadeInVariants}>
+            {description}
+          </motion.p>
+
+          <motion.div ref={ref} className="relative" variants={fadeInVariants}>
+            <ul className="list-none">
+              {timelineData.map(
+                (
+                  { organization, designation, duration, description },
+                  index
+                ) => (
+                  <Timeline
+                    key={index}
+                    organization={organization}
+                    designation={designation}
+                    duration={duration}
+                    description={description}
+                    index={index}
+                  />
+                )
+              )}
+            </ul>
+
+            <motion.div
+              className="absolute w-auto top-1 left-2/4 -translate-x-2/4 border-l-2 border-dotted border-l-light-gray-aa z-30"
+              style={{
+                height: `${timelineScrollPosition * 100}%`,
+              }}
+            ></motion.div>
+          </motion.div>
+        </div>
       </motion.div>
     </section>
   );
@@ -109,7 +203,6 @@ const experienceContainerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delay: 0.25,
       when: "beforeChildren",
       staggerChildren: 0.25,
       duration: 0,
@@ -130,7 +223,7 @@ const fadeInVariants = {
   },
 };
 
-const timelineLRVisible = {
+const timelineLRVariantsVisible = {
   opacity: 1,
   x: 0,
   transition: {
@@ -145,7 +238,7 @@ const timelineLeftVariants = {
     x: "50vw",
   },
   visible: {
-    ...timelineLRVisible,
+    ...timelineLRVariantsVisible,
   },
 };
 
@@ -154,10 +247,29 @@ const timelineRightVariants = {
     opacity: 0,
     x: "-50vw",
   },
-  visible: { ...timelineLRVisible },
+  visible: { ...timelineLRVariantsVisible },
 };
 
-const timelineCenterCircleVariants = {
+const timelineLRVariantsHold = {
+  hidden: {
+    opacity: 1,
+    x: 1,
+    scale: 1,
+  },
+  visible: {
+    ...timelineLRVariantsVisible,
+    opacity: 1,
+    scale: [1.015, 1],
+    transition: {
+      type: "spring",
+      stiffness: 650,
+      damping: 80,
+      mass: 7,
+    },
+  },
+};
+
+const timelineCircleVariantsOnce = {
   hidden: {
     opacity: 0,
     scale: 0,
@@ -166,22 +278,27 @@ const timelineCenterCircleVariants = {
     opacity: 1,
     scale: 1,
     transition: {
-      delay: 0.1,
       type: "spring",
+      stiffness: 650,
+      damping: 60,
+      mass: 8,
     },
   },
 };
 
-const timelineCenterLinesVariants = {
+const timelineCircleVariants = {
   hidden: {
-    height: "0",
+    opacity: 1,
+    scale: 1,
   },
   visible: {
-    height: "auto",
+    opacity: 1,
+    scale: [1.5, 1],
     transition: {
-      delay: 0.35,
-      duration: 0.4,
-      ease: "easeOut",
+      type: "spring",
+      stiffness: 650,
+      damping: 80,
+      mass: 15,
     },
   },
 };

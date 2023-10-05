@@ -51,6 +51,7 @@ const Services = () => {
           <motion.h2 className="heading-secondary" variants={fadeInVariants}>
             {title}
           </motion.h2>
+
           <motion.p className="description" variants={fadeInVariants}>
             {description}
           </motion.p>
