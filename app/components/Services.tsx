@@ -2,6 +2,11 @@ import { FC, ReactNode } from "react";
 import { motion } from "framer-motion";
 
 import { description, services, title } from "../assets/data/services";
+import {
+  springSingleBounce,
+  viewportAmount,
+  viewportMargin,
+} from "../assets/data/animation";
 
 interface ServiceProps {
   icon: ReactNode;
@@ -40,25 +45,37 @@ const Service: FC<ServiceProps> = ({ title, description, icon, index }) => {
 const Services = () => {
   return (
     <section id="services" className="pt-24 pb-28">
-      <motion.div
-        className="container-body"
-        initial="hidden"
-        whileInView={"visible"}
-        viewport={{ once: true }}
-        variants={servicesVariants}
-      >
-        <div className="flex flex-col items-center justify-center">
-          <motion.h2 className="heading-secondary" variants={fadeInVariants}>
+      <div className="container-body">
+        <div className="flex flex-col px-5 items-center justify-center">
+          <motion.h2
+            className="heading-secondary"
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: true, margin: viewportMargin }}
+            variants={fadeInVariants}
+          >
             {title}
           </motion.h2>
 
-          <motion.p className="description" variants={fadeInVariants}>
+          <motion.p
+            className="description"
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: true, margin: viewportMargin }}
+            variants={fadeInVariants}
+          >
             {description}
           </motion.p>
 
           <motion.div
-            className="self-stretch pt-16 grid grid-cols-[1fr_1.1fr_1fr] items-center gap-10 [&>*:nth-of-type(3n)]:bg-yellow-47 [&>*:nth-of-type(3n)]:shadow-yellow"
-            variants={cardsContainerVariant}
+            className="self-stretch mt-16 grid grid-cols-[1fr_1.1fr_1fr] items-center gap-10 [&>*:nth-of-type(3n)]:bg-yellow-47 [&>*:nth-of-type(3n)]:shadow-yellow"
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{
+              once: true,
+              margin: viewportMargin,
+              amount: viewportAmount,
+            }}
           >
             {services.map(({ title, description, icon }, index) => (
               <Service
@@ -71,47 +88,26 @@ const Services = () => {
             ))}
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
 
 export default Services;
 
-const servicesVariants = {
-  hidden: {},
-  visible: {
-    opacity: 1,
-    transition: {
-      delay: 0.25,
-      when: "beforeChildren",
-      staggerChildren: 0.25,
-      duration: 0,
-    },
-  },
-};
-
 const fadeInVariants = {
   hidden: {
     opacity: 0,
+    scale: 0,
   },
   visible: {
     opacity: 1,
+    scale: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      // duration: 0.5,
+      // ease: "easeOut",
+      ...springSingleBounce,
       when: "beforeChildren",
-    },
-  },
-};
-
-const cardsContainerVariant = {
-  hidden: { ...fadeInVariants.hidden },
-  visible: {
-    ...fadeInVariants.visible,
-    transition: {
-      duration: 0,
-      staggerChildren: 0.25,
     },
   },
 };
@@ -149,6 +145,7 @@ const cardVariants = {
       x: 0,
       height: attributes.height,
       transition: {
+        delay: (i + 1) * 0.25,
         times: attributes.times,
         duration: 0.75,
         ease: "easeOut",

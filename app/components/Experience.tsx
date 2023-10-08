@@ -4,6 +4,7 @@ import { FC, useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 
 import { description, timelineData, title } from "../assets/data/experience";
+import { springSingleBounce, viewportMargin } from "../assets/data/animation";
 
 interface timelineType {
   organization: string;
@@ -36,7 +37,7 @@ const Timeline: FC<timelineType> = ({
 
   const titleStyle = "text-lg text-light-black-33 font-semibold capitalize";
   const descriptionStyle =
-    "text-sm font-medium text-[#666] max-w-[50ch] first-letter:capitalize";
+    "text-sm font-medium text-[#666] max-w-[50ch] first-letter:capitalize text-justify";
   const isEven = (index as number) % 2 === 0;
 
   return (
@@ -59,7 +60,9 @@ const Timeline: FC<timelineType> = ({
         }
       >
         <h3 className={`${titleStyle} group-odd:text-right`}>{organization}</h3>
-        <p className={`${descriptionStyle} group-odd:text-right`}>{duration}</p>
+        <p className={`${descriptionStyle} group-odd:[direction:rtl]`}>
+          {duration}
+        </p>
       </motion.div>
 
       <div className="z-40">
@@ -127,7 +130,7 @@ const Timeline: FC<timelineType> = ({
         }
       >
         <h3 className={`${titleStyle} group-even:text-right`}>{designation}</h3>
-        <p className={`${descriptionStyle} group-even:text-right`}>
+        <p className={`${descriptionStyle} group-even:[direction:rtl]`}>
           {description}
         </p>
       </motion.div>
@@ -148,19 +151,25 @@ const Experience = () => {
 
   return (
     <section id="experience" className="py-24 bg-light-violet-gray">
-      <motion.div
-        className="container-body"
-        initial="hidden"
-        whileInView={"visible"}
-        viewport={{ once: true }}
-        variants={experienceContainerVariants}
-      >
+      <div className="container-body">
         <div className="flex flex-col items-center justify-center">
-          <motion.h2 className="heading-secondary" variants={fadeInVariants}>
+          <motion.h2
+            className="heading-secondary"
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: true, margin: viewportMargin }}
+            variants={fadeInVariants}
+          >
             {title}
           </motion.h2>
 
-          <motion.p className="description" variants={fadeInVariants}>
+          <motion.p
+            className="description"
+            initial="hidden"
+            whileInView={"visible"}
+            viewport={{ once: true, margin: viewportMargin }}
+            variants={fadeInVariants}
+          >
             {description}
           </motion.p>
 
@@ -191,34 +200,23 @@ const Experience = () => {
             ></motion.div>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
 
 export default Experience;
 
-const experienceContainerVariants = {
-  hidden: {},
-  visible: {
-    opacity: 1,
-    transition: {
-      when: "beforeChildren",
-      staggerChildren: 0.25,
-      duration: 0,
-    },
-  },
-};
-
 const fadeInVariants = {
   hidden: {
     opacity: 0,
+    scale: 0,
   },
   visible: {
     opacity: 1,
+    scale: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
+      ...springSingleBounce,
     },
   },
 };
@@ -261,10 +259,7 @@ const timelineLRVariantsHold = {
     opacity: 1,
     scale: [1.015, 1],
     transition: {
-      type: "spring",
-      stiffness: 650,
-      damping: 80,
-      mass: 7,
+      ...springSingleBounce,
     },
   },
 };

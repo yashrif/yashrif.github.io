@@ -21,12 +21,13 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
   return (
     <section id="hero" className="flex flex-col gap-12" ref={ref}>
       <div className="lg:h-[100vh] bg-light-violet-gray">
-        <div className="max-w-[1300px] pt-header h-full mx-auto px-8 grid grid-cols-[45fr_55fr] items-center">
+        <div className="max-w-[1364px] pt-header h-full mx-auto px-8 grid grid-cols-[45fr_55fr] items-center">
           <motion.div
             className="mt-8 z-20"
             variants={containerVariants}
             initial={"hidden"}
-            animate={"visible"}
+            whileInView={"visible"}
+            viewport={{ once: true }}
           >
             <motion.div className="relative" variants={LeftChildVariants}>
               <h1 className="font-tertiary text-[52px] leading-[1.1] font-bold text-light-black-33 tracking-[-0.5px] mb-8">
@@ -35,8 +36,6 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
               <motion.div
                 className="block w-[20%] pb-[20%] rounded-full bg-[linear-gradient(155deg,rgba(252,218,105,0.25),rgba(240,140,0,0.75))] shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.15) absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]"
                 variants={ballVariants}
-                initial={"hidden"}
-                animate={"visible"}
               ></motion.div>
             </motion.div>
             <motion.div className="flex gap-4" variants={LeftChildVariants}>
@@ -112,7 +111,8 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
           <motion.div
             className="self-end flex justify-center relative overflow-hidden"
             initial={"hidden"}
-            animate={"visible"}
+            whileInView={"visible"}
+            viewport={{ once: true }}
             variants={containerVariants}
           >
             <MotionImage
@@ -175,7 +175,7 @@ const ballVariants = {
     y: ["-500%", "-40%", "-160%", "-40%", "-96%", "-40%", "-57.6%", "-40%"],
     x: ["136%", "74%", "40%", "18.4%", "4.44%", "-3.66%", "-7%", "-10%"],
     transition: {
-      delay: 1.75,
+      delay: 0.25,
       type: "string",
       duration: 2,
     },
