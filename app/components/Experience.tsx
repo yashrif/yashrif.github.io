@@ -3,15 +3,14 @@
 import { FC, useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 
-import { description, timelineData, title } from "../assets/data/experience";
 import { springSingleBounce, viewportMargin } from "../assets/data/animation";
+import { description, timelineData, title } from "../assets/data/experience";
 
 interface timelineType {
   organization: string;
   designation: string;
   duration: string;
   description: string;
-  index?: number;
 }
 
 const Timeline: FC<timelineType> = ({
@@ -19,7 +18,6 @@ const Timeline: FC<timelineType> = ({
   designation,
   duration,
   description,
-  index,
 }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -38,7 +36,6 @@ const Timeline: FC<timelineType> = ({
   const titleStyle = "text-lg text-light-black-33 font-semibold capitalize";
   const descriptionStyle =
     "text-sm font-medium text-[#666] max-w-[50ch] first-letter:capitalize text-justify";
-  const isEven = (index as number) % 2 === 0;
 
   return (
     <motion.li
@@ -48,21 +45,11 @@ const Timeline: FC<timelineType> = ({
       animate={scrollYProgress.get() > 0 ? "visible" : "hidden"}
     >
       <motion.div
-        className="justify-self-end group-even:justify-self-start flex flex-col gap-3 order-first group-even:order-last"
-        variants={
-          isEven
-            ? firstRender
-              ? timelineRightVariants
-              : timelineLRVariantsHold
-            : firstRender
-            ? timelineLeftVariants
-            : timelineLRVariantsHold
-        }
+        className="justify-self-end flex flex-col gap-3"
+        variants={firstRender ? timelineLeftVariants : timelineLRVariantsHold}
       >
-        <h3 className={`${titleStyle} group-odd:text-right`}>{organization}</h3>
-        <p className={`${descriptionStyle} group-odd:[direction:rtl]`}>
-          {duration}
-        </p>
+        <h3 className={`${titleStyle} text-right`}>{organization}</h3>
+        <p className={`${descriptionStyle} [direction:rtl]`}>{duration}</p>
       </motion.div>
 
       <div className="z-40">
@@ -118,21 +105,11 @@ const Timeline: FC<timelineType> = ({
       </div>
 
       <motion.div
-        className="justify-self-start group-even:justify-self-end flex flex-col gap-3 order-last group-even:order-first"
-        variants={
-          isEven
-            ? firstRender
-              ? timelineLeftVariants
-              : timelineLRVariantsHold
-            : firstRender
-            ? timelineRightVariants
-            : timelineLRVariantsHold
-        }
+        className="justify-self-start flex flex-col gap-3"
+        variants={firstRender ? timelineRightVariants : timelineLRVariantsHold}
       >
-        <h3 className={`${titleStyle} group-even:text-right`}>{designation}</h3>
-        <p className={`${descriptionStyle} group-even:[direction:rtl]`}>
-          {description}
-        </p>
+        <h3 className={titleStyle}>{designation}</h3>
+        <p className={descriptionStyle}>{description}</p>
       </motion.div>
     </motion.li>
   );
@@ -186,7 +163,6 @@ const Experience = () => {
                     designation={designation}
                     duration={duration}
                     description={description}
-                    index={index}
                   />
                 )
               )}
@@ -233,7 +209,7 @@ const timelineLRVariantsVisible = {
 const timelineLeftVariants = {
   hidden: {
     opacity: 0,
-    x: "50vw",
+    x: "-50vw",
   },
   visible: {
     ...timelineLRVariantsVisible,
@@ -243,7 +219,7 @@ const timelineLeftVariants = {
 const timelineRightVariants = {
   hidden: {
     opacity: 0,
-    x: "-50vw",
+    x: "50vw",
   },
   visible: { ...timelineLRVariantsVisible },
 };

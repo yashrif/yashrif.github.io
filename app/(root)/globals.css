@@ -22,6 +22,10 @@ body {
   @apply font-secondary text-4xl font-bold text-light-black-33 text-center tracking-tight mb-6 capitalize;
 }
 
+.heading-tertiary {
+  @apply font-secondary text-2xl font-bold text-light-black-33 tracking-tight mb-4 capitalize;
+}
+
 /* --------------------------------- Content -------------------------------- */
 
 .description {

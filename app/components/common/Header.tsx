@@ -1,12 +1,13 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC, useContext, useEffect } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import Link from "next/link";
 import { IoCallOutline, IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 
 import { contacts, navList } from "@/app/assets/data/header";
 import ThemeConfig from "@/tailwind.config";
+import StateContext from "@/app/contexts/StateContext";
 
 const theme = ThemeConfig.theme?.extend;
 
@@ -38,12 +39,13 @@ const NavList: FC<NavItem> = ({ title, href, index }) => {
 
 const MotionLink = motion(Link);
 
-interface HeaderProps {
-  inView?: boolean;
-}
-
-const Header: FC<HeaderProps> = ({ inView }) => {
+const Header = () => {
   const navControl = useAnimationControls();
+  const {
+    states: { heroInView: inView },
+  } = useContext(StateContext);
+
+  console.log(inView);
 
   useEffect(() => {
     if (!inView)

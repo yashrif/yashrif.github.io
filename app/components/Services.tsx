@@ -46,7 +46,7 @@ const Services = () => {
   return (
     <section id="services" className="pt-24 pb-28">
       <div className="container-body">
-        <div className="flex flex-col px-5 items-center justify-center">
+        <div className="flex flex-col items-center justify-center">
           <motion.h2
             className="heading-secondary"
             initial="hidden"
@@ -147,7 +147,7 @@ const cardVariants = {
       transition: {
         delay: (i + 1) * 0.25,
         times: attributes.times,
-        duration: 0.75,
+        duration: 0.15 * (3 - i) + 0.3,
         ease: "easeOut",
       },
     };

@@ -1,8 +1,9 @@
 "use client";
 
+import { LegacyRef, forwardRef, useContext, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 
 import {
   buttons,
@@ -12,23 +13,39 @@ import {
   title,
 } from "@/app/assets/data/hero";
 import HeroImage from "@/app/assets/img/hero.png";
+import { viewportAmount, viewportMargin } from "../assets/data/animation";
 import Button from "./common/Button";
-import { LegacyRef, forwardRef } from "react";
+import StateContext from "../contexts/StateContext";
 
 const MotionImage = motion(Image);
 
-const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
+const Hero = () => {
+  const ref = useRef<HTMLDivElement>(null);
+  const { states, setStates } = useContext(StateContext);
+  const heroInView = useInView(ref);
+
+  useEffect(() => {
+    if (heroInView !== states.heroInView)
+      setStates({
+        ...states,
+        heroInView: heroInView,
+      });
+  }, [heroInView, states, setStates]);
+
   return (
-    <section id="hero" className="flex flex-col gap-12" ref={ref}>
+    <section id="hero" ref={ref}>
       <div className="lg:h-[100vh] bg-light-violet-gray">
-        <div className="max-w-[1364px] pt-header h-full mx-auto px-8 grid grid-cols-[45fr_55fr] items-center">
-          <motion.div
-            className="mt-8 z-20"
-            variants={containerVariants}
-            initial={"hidden"}
-            whileInView={"visible"}
-            viewport={{ once: true }}
-          >
+        <motion.div
+          className="container-body pt-header h-full !px-10 grid grid-cols-[45fr_55fr] items-center"
+          initial={"hidden"}
+          whileInView={"visible"}
+          viewport={{
+            once: true,
+            margin: viewportMargin,
+            amount: viewportAmount,
+          }}
+        >
+          <motion.div className="z-20" variants={containerVariants}>
             <motion.div className="relative" variants={LeftChildVariants}>
               <h1 className="font-tertiary text-[52px] leading-[1.1] font-bold text-light-black-33 tracking-[-0.5px] mb-8">
                 {title}
@@ -38,6 +55,7 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
                 variants={ballVariants}
               ></motion.div>
             </motion.div>
+
             <motion.div className="flex gap-4" variants={LeftChildVariants}>
               <p className="text-3xl">&mdash;</p>
               <p className="text-lg font-medium max-w-[50ch] mb-12">
@@ -46,7 +64,7 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
             </motion.div>
 
             <motion.ul
-              className="flex gap-4 mb-16 list-none"
+              className="flex gap-4 mb-20 list-none"
               variants={LeftChildVariants}
             >
               {buttons.map(
@@ -95,10 +113,7 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
                     animate={"hidden"}
                   >
                     <Link href={href} target="_blank">
-                      <motion.div
-                        // className="group-hover:scale-110"
-                        variants={profileIconVariants}
-                      >
+                      <motion.div variants={profileIconVariants}>
                         {icon}
                       </motion.div>
                     </Link>
@@ -110,9 +125,6 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
 
           <motion.div
             className="self-end flex justify-center relative overflow-hidden"
-            initial={"hidden"}
-            whileInView={"visible"}
-            viewport={{ once: true }}
             variants={containerVariants}
           >
             <MotionImage
@@ -122,15 +134,15 @@ const Hero = forwardRef(function Hero(_, ref: LegacyRef<HTMLDivElement>) {
               variants={heroImageVariants}
             />
             <motion.div
-              className="absolute block w-[65%] pb-[90%] rounded-[50%] bg-[linear-gradient(155deg,rgba(175,164,231,0.25),#6253ac)] bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30"
+              className="absolute block w-[65%] rounded-[50%] bg-[linear-gradient(155deg,rgba(175,164,231,0.25),#6253ac)] bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30"
               variants={eclipseVariants}
             ></motion.div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
-});
+};
 
 export default Hero;
 
@@ -252,7 +264,7 @@ const eclipseVariants = {
     paddingBottom: 0,
   },
   visible: {
-    paddingBottom: "100%",
+    paddingBottom: "90%",
     transition: {
       type: "spring",
       mass: 1,

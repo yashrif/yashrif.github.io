@@ -56,7 +56,7 @@ const config: Config = {
       boxShadow: {
         sm: " 0 12px 24px rgba(0, 0, 0, 0.1)",
         md: "0 24px 48px rgba(0, 0, 0, 0.1)",
-        nav: "0 24px 48px rgba(123, 104, 215, 0.1)",
+        nav: "0 24px 48px rgba(123, 104, 215, 0.2)",
         "nav-item": "0 5px 4px -4px rgba(123, 104, 215, 0.7)",
         red: " -28px 28px 56px rgba(246, 139, 139, 0.3)",
         green: "0 28px 56px rgba(12, 166, 120, 0.3)",

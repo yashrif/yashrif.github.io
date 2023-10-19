@@ -5,6 +5,10 @@ export const contacts = {
 
 export const navList = [
   {
+    title: "About",
+    href: "#about",
+  },
+  {
     title: "Services",
     href: "#services",
   },
