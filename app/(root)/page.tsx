@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { IoArrowUpOutline } from "react-icons/io5";
 
-import { State } from "@/app/Types/State";
+import { States } from "@/app/Types/States";
 import Footer from "@/app/components/common/Footer";
 import Header from "@/app/components/common/Header";
 import About from "../components/About";
@@ -13,7 +13,7 @@ import Hero from "../components/Hero";
 import Services from "../components/Services";
 import StateContext from "../contexts/StateContext";
 
-const initialState: State = {
+const initialState: States = {
   heroInView: false,
   headerInView: false,
 };

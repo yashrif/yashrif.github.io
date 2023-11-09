@@ -6,16 +6,16 @@ import Link from "next/link";
 import { IoCallOutline, IoCloseOutline, IoMenuOutline } from "react-icons/io5";
 
 import { contacts, navList } from "@/app/assets/data/header";
-import ThemeConfig from "@/tailwind.config";
 import StateContext from "@/app/contexts/StateContext";
+import ThemeConfig from "@/tailwind.config";
 
 const theme = ThemeConfig.theme?.extend;
 
-interface NavItem {
+type NavItem = {
   title: string;
   href: string;
   index?: number;
-}
+};
 
 const navItemClass =
   "uppercase font-semibold text-light-black-33 p-2 hover:text-light-violet-d7 hover:drop-shadow-sm hover:shadow-nav-item";
@@ -44,8 +44,6 @@ const Header = () => {
   const {
     states: { heroInView: inView },
   } = useContext(StateContext);
-
-  console.log(inView);
 
   useEffect(() => {
     if (!inView)

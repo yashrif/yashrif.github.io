@@ -1,6 +1,4 @@
-"use client";
-
-import { LegacyRef, forwardRef, useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,8 +12,8 @@ import {
 } from "@/app/assets/data/hero";
 import HeroImage from "@/app/assets/img/hero.png";
 import { viewportAmount, viewportMargin } from "../assets/data/animation";
-import Button from "./common/Button";
 import StateContext from "../contexts/StateContext";
+import Button from "./common/Button";
 
 const MotionImage = motion(Image);
 

@@ -1,17 +1,15 @@
-"use client";
-
 import { FC, useRef, useState } from "react";
 import { motion, useScroll } from "framer-motion";
 
 import { springSingleBounce, viewportMargin } from "../assets/data/animation";
 import { description, timelineData, title } from "../assets/data/experience";
 
-interface timelineType {
+type timelineType = {
   organization: string;
   designation: string;
   duration: string;
   description: string;
-}
+};
 
 const Timeline: FC<timelineType> = ({
   organization,
@@ -140,15 +138,15 @@ const Experience = () => {
             {title}
           </motion.h2>
 
-          <motion.p
-            className="description"
+          <motion.h3
+            className="sub-heading"
             initial="hidden"
             whileInView={"visible"}
             viewport={{ once: true, margin: viewportMargin }}
             variants={fadeInVariants}
           >
             {description}
-          </motion.p>
+          </motion.h3>
 
           <motion.div ref={ref} className="relative" variants={fadeInVariants}>
             <ul className="list-none">

@@ -8,12 +8,12 @@ import {
   viewportMargin,
 } from "../assets/data/animation";
 
-interface ServiceProps {
+type ServiceProps = {
   icon: ReactNode;
   title: string;
   description: string;
   index?: number;
-}
+};
 
 const Service: FC<ServiceProps> = ({ title, description, icon, index }) => {
   return (
@@ -57,15 +57,15 @@ const Services = () => {
             {title}
           </motion.h2>
 
-          <motion.p
-            className="description"
+          <motion.h3
+            className="sub-heading"
             initial="hidden"
             whileInView={"visible"}
             viewport={{ once: true, margin: viewportMargin }}
             variants={fadeInVariants}
           >
             {description}
-          </motion.p>
+          </motion.h3>
 
           <motion.div
             className="self-stretch mt-16 grid grid-cols-[1fr_1.1fr_1fr] items-center gap-10 [&>*:nth-of-type(3n)]:bg-yellow-47 [&>*:nth-of-type(3n)]:shadow-yellow"

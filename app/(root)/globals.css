@@ -28,8 +28,8 @@ body {
 
 /* --------------------------------- Content -------------------------------- */
 
-.description {
-  @apply text-center -tracking-[0.25px] justify-self-center text-light-black-55 font-medium max-w-[60ch] mb-20 first-letter:capitalize;
+.sub-heading {
+  @apply font-secondary text-center -tracking-[0.25px] justify-self-center text-light-black-55 font-medium max-w-[60ch] mb-20 first-letter:capitalize;
 }
 
 /* ------------------------------- Scroll Bar ------------------------------- */

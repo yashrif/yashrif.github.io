@@ -6,7 +6,7 @@ import {
 
 export const title = "My Services";
 export const description =
-  "after bottom boy coat mirror men street shelter writer pick nice beneath eaten shirt produce difference satellites furniture location hide wise fifty detail spin";
+  "I design and develop services of all sizes, specializing in creating stylish, modern websites, web services and online stores";
 
 export const services = [
   { icon: <IoRoseOutline />, title: "Web Design", description: "12 Projects" },

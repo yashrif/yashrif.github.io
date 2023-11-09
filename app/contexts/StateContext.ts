@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { State, StateContext } from "../Types/State";
+import { State, StateContext } from "../Types/States";
 
 export default createContext<StateContext>({
   states: {
