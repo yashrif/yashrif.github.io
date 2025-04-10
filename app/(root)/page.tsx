@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoArrowUpOutline } from "react-icons/io5";
 
-import { States } from "@/app/Types/States";
+import { States } from "@/app/types/states";
 import Footer from "@/app/components/common/Footer";
 import Header from "@/app/components/common/Header";
 import About from "../components/About";

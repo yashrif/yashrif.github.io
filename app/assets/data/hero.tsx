@@ -5,7 +5,7 @@ import {
 } from "react-icons/io5";
 import { BsArrowUp, BsSteam } from "react-icons/bs";
 
-import { ColorScheme } from "@/app/Types/ColorScheme";
+import { ColorScheme } from "@/app/types/color-scheme";
 
 export const title = (
   <>

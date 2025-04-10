@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import { ColorScheme } from "@/app/Types/ColorScheme";
+import { ColorScheme } from "@/app/types/color-scheme";
 
 const Button = ({
   solid,
