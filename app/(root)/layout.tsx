@@ -24,7 +24,7 @@ const berkshireSwash = Berkshire_Swash({
 
 export const metadata: Metadata = {
   title: "Yashrif",
-  description: "Personal website of Yashrif Arifin",
+  description: "Personal website of Yashrif Arifin"
 };
 
 export default function RootLayout({
