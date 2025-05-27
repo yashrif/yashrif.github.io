@@ -1,6 +1,6 @@
 export const contacts = {
-  title: "Contacts",
-  href: "#contacts",
+  title: "Contact",
+  href: "#contact",
 };
 
 export const navList = [
@@ -9,20 +9,20 @@ export const navList = [
     href: "#about",
   },
   {
+    title: "Skills",
+    href: "#skills",
+  },
+  {
     title: "Services",
     href: "#services",
   },
   {
+    title: "Projects",
+    href: "#projects",
+  },
+  {
     title: "Experience",
     href: "#experience",
-  },
-  {
-    title: "Works",
-    href: "#works",
-  },
-  {
-    title: "Testimonials",
-    href: "#testimonials",
   },
   { ...contacts },
 ];

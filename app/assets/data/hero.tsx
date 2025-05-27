@@ -17,22 +17,21 @@ export const title = (
 
 export const description = (
   <>
-    I&apos;m a UX/UI Designer &mdash; creating bold & brave interface design for
-    companies all across the world
+    Enthusiastic full-stack developer and recent graduate from IIT, Jahangirnagar University, passionate about building dynamic websites and applications. Actively engaged in multiple projects and deeply interested in Machine Learning.
   </>
 );
 
 export const buttons = [
   {
-    title: "Lets Talk",
+    title: "Let's Talk",
     href: "mailto:yaswoccho@gmail.com",
     icon: <IoPaperPlaneOutline />,
     colorScheme: ColorScheme.PRIMARY,
     solid: true,
   },
   {
-    title: "Portfolio",
-    href: "#",
+    title: "View Projects",
+    href: "#projects",
     icon: <BsArrowUp />,
     colorScheme: ColorScheme.SECONDARY,
     solid: false,
@@ -44,17 +43,12 @@ export const profileTitle = "Check Out My";
 export const profileLinks = [
   {
     title: "Github",
-    href: "https://github.com/Yashrif",
+    href: "https://github.com/yashrif",
     icon: <IoLogoGithub />,
   },
   {
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/yashrif",
     icon: <IoLogoLinkedin />,
-  },
-  {
-    title: "Steam",
-    href: "https://steamcommunity.com/profiles/76561198175046383/",
-    icon: <BsSteam />,
   },
 ];

@@ -8,9 +8,12 @@ import { States } from "@/app/types/states";
 import Footer from "@/app/components/common/Footer";
 import Header from "@/app/components/common/Header";
 import About from "../components/About";
+import Contact from "../components/Contact";
 import Experience from "../components/Experience";
 import Hero from "../components/Hero";
+import Projects from "../components/Projects";
 import Services from "../components/Services";
+import Skills from "../components/Skills";
 import StateContext from "../contexts/StateContext";
 
 const initialState: States = {
@@ -24,12 +27,14 @@ const Home = () => {
 
   return (
     <StateContext.Provider value={value}>
-      <Header />
-      <div className="flex flex-col gap-24">
+      <Header />      <div className="flex flex-col gap-24">
         <Hero />
         <About />
+        <Skills />
         <Services />
+        <Projects />
         <Experience />
+        <Contact />
       </div>
       <Footer />
 

@@ -16,9 +16,8 @@ type ServiceProps = {
 };
 
 const Service: FC<ServiceProps> = ({ title, description, icon, index }) => {
-  return (
-    <motion.div
-      className="group overflow-hidden relative flex flex-col justify-center items-center gap-6 py-7 px-8 rounded-lg z-10 odd:bg-red-8b even:bg-green-93 odd:shadow-red even:shadow-green even:h-[120%] select-none"
+  return (    <motion.div
+      className="group overflow-hidden relative flex flex-col justify-center items-center gap-6 py-7 px-8 rounded-lg z-10 odd:bg-red-8b even:bg-green-93 nth-3n:bg-yellow-47 odd:shadow-red even:shadow-green nth-3n:shadow-yellow select-none"
       variants={cardVariants}
       custom={index}
       whileHover={{
@@ -29,7 +28,7 @@ const Service: FC<ServiceProps> = ({ title, description, icon, index }) => {
         },
       }}
     >
-      <div className="text-white text-2xl p-4 rounded-full group-odd:bg-light-red-3e group-even:bg-light-green-78 group-[:nth-of-type(3n)]:bg-light-yellow-19 ">
+      <div className="text-white text-2xl p-4 rounded-full group-odd:bg-light-red-3e group-even:bg-light-green-78 group-[&:nth-child(3n)]:bg-light-yellow-19">
         {icon}
       </div>
       <div className="flex flex-col gap-2 items-center">
@@ -37,7 +36,7 @@ const Service: FC<ServiceProps> = ({ title, description, icon, index }) => {
         <p className="text-base text-[#777] font-medium">{description}</p>
       </div>
 
-      <div className="absolute z-[-1] top-0 left-0 w-full h-full rounded-lg opacity-0 transition-all duration-500 ease-linear group-odd:bg-red-65 group-even:bg-green-a1 group-[:nth-of-type(3n)]:bg-yellow-5e hover:opacity-100"></div>
+      <div className="absolute z-[-1] top-0 left-0 w-full h-full rounded-lg opacity-0 transition-all duration-500 ease-linear group-odd:bg-red-65 group-even:bg-green-a1 group-[&:nth-child(3n)]:bg-yellow-5e hover:opacity-100"></div>
     </motion.div>
   );
 };
@@ -65,10 +64,8 @@ const Services = () => {
             variants={fadeInVariants}
           >
             {description}
-          </motion.h3>
-
-          <motion.div
-            className="self-stretch mt-16 grid grid-cols-[1fr_1.1fr_1fr] items-center gap-10 [&>*:nth-of-type(3n)]:bg-yellow-47 [&>*:nth-of-type(3n)]:shadow-yellow"
+          </motion.h3>          <motion.div
+            className="self-stretch mt-16 grid grid-cols-3 items-center gap-10"
             initial="hidden"
             whileInView={"visible"}
             viewport={{

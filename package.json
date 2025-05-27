@@ -28,6 +28,7 @@
     "eslint-config-next": "15.3.2",
     "npm-check-updates": "^18.0.1",
     "postcss": "latest",
+    "prettier": "^3.5.3",
     "tailwindcss": "latest",
     "typescript": "latest"
   },
