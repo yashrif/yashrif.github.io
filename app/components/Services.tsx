@@ -1,12 +1,12 @@
-import { FC, ReactNode } from "react";
-import { motion } from "framer-motion";
+import { FC, ReactNode } from 'react';
+import { motion } from 'framer-motion';
 
-import { description, services, title } from "../assets/data/services";
+import { description, services, title } from '../assets/data/services';
 import {
   springSingleBounce,
   viewportAmount,
   viewportMargin,
-} from "../assets/data/animation";
+} from '../assets/data/animation';
 
 type ServiceProps = {
   icon: ReactNode;
@@ -16,58 +16,59 @@ type ServiceProps = {
 };
 
 const Service: FC<ServiceProps> = ({ title, description, icon, index }) => {
-  return (    <motion.div
-      className="group overflow-hidden relative flex flex-col justify-center items-center gap-6 py-7 px-8 rounded-lg z-10 odd:bg-red-8b even:bg-green-93 nth-3n:bg-yellow-47 odd:shadow-red even:shadow-green nth-3n:shadow-yellow select-none"
+  return (
+    <motion.div
+      className='group overflow-hidden relative flex flex-col justify-center items-center gap-6 py-7 px-8 rounded-lg z-10 odd:bg-red-8b even:bg-green-93 nth-3n:bg-yellow-47 odd:shadow-red even:shadow-green nth-3n:shadow-yellow select-none'
       variants={cardVariants}
       custom={index}
       whileHover={{
         scale: 1.05,
         transition: {
           duration: 0.3,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         },
       }}
     >
-      <div className="text-white text-2xl p-4 rounded-full group-odd:bg-light-red-3e group-even:bg-light-green-78 group-[&:nth-child(3n)]:bg-light-yellow-19">
+      <div className='text-white text-2xl p-4 rounded-full group-odd:bg-light-red-3e group-even:bg-light-green-78 group-[&:nth-child(3n)]:bg-light-yellow-19'>
         {icon}
       </div>
-      <div className="flex flex-col gap-2 items-center">
-        <h3 className="text-lg font-bold text-light-black-33">{title}</h3>
-        <p className="text-base text-[#777] font-medium">{description}</p>
+      <div className='flex flex-col gap-2 items-center'>
+        <h3 className='text-lg font-bold text-light-black-33'>{title}</h3>
+        <p className='text-base text-[#777] font-medium'>{description}</p>
       </div>
 
-      <div className="absolute z-[-1] top-0 left-0 w-full h-full rounded-lg opacity-0 transition-all duration-500 ease-linear group-odd:bg-red-65 group-even:bg-green-a1 group-[&:nth-child(3n)]:bg-yellow-5e hover:opacity-100"></div>
+      <div className='absolute z-[-1] top-0 left-0 w-full h-full rounded-lg opacity-0 transition-all duration-500 ease-linear group-odd:bg-red-65 group-even:bg-green-a1 group-[&:nth-child(3n)]:bg-yellow-5e hover:opacity-100'></div>
     </motion.div>
   );
 };
 
 const Services = () => {
   return (
-    <section id="services" className="pt-24 pb-28">
-      <div className="container-body">
-        <div className="flex flex-col items-center justify-center">
+    <section id='services' className='pt-24 pb-28'>
+      <div className='container-body'>
+        <div className='flex flex-col items-center justify-center'>
           <motion.h2
-            className="heading-secondary"
-            initial="hidden"
-            whileInView={"visible"}
+            className='heading-secondary'
+            initial='hidden'
+            whileInView={'visible'}
             viewport={{ once: true, margin: viewportMargin }}
             variants={fadeInVariants}
           >
             {title}
           </motion.h2>
-
           <motion.h3
-            className="sub-heading"
-            initial="hidden"
-            whileInView={"visible"}
+            className='sub-heading'
+            initial='hidden'
+            whileInView={'visible'}
             viewport={{ once: true, margin: viewportMargin }}
             variants={fadeInVariants}
           >
             {description}
-          </motion.h3>          <motion.div
-            className="self-stretch mt-16 grid grid-cols-3 items-center gap-10"
-            initial="hidden"
-            whileInView={"visible"}
+          </motion.h3>{' '}
+          <motion.div
+            className='self-stretch mt-16 grid grid-cols-3 items-center gap-10'
+            initial='hidden'
+            whileInView={'visible'}
             viewport={{
               once: true,
               margin: viewportMargin,
@@ -104,7 +105,7 @@ const fadeInVariants = {
       // duration: 0.5,
       // ease: "easeOut",
       ...springSingleBounce,
-      when: "beforeChildren",
+      when: 'beforeChildren',
     },
   },
 };
@@ -112,11 +113,11 @@ const fadeInVariants = {
 const cardVariants = {
   hidden: {
     opacity: 0,
-    x: "100vw",
+    x: '100vw',
   },
   visible: (i: number) => {
     const attributes = {
-      height: ["100%", "120%", "100%"],
+      height: ['100%', '120%', '100%'],
       times: [0, 0.5, 1],
       opacity: [1, 1, 1],
     };
@@ -125,13 +126,13 @@ const cardVariants = {
       case 0:
         break;
       case 1:
-        attributes.height = ["100%", "120%"];
+        attributes.height = ['100%', '120%'];
         attributes.opacity = [1, 1];
         attributes.times = [0, 1];
         break;
       case 2:
       default:
-        attributes.height = ["100%"];
+        attributes.height = ['100%'];
         attributes.opacity = [1];
         attributes.times = [1];
         break;
@@ -145,7 +146,7 @@ const cardVariants = {
         delay: (i + 1) * 0.25,
         times: attributes.times,
         duration: 0.15 * (3 - i) + 0.3,
-        ease: "easeOut",
+        ease: 'easeOut',
       },
     };
   },
