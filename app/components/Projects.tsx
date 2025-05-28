@@ -47,7 +47,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
 }) => {
   return (
     <motion.div
-      className={`group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-md transition-all duration-500 ${
+      className={`group relative overflow-hidden rounded-xl bg-bg-secondary shadow-sm hover:shadow-violet transition-all duration-500 ${
         featured ? 'md:col-span-2' : ''
       }`}
       variants={projectCardVariants}
@@ -55,10 +55,10 @@ const ProjectCard: FC<ProjectCardProps> = ({
       whileHover={{ y: -8 }}
     >
       {/* Image Container */}
-      <div className='relative h-64 overflow-hidden bg-light-violet-gray'>
+      <div className='relative h-64 overflow-hidden bg-violet-soft'>
         {/* Placeholder for project image */}
-        <div className='w-full h-full bg-gradient-to-br from-light-violet-gray to-light-violet-d7 flex items-center justify-center'>
-          <div className='text-light-violet-d7 text-6xl opacity-30'>
+        <div className='w-full h-full bg-gradient-to-br from-violet-soft to-violet-secondary/30 flex items-center justify-center'>
+          <div className='text-violet-primary text-6xl opacity-30'>
             <IoOpenOutline />
           </div>
         </div>
@@ -70,7 +70,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
         <div className='absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
           <motion.a
             href={liveUrl}
-            className='p-2 bg-white/90 rounded-full text-light-violet-d7 hover:bg-white transition-colors'
+            className='p-2 bg-bg-secondary/90 rounded-full text-violet-primary hover:bg-bg-secondary transition-colors'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -78,7 +78,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           </motion.a>
           <motion.a
             href={githubUrl}
-            className='p-2 bg-white/90 rounded-full text-light-violet-d7 hover:bg-white transition-colors'
+            className='p-2 bg-bg-secondary/90 rounded-full text-violet-primary hover:bg-bg-secondary transition-colors'
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -89,7 +89,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
         {/* Featured Badge */}
         {featured && (
           <div className='absolute top-4 left-4'>
-            <span className='px-3 py-1 bg-light-violet-d7 text-white text-xs font-semibold rounded-full'>
+            <span className='px-3 py-1 bg-yellow-innovation text-white text-xs font-semibold rounded-full'>
               Featured
             </span>
           </div>
@@ -99,20 +99,20 @@ const ProjectCard: FC<ProjectCardProps> = ({
       {/* Content */}
       <div className='p-6'>
         <div className='flex items-center justify-between mb-2'>
-          <span className='text-sm text-light-violet-d7 font-medium'>
+          <span className='text-sm text-violet-primary font-medium'>
             {category}
           </span>
-          <div className='flex items-center gap-1 text-xs text-light-gray-aa'>
+          <div className='flex items-center gap-1 text-xs text-text-muted'>
             <IoCalendarOutline />
             <span>{year}</span>
           </div>
         </div>
 
-        <h3 className='text-xl font-bold text-light-black-33 mb-3 group-hover:text-light-violet-d7 transition-colors'>
+        <h3 className='text-xl font-bold text-text-primary mb-3 group-hover:text-violet-primary transition-colors'>
           {title}
         </h3>
 
-        <p className='text-light-black-55 text-sm leading-relaxed mb-4 line-clamp-3'>
+        <p className='text-text-secondary text-sm leading-relaxed mb-4 line-clamp-3'>
           {description}
         </p>
 
@@ -121,7 +121,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
           {technologies.map((tech, techIndex) => (
             <span
               key={techIndex}
-              className='px-2 py-1 bg-light-violet-gray text-light-violet-d7 text-xs font-medium rounded'
+              className='px-2 py-1 bg-violet-soft text-violet-primary text-xs font-medium rounded'
             >
               {tech}
             </span>
@@ -163,7 +163,7 @@ const Projects = () => {
         });
 
   return (
-    <section id='projects' className='py-24 bg-light-violet-gray'>
+    <section id='projects' className='py-24 bg-violet-soft'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           {' '}
@@ -198,8 +198,8 @@ const Projects = () => {
                 key={category}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category
-                    ? 'bg-light-violet-d7 text-white shadow-md'
-                    : 'bg-white text-light-violet-d7 hover:bg-light-violet-d7 hover:text-white'
+                    ? 'bg-violet-primary text-white shadow-violet'
+                    : 'bg-bg-secondary text-violet-primary hover:bg-violet-primary hover:text-white'
                 }`}
                 onClick={() => setActiveCategory(category)}
                 whileHover={{ scale: 1.05 }}

@@ -18,7 +18,7 @@ type SkillItemProps = {
 const SkillItem: FC<SkillItemProps> = ({ name, icon, level, index }) => {
   return (
     <motion.div
-      className='flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300'
+      className='flex items-center gap-4 p-4 bg-bg-secondary rounded-lg shadow-sm hover:shadow-violet transition-shadow duration-300'
       variants={skillItemVariants}
       custom={index}
       whileHover={{
@@ -26,15 +26,15 @@ const SkillItem: FC<SkillItemProps> = ({ name, icon, level, index }) => {
         transition: { duration: 0.2 },
       }}
     >
-      <div className='text-2xl text-light-violet-d7'>{icon}</div>
+      <div className='text-2xl text-violet-primary'>{icon}</div>
       <div className='flex-1'>
         <div className='flex justify-between items-center mb-2'>
-          <h4 className='font-semibold text-light-black-33'>{name}</h4>
-          <span className='text-sm text-light-black-55'>{level}%</span>
+          <h4 className='font-semibold text-text-primary'>{name}</h4>
+          <span className='text-sm text-text-secondary'>{level}%</span>
         </div>{' '}
-        <div className='w-full bg-light-gray-f6 rounded-full h-2'>
+        <div className='w-full bg-violet-soft rounded-full h-2'>
           <motion.div
-            className='bg-gradient-to-r from-light-violet-d7 to-light-violet-ef h-2 rounded-full'
+            className='bg-brand-primary h-2 rounded-full'
             initial={{ width: 0 }}
             whileInView={{ width: `${level}%` }}
             transition={{ duration: 1.2, delay: index * 0.05, ease: 'easeOut' }}
@@ -59,7 +59,7 @@ type SkillCategoryProps = {
 const SkillCategory: FC<SkillCategoryProps> = ({ title, skills, index }) => {
   return (
     <motion.div
-      className='bg-light-violet-gray p-6 rounded-xl'
+      className='bg-violet-soft p-6 rounded-xl'
       variants={categoryVariants}
       custom={index}
     >

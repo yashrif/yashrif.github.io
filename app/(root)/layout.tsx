@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Berkshire_Swash, Inter, Work_Sans } from 'next/font/google';
 
+import { ThemeProvider } from '@/app/contexts/ThemeContext';
 import './globals.css';
 
 const inter = Inter({
@@ -37,9 +38,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${workSans.variable} ${berkshireSwash.variable}`}
       >
-        <div className='relative flex flex-col justify-between min-h-screen overflow-x-hidden'>
-          {children}
-        </div>
+        <ThemeProvider>
+          <div className='relative flex flex-col justify-between min-h-screen overflow-x-hidden'>
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

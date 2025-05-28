@@ -31,9 +31,9 @@ const Timeline: FC<timelineType> = ({
       }, 150);
   });
 
-  const titleStyle = 'text-lg text-light-black-33 font-semibold capitalize';
+  const titleStyle = 'text-lg text-text-primary font-semibold capitalize';
   const descriptionStyle =
-    'text-sm font-medium text-[#666] max-w-[50ch] first-letter:capitalize text-justify';
+    'text-sm font-medium text-text-secondary max-w-[50ch] first-letter:capitalize text-justify';
 
   return (
     <motion.li
@@ -62,7 +62,7 @@ const Timeline: FC<timelineType> = ({
               cx={75}
               cy={50}
               r={22}
-              className='stroke-light-violet-gray stroke-[4] fill-light-violet-gray'
+              className='stroke-violet-soft stroke-[4] fill-violet-soft'
             ></circle>
 
             <motion.circle
@@ -71,7 +71,7 @@ const Timeline: FC<timelineType> = ({
               r={20}
               strokeDasharray={2}
               strokeDashoffset={0}
-              className='stroke-light-gray-aa stroke-[4] fill-light-violet-gray'
+              className='stroke-text-muted stroke-[4] fill-violet-soft'
               style={{
                 pathLength: scrollYProgress,
                 // transition: "all 0.15s ease-out",
@@ -84,14 +84,14 @@ const Timeline: FC<timelineType> = ({
               r={20}
               strokeDasharray={2}
               strokeDashoffset={0}
-              className='stroke-light-violet-gray stroke-[4] fill-light-violet-gray'
+              className='stroke-violet-soft stroke-[4] fill-violet-soft'
             ></circle>
 
             <motion.circle
               cx={75}
               cy={50}
               r={10}
-              className='group-odd:fill-light-red-38 group-even:fill-light-green-6c group-[:nth-of-type(3n)]:fill-light-yellow-17'
+              className='group-odd:fill-red-attention group-even:fill-green-success group-[:nth-of-type(3n)]:fill-yellow-innovation'
               variants={
                 firstRender
                   ? timelineCircleVariantsOnce
@@ -125,7 +125,7 @@ const Experience = () => {
   });
 
   return (
-    <section id='experience' className='py-24 bg-light-violet-gray'>
+    <section id='experience' className='py-24 bg-violet-soft'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           <motion.h2
@@ -167,7 +167,7 @@ const Experience = () => {
             </ul>
 
             <motion.div
-              className='absolute w-auto top-1 left-2/4 -translate-x-2/4 border-l-2 border-dotted border-l-light-gray-aa z-30'
+              className='absolute w-auto top-1 left-2/4 -translate-x-2/4 border-l-2 border-dotted border-l-text-muted z-30'
               style={{
                 height: `${timelineScrollPosition * 100}%`,
               }}

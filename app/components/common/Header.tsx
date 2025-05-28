@@ -7,6 +7,7 @@ import { IoCallOutline, IoCloseOutline, IoMenuOutline } from 'react-icons/io5';
 
 import { contacts, navList } from '@/app/assets/data/header';
 import StateContext from '@/app/contexts/StateContext';
+import ThemeToggle from '@/app/components/ui/ThemeToggle';
 import ThemeConfig from '@/tailwind.config';
 
 const theme = ThemeConfig.theme?.extend;
@@ -18,7 +19,7 @@ type NavItem = {
 };
 
 const navItemClass =
-  'uppercase font-semibold text-light-black-33 p-2 hover:text-light-violet-d7 hover:drop-shadow-sm hover:shadow-nav-item';
+  'uppercase font-semibold text-text-primary p-2 hover:text-violet-primary hover:drop-shadow-violet hover:shadow-nav-item';
 const navItemTransition = 'transition-all duration-300';
 
 const NavList: FC<NavItem> = ({ title, href, index }) => {
@@ -75,7 +76,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className='absolute w-full grid grid-cols-[1.5fr_2.5fr_1.5fr] grid-rows-1 items-center bg-light-violet-gray h-header px-16'
+      className='absolute w-full grid grid-cols-[1.5fr_2.5fr_1.5fr] grid-rows-1 items-center bg-violet-soft h-header px-16'
       animate={navControl}
     >
       <MotionLink
@@ -88,18 +89,18 @@ const Header = () => {
         custom={0}
       >
         <motion.p
-          className='text-2xl font-medium text-light-black-33 capitalize font-tertiary'
+          className='text-2xl font-medium text-text-primary capitalize font-tertiary'
           variants={logoVariants}
           custom={55}
         >
           Yashrif
         </motion.p>
         <motion.div
-          className='absolute w-2/4 h-full left-0 top-0 z-50 border-t-2 border-light-black-33 rounded-full'
+          className='absolute w-2/4 h-full left-0 top-0 z-50 border-t-2 border-text-primary rounded-full'
           variants={logoTopBorderVariants}
         ></motion.div>
         <motion.div
-          className='absolute w-2/4 h-full left-0 bottom-0 z-50 border-b-2 border-light-black-33 rounded-full'
+          className='absolute w-2/4 h-full left-0 bottom-0 z-50 border-b-2 border-text-primary rounded-full'
           variants={logoBottomBorderVariants}
         ></motion.div>
       </MotionLink>
@@ -110,22 +111,35 @@ const Header = () => {
         ))}
       </ul>
 
-      <motion.div
-        className={`${navItemClass} justify-self-end flex gap-2 items-center hover:shadow-none cursor-pointer`}
-        initial={'hidden'}
-        whileHover={'hover'}
-        animate={'visible'}
-        variants={navItemVariants}
-        custom={navList.length}
-      >
-        <p className={navItemTransition}>{contacts.title}</p>
+      <div className='justify-self-end flex gap-4 items-center'>
+        {/* 🎨 Theme Toggle Button */}
         <motion.div
-          className='text-xl text-light-violet-d7 p-2 bg-white shadow-[0_6px_12px_rgba(123,104,215,0.15)] rounded-full'
-          variants={contactVariants}
+          initial={'hidden'}
+          animate={'visible'}
+          variants={navItemVariants}
+          custom={navList.length + 1}
         >
-          <IoCallOutline />
+          <ThemeToggle />
         </motion.div>
-      </motion.div>
+
+        {/* 📞 Contact Button */}
+        <motion.div
+          className={`${navItemClass} flex gap-2 items-center hover:shadow-none cursor-pointer`}
+          initial={'hidden'}
+          whileHover={'hover'}
+          animate={'visible'}
+          variants={navItemVariants}
+          custom={navList.length}
+        >
+          <p className={navItemTransition}>{contacts.title}</p>
+          <motion.div
+            className='text-xl text-violet-primary p-2 bg-white shadow-violet rounded-full'
+            variants={contactVariants}
+          >
+            <IoCallOutline />
+          </motion.div>
+        </motion.div>
+      </div>
 
       <div className='md:hidden'>
         <IoMenuOutline />

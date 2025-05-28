@@ -24,11 +24,62 @@ We use tabs, not spaces.
 
 ## Instructions
 
-- Use colors from the `globals.css` instead of hardcoded colors
+- Use the new CSS variables from `globals.css` instead of hardcoded colors
 - Store all the types in the [types](../app/types) folder
 - Don't add unnecessary comments to the code
 - Use the `useCallback` hook for all the functions that are passed as props to child components or used in `useEffect` dependencies.
 - Use rounded corners for all the components. Rounded full for buttons.
+
+## Color Scheme Usage 🎨
+
+### Primary Color Variables (Use These First)
+
+- `var(--violet-primary)` - Main brand color for primary actions
+- `var(--violet-secondary)` - Enhanced violet for hover states
+- `var(--violet-tertiary)` - Blue-violet for tech elements
+- `var(--violet-soft)` - Light backgrounds and subtle elements
+
+### Strategic Accent Colors
+
+- `var(--yellow-innovation)` - For AI/ML projects and innovation highlights
+- `var(--green-success)` - For achievements, success states, and completion
+- `var(--red-attention)` - For warnings and important notices
+
+### Text & Background Colors
+
+- `var(--text-primary)` - Main content text
+- `var(--text-secondary)` - Supporting text and descriptions
+- `var(--text-muted)` - Placeholders and less important text
+- `var(--background-primary)` - Main page background
+- `var(--background-secondary)` - Cards and secondary backgrounds
+
+### Tailwind Classes (Preferred Approach)
+
+```css
+/* Primary Brand Colors */
+bg-violet-primary text-violet-primary border-violet-primary
+
+/* Strategic Accents */
+bg-yellow-innovation text-yellow-innovation
+bg-green-success text-green-success
+
+/* Semantic Usage */
+bg-bg-primary text-text-primary
+bg-bg-secondary text-text-secondary
+```
+
+### Component-Specific Color Mapping
+
+- **Hero Section**: Use `bg-gradient-hero` or `bg-violet-soft`
+- **Skills Cards**: Use `bg-violet-primary` with `text-white`
+- **Project Cards**: Use `bg-yellow-innovation` for featured projects
+- **Achievement Badges**: Use `bg-green-success` with appropriate shadows
+- **Interactive Elements**: Use `hover:bg-violet-secondary` and `focus:ring-violet-primary`
+
+### Legacy Color Support (Phase Out Gradually)
+
+- Continue using `light-*` colors only where necessary for backward compatibility
+- Gradually replace with new CSS variables during updates
 
 ## Types
 
@@ -72,16 +123,6 @@ for (let i = 0, n = str.length; i < 10; i++) {
 
 function f(x: number, y: string): void { }
 ```
-
-### Feature-Color Mapping
-
-- **Home**: Use `ocean` as the main colorscheme and all the other color schemes occasionally for a more vibrant look
-- **Maps**: Use `ocean`
-- **Itinerary**: Use `ocean`
-- **Journals**: Use `ocean`
-- **Social**: Use `lavender`
-- **Profile Headers**: Use `ocean`
-- **Social Profile**: Use `lavender`
 
 ## Additional Guidelines
 

@@ -29,10 +29,9 @@ const Hero = () => {
         heroInView: heroInView,
       });
   }, [heroInView, states, setStates]);
-
   return (
     <section id='hero' ref={ref}>
-      <div className='lg:h-[100vh] bg-light-violet-gray'>
+      <div className='lg:h-[100vh] bg-violet-soft'>
         <motion.div
           className='container-body pt-header h-full !px-10 grid grid-cols-[45fr_55fr] items-center'
           initial={'hidden'}
@@ -45,22 +44,18 @@ const Hero = () => {
         >
           <motion.div className='z-20' variants={containerVariants}>
             <motion.div className='relative' variants={LeftChildVariants}>
-              <h1 className='font-tertiary text-[52px] leading-[1.1] font-bold text-light-black-33 tracking-[-0.5px] mb-8'>
-                {title}
-              </h1>
+              <h1 className='heading-primary'>{title}</h1>{' '}
               <motion.div
-                className='block w-[20%] pb-[20%] rounded-full bg-[linear-gradient(155deg,rgba(252,218,105,0.25),rgba(240,140,0,0.75))] shadow-[0_0.4rem_0.8rem_rgba(0,0,0,0.15) absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]'
+                className='block w-[20%] pb-[20%] rounded-full bg-gradient-innovation shadow-innovation absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]'
                 variants={ballVariants}
               ></motion.div>
-            </motion.div>
-
+            </motion.div>{' '}
             <motion.div className='flex gap-4' variants={LeftChildVariants}>
               <p className='text-3xl'>&mdash;</p>
-              <p className='text-lg font-medium max-w-[50ch] mb-12'>
+              <p className='text-lg font-medium max-w-[50ch] mb-12 text-text-secondary'>
                 {description}
               </p>
             </motion.div>
-
             <motion.ul
               className='flex gap-4 mb-20 list-none'
               variants={LeftChildVariants}
@@ -93,19 +88,18 @@ const Hero = () => {
                   </motion.li>
                 )
               )}
-            </motion.ul>
-
+            </motion.ul>{' '}
             <motion.div
               className='flex gap-6 items-center'
               variants={LeftChildVariants}
             >
-              <p className='font-medium'>{profileTitle}</p>
+              <p className='font-medium text-text-secondary'>{profileTitle}</p>
 
               <ul className='list-none flex gap-4'>
                 {profileLinks.map(({ title, href, icon }) => (
                   <motion.li
                     key={title}
-                    className='group text-xl cursor-pointer transition-all duration-300 text-light-black-33 rounded-full p-3 bg-[rgba(248,248,248,0.9)] shadow-[0_0.2rem_0.8rem_rgba(0,0,0,0.05)] hover:text-white hover:bg-light-violet-d7 hover:shadow-[0_0_2.4rem_rgba(123,104,215,0.8)]'
+                    className='group text-xl cursor-pointer transition-all duration-300 text-text-primary rounded-full p-3 bg-bg-secondary shadow-sm hover:text-white hover:bg-violet-primary hover:shadow-violet'
                     initial={'hidden'}
                     whileHover={'hover'}
                     animate={'hidden'}
@@ -130,9 +124,9 @@ const Hero = () => {
               alt='hero'
               className='w-[60%] z-40'
               variants={heroImageVariants}
-            />
+            />{' '}
             <motion.div
-              className='absolute block w-[65%] rounded-[50%] bg-[linear-gradient(155deg,rgba(175,164,231,0.25),#6253ac)] bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
+              className='absolute block w-[65%] rounded-[50%] bg-brand-primary bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
               variants={eclipseVariants}
             ></motion.div>
           </motion.div>

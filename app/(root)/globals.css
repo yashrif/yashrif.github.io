@@ -2,37 +2,195 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-primary text-light-black-55;
+/* ========================= 🎨 Enhanced Color Scheme ======================== */
+
+:root {
+  /* 🎯 Primary Brand Colors - Analogous Violet Harmony */
+  --violet-primary: #7a68d7; /* Main brand identity */
+  --violet-secondary: #8873ef; /* Enhanced violet for interactions */
+  --violet-tertiary: #6366f1; /* Blue-violet for tech reliability */
+  --violet-soft: #efedf6; /* Soft background variant */
+
+  /* ✨ Strategic Accent Colors */
+  --yellow-innovation: #fdd047; /* Innovation/ML projects */
+  --yellow-warm: #fcda69; /* Warm accent variant */
+  --green-success: #0ca678; /* Achievements/success */
+  --green-growth: #0b956c; /* Growth/progress variant */
+
+  /* 🎪 Contextual Colors */
+  --red-attention: #f03e3e; /* Warnings/important */
+  --red-soft: #d83838; /* Softer red variant */
+
+  /* 📝 Text & Neutral Colors */
+  --text-primary: #333; /* Primary text */
+  --text-secondary: #555; /* Secondary text */
+  --text-muted: #aaa; /* Muted text */
+  --background-primary: #ffffff; /* Main background */
+  --background-secondary: #f8f9fa; /* Secondary background */
+
+  /* 🌈 Interactive States */
+  --hover-violet: #8873ef;
+  --active-violet: #6366f1;
+  --focus-ring: rgba(122, 104, 215, 0.3);
+
+  /* 🎭 Semantic Gradients */
+  --gradient-hero: linear-gradient(
+    135deg,
+    var(--violet-soft),
+    var(--violet-primary)
+  );
+  --gradient-innovation: linear-gradient(
+    135deg,
+    var(--yellow-innovation),
+    var(--yellow-warm)
+  );
+  --gradient-success: linear-gradient(
+    135deg,
+    var(--green-success),
+    var(--green-growth)
+  );
 }
 
-/* -------------------------------- Container ------------------------------- */
+/* 🌙 Dark Theme Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 🎯 Dark Mode Primary Colors */
+    --violet-primary: #8873ef;
+    --violet-secondary: #9c88ff;
+    --violet-tertiary: #7c7cf8;
+    --violet-soft: #1a1625;
+
+    /* ✨ Dark Mode Accents */
+    --yellow-innovation: #ffd23f;
+    --yellow-warm: #ffda69;
+    --green-success: #20c997;
+    --green-growth: #51cf66;
+
+    /* 📝 Dark Mode Text & Backgrounds */
+    --text-primary: #f8f9fa;
+    --text-secondary: #e9ecef;
+    --text-muted: #6c757d;
+    --background-primary: #121212;
+    --background-secondary: #1a1a1a;
+
+    /* 🌈 Dark Mode Interactive */
+    --hover-violet: #9c88ff;
+    --active-violet: #7c7cf8;
+    --focus-ring: rgba(156, 136, 255, 0.4);
+  }
+}
+
+/* 🎨 Theme Toggle Class Override */
+.theme-light {
+  --violet-primary: #7a68d7;
+  --violet-secondary: #8873ef;
+  --violet-tertiary: #6366f1;
+  --violet-soft: #efedf6;
+  --text-primary: #333;
+  --text-secondary: #555;
+  --background-primary: #ffffff;
+  --background-secondary: #f8f9fa;
+}
+
+.theme-dark {
+  --violet-primary: #8873ef;
+  --violet-secondary: #9c88ff;
+  --violet-tertiary: #7c7cf8;
+  --violet-soft: #1a1625;
+  --text-primary: #f8f9fa;
+  --text-secondary: #e9ecef;
+  --background-primary: #121212;
+  --background-secondary: #1a1a1a;
+}
+
+body {
+  @apply font-primary;
+  color: var(--text-secondary);
+  background-color: var(--background-primary);
+}
+
+/* ============================== 📐 Layout Utilities ============================== */
 
 .container-body {
   @apply mx-auto w-full max-w-[1320px] px-5;
 }
 
-/* -------------------------------- Headings -------------------------------- */
+/* ============================== 📝 Typography System ============================== */
 
 .heading-primary {
-  @apply font-tertiary text-[52px] leading-[1.1] font-bold text-light-black-33 -tracking-[0.5px] mb-8 capitalize;
+  @apply font-tertiary text-[52px] leading-[1.1] font-bold -tracking-[0.5px] mb-8 capitalize;
+  color: var(--text-primary);
 }
 
 .heading-secondary {
-  @apply font-secondary text-4xl font-bold text-light-black-33 text-center tracking-tight mb-6 capitalize;
+  @apply font-secondary text-4xl font-bold text-center tracking-tight mb-6 capitalize;
+  color: var(--text-primary);
 }
 
 .heading-tertiary {
-  @apply font-secondary text-2xl font-bold text-light-black-33 tracking-tight mb-4 capitalize;
+  @apply font-secondary text-2xl font-bold tracking-tight mb-4 capitalize;
+  color: var(--text-primary);
 }
-
-/* --------------------------------- Content -------------------------------- */
 
 .sub-heading {
-  @apply font-secondary text-center -tracking-[0.25px] justify-self-center text-light-black-55 font-medium max-w-[60ch] mb-20 first-letter:capitalize;
+  @apply font-secondary text-center -tracking-[0.25px] justify-self-center font-medium max-w-[60ch] mb-20 first-letter:capitalize;
+  color: var(--text-secondary);
 }
 
-/* ------------------------------- Scroll Bar ------------------------------- */
+/* ============================== 🎨 Component Utilities ============================== */
+
+.btn-primary {
+  background-color: var(--violet-primary);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--hover-violet);
+  box-shadow: 0 8px 16px var(--focus-ring);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--violet-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--violet-primary);
+  color: white;
+}
+
+.card-gradient-violet {
+  background: var(--gradient-hero);
+}
+
+.card-gradient-innovation {
+  background: var(--gradient-innovation);
+}
+
+.card-gradient-success {
+  background: var(--gradient-success);
+}
+
+/* ============================== 🎪 Interactive Elements ============================== */
+
+.interactive-violet {
+  transition: all 0.3s ease;
+}
+
+.interactive-violet:hover {
+  color: var(--violet-primary);
+  transform: translateY(-2px);
+}
+
+.interactive-violet:focus {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ============================== 🎚️ Scrollbar Enhancement ============================== */
 
 ::-webkit-scrollbar {
   width: 0.75rem;
@@ -40,25 +198,76 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: 9px;
+  background-color: var(--background-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(45deg, #adb5bd 0%, #ced4da 100%);
+  background: linear-gradient(45deg, #adb5bd 0%, #ced4da 100%);
   border-radius: 9px;
-  transition: all 1s;
+  transition: all 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(
+  background: linear-gradient(
     45deg,
-    rgba(122, 104, 215, 0.5),
-    rgba(122, 104, 215, 0.25)
+    var(--violet-primary),
+    var(--violet-secondary)
   );
 }
+
+/* ============================== 🔍 Search Input Enhancement ============================== */
 
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
 input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
+}
+
+/* ============================== 🎭 Animation Utilities ============================== */
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================== 📱 Responsive Utilities ============================== */
+
+@media (max-width: 768px) {
+  .heading-primary {
+    @apply text-4xl;
+  }
+
+  .heading-secondary {
+    @apply text-3xl;
+  }
+
+  .container-body {
+    @apply px-4;
+  }
 }

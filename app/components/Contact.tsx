@@ -27,10 +27,10 @@ const Contact: FC = () => {
       >
         {/* Header */}
         <motion.div className='text-center' variants={itemVariants}>
-          <h2 className='font-tertiary text-4xl md:text-5xl font-bold text-light-black-33 mb-4'>
+          <h2 className='font-tertiary text-4xl md:text-5xl font-bold text-text-primary mb-4'>
             Get In Touch
           </h2>
-          <p className='text-lg text-[#767676] max-w-2xl mx-auto'>
+          <p className='text-lg text-text-secondary max-w-2xl mx-auto'>
             Have a project in mind or want to collaborate? I&apos;d love to hear
             from you. Let&apos;s create something amazing together!
           </p>
@@ -43,23 +43,23 @@ const Contact: FC = () => {
         >
           {/* Contact Information */}
           <div className='space-y-8'>
-            <h3 className='text-2xl font-semibold text-light-black-33 mb-6'>
+            <h3 className='text-2xl font-semibold text-text-primary mb-6'>
               Contact Information
             </h3>
 
             <div className='space-y-6'>
               <motion.div
-                className='flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300'
+                className='flex items-center gap-4 p-4 bg-bg-secondary rounded-lg shadow-sm hover:shadow-violet transition-all duration-300'
                 whileHover={{ x: 5 }}
               >
-                <div className='text-2xl text-light-violet-d7'>
+                <div className='text-2xl text-violet-primary'>
                   <IoMail />
                 </div>
                 <div>
-                  <p className='font-medium text-light-black-33'>Email</p>
+                  <p className='font-medium text-text-primary'>Email</p>
                   <a
                     href='mailto:yaswoccho@gmail.com'
-                    className='text-[#767676] hover:text-light-violet-d7 transition-colors'
+                    className='text-text-secondary hover:text-violet-primary transition-colors'
                   >
                     yaswoccho@gmail.com
                   </a>
@@ -67,17 +67,17 @@ const Contact: FC = () => {
               </motion.div>
 
               <motion.div
-                className='flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300'
+                className='flex items-center gap-4 p-4 bg-bg-secondary rounded-lg shadow-sm hover:shadow-violet transition-all duration-300'
                 whileHover={{ x: 5 }}
               >
-                <div className='text-2xl text-light-violet-d7'>
+                <div className='text-2xl text-violet-primary'>
                   <IoCall />
                 </div>
                 <div>
-                  <p className='font-medium text-light-black-33'>Phone</p>
+                  <p className='font-medium text-text-primary'>Phone</p>
                   <a
                     href='tel:+8801776809429'
-                    className='text-[#767676] hover:text-light-violet-d7 transition-colors'
+                    className='text-text-secondary hover:text-violet-primary transition-colors'
                   >
                     +880 1776809429
                   </a>
@@ -85,22 +85,24 @@ const Contact: FC = () => {
               </motion.div>
 
               <motion.div
-                className='flex items-center gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300'
+                className='flex items-center gap-4 p-4 bg-bg-secondary rounded-lg shadow-sm hover:shadow-violet transition-all duration-300'
                 whileHover={{ x: 5 }}
               >
-                <div className='text-2xl text-light-violet-d7'>
+                <div className='text-2xl text-violet-primary'>
                   <IoLocationOutline />
                 </div>
                 <div>
-                  <p className='font-medium text-light-black-33'>Location</p>
-                  <p className='text-[#767676]'>Savar, Dhaka, Bangladesh</p>
+                  <p className='font-medium text-text-primary'>Location</p>
+                  <p className='text-text-secondary'>
+                    Savar, Dhaka, Bangladesh
+                  </p>
                 </div>
               </motion.div>
             </div>
 
             {/* Social Links */}
             <div className='pt-6'>
-              <h4 className='text-lg font-medium text-light-black-33 mb-4'>
+              <h4 className='text-lg font-medium text-text-primary mb-4'>
                 Follow Me
               </h4>
               <div className='flex gap-4'>
@@ -108,7 +110,7 @@ const Contact: FC = () => {
                   href='https://github.com/yashrif'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex items-center justify-center w-12 h-12 bg-light-violet-d7 text-white rounded-full hover:bg-opacity-80 transition-all duration-300'
+                  className='flex items-center justify-center w-12 h-12 bg-violet-primary text-white rounded-full hover:bg-violet-secondary transition-all duration-300'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -118,7 +120,7 @@ const Contact: FC = () => {
                   href='https://www.linkedin.com/in/yashrif'
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='flex items-center justify-center w-12 h-12 bg-light-violet-d7 text-white rounded-full hover:bg-opacity-80 transition-all duration-300'
+                  className='flex items-center justify-center w-12 h-12 bg-violet-primary text-white rounded-full hover:bg-violet-secondary transition-all duration-300'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -130,7 +132,7 @@ const Contact: FC = () => {
 
           {/* Contact Form */}
           <div className='space-y-6'>
-            <h3 className='text-2xl font-semibold text-light-black-33 mb-6'>
+            <h3 className='text-2xl font-semibold text-text-primary mb-6'>
               Send a Message
             </h3>
 
@@ -144,7 +146,7 @@ const Contact: FC = () => {
               <div>
                 <label
                   htmlFor='name'
-                  className='block text-sm font-medium text-light-black-33 mb-2'
+                  className='block text-sm font-medium text-text-primary mb-2'
                 >
                   Name
                 </label>
@@ -153,7 +155,7 @@ const Contact: FC = () => {
                   id='name'
                   name='name'
                   required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light-violet-d7 focus:border-transparent transition-all duration-300'
+                  className='w-full px-4 py-3 border border-violet-soft rounded-lg focus:ring-2 focus:ring-violet-primary focus:border-transparent transition-all duration-300'
                   placeholder='Your Name'
                 />
               </div>
@@ -161,7 +163,7 @@ const Contact: FC = () => {
               <div>
                 <label
                   htmlFor='email'
-                  className='block text-sm font-medium text-light-black-33 mb-2'
+                  className='block text-sm font-medium text-text-primary mb-2'
                 >
                   Email
                 </label>
@@ -170,7 +172,7 @@ const Contact: FC = () => {
                   id='email'
                   name='email'
                   required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light-violet-d7 focus:border-transparent transition-all duration-300'
+                  className='w-full px-4 py-3 border border-violet-soft rounded-lg focus:ring-2 focus:ring-violet-primary focus:border-transparent transition-all duration-300'
                   placeholder='your.email@example.com'
                 />
               </div>
@@ -178,7 +180,7 @@ const Contact: FC = () => {
               <div>
                 <label
                   htmlFor='subject'
-                  className='block text-sm font-medium text-light-black-33 mb-2'
+                  className='block text-sm font-medium text-text-primary mb-2'
                 >
                   Subject
                 </label>
@@ -187,7 +189,7 @@ const Contact: FC = () => {
                   id='subject'
                   name='subject'
                   required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light-violet-d7 focus:border-transparent transition-all duration-300'
+                  className='w-full px-4 py-3 border border-violet-soft rounded-lg focus:ring-2 focus:ring-violet-primary focus:border-transparent transition-all duration-300'
                   placeholder='Project Inquiry'
                 />
               </div>
@@ -195,7 +197,7 @@ const Contact: FC = () => {
               <div>
                 <label
                   htmlFor='message'
-                  className='block text-sm font-medium text-light-black-33 mb-2'
+                  className='block text-sm font-medium text-text-primary mb-2'
                 >
                   Message
                 </label>
@@ -204,14 +206,14 @@ const Contact: FC = () => {
                   name='message'
                   rows={5}
                   required
-                  className='w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light-violet-d7 focus:border-transparent transition-all duration-300 resize-none'
+                  className='w-full px-4 py-3 border border-violet-soft rounded-lg focus:ring-2 focus:ring-violet-primary focus:border-transparent transition-all duration-300 resize-none'
                   placeholder='Tell me about your project...'
                 />
               </div>
 
               <motion.button
                 type='submit'
-                className='w-full bg-light-violet-d7 text-white py-3 px-6 rounded-lg font-medium hover:bg-opacity-90 transition-all duration-300'
+                className='w-full bg-violet-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-violet-secondary transition-all duration-300'
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
