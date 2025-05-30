@@ -2,148 +2,149 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================= 🎨 Enhanced Color Scheme ======================== */
+/* ========================= 🎨 Color System ======================== */
 
 :root {
-  /* 🎯 Primary Brand Colors - Analogous Violet Harmony */
-  --violet-primary: #7a68d7; /* Main brand identity */
-  --violet-secondary: #8873ef; /* Enhanced violet for interactions */
-  --violet-tertiary: #6366f1; /* Blue-violet for tech reliability */
-  --violet-soft: #efedf6; /* Soft background variant */
+  /* 🎯 Primary Brand Colors */
+  --violet-primary: 246 59% 63%;
+  --violet-secondary: 248 79% 70%;
+  --violet-tertiary: 239 84% 67%;
+  --violet-soft: 252 40% 95%;
 
-  /* ✨ Strategic Accent Colors */
-  --yellow-innovation: #fdd047; /* Innovation/ML projects */
-  --yellow-warm: #fcda69; /* Warm accent variant */
-  --green-success: #0ca678; /* Achievements/success */
-  --green-growth: #0b956c; /* Growth/progress variant */
+  /* ✨ Accent Colors */
+  --yellow-innovation: 48 96% 64%;
+  --yellow-warm: 46 94% 70%;
+  --green-success: 168 88% 41%;
+  --green-growth: 168 84% 38%;
 
-  /* 🎪 Contextual Colors */
-  --red-attention: #f03e3e; /* Warnings/important */
-  --red-soft: #d83838; /* Softer red variant */
+  /* 🚨 Status Colors */
+  --red-attention: 0 87% 59%;
+  --red-soft: 0 75% 53%;
 
-  /* 📝 Text & Neutral Colors */
-  --text-primary: #333; /* Primary text */
-  --text-secondary: #555; /* Secondary text */
-  --text-muted: #aaa; /* Muted text */
-  --background-primary: #ffffff; /* Main background */
-  --background-secondary: #f8f9fa; /* Secondary background */
+  /* 📝 Typography Colors */
+  --text-primary: 0 0% 20%;
+  --text-secondary: 0 0% 33%;
+  --text-muted: 0 0% 67%;
 
-  /* 🌈 Interactive States */
-  --hover-violet: #8873ef;
-  --active-violet: #6366f1;
-  --focus-ring: rgba(122, 104, 215, 0.3);
+  /* 🎭 Background Colors */
+  --background-primary: 0 0% 100%;
+  --background-secondary: 210 17% 98%;
+
+  /* 🎪 Interactive States */
+  --hover-violet: 248 79% 70%;
+  --active-violet: 239 84% 67%;
+  --focus-ring: 246 59% 63% / 0.3;
 }
 
-/* 🌙 Dark Theme Support */
+/* 🌙 Dark Theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    /* 🎯 Dark Mode Primary Colors */
-    --violet-primary: #8873ef;
-    --violet-secondary: #9c88ff;
-    --violet-tertiary: #7c7cf8;
-    --violet-soft: #1a1625;
+    --violet-primary: 248 79% 70%;
+    --violet-secondary: 248 100% 76%;
+    --violet-tertiary: 240 91% 73%;
+    --violet-soft: 260 17% 10%;
 
-    /* ✨ Dark Mode Accents */
-    --yellow-innovation: #ffd23f;
-    --yellow-warm: #ffda69;
-    --green-success: #20c997;
-    --green-growth: #51cf66;
+    --yellow-innovation: 47 100% 62%;
+    --yellow-warm: 46 100% 70%;
+    --green-success: 162 79% 46%;
+    --green-growth: 142 76% 56%;
 
-    /* 📝 Dark Mode Text & Backgrounds */
-    --text-primary: #f8f9fa;
-    --text-secondary: #e9ecef;
-    --text-muted: #6c757d;
-    --background-primary: #121212;
-    --background-secondary: #1a1a1a;
+    --text-primary: 210 17% 98%;
+    --text-secondary: 210 11% 91%;
+    --text-muted: 210 9% 49%;
+    --background-primary: 0 0% 7%;
+    --background-secondary: 0 0% 10%;
 
-    /* 🌈 Dark Mode Interactive */
-    --hover-violet: #9c88ff;
-    --active-violet: #7c7cf8;
-    --focus-ring: rgba(156, 136, 255, 0.4);
+    --hover-violet: 248 100% 76%;
+    --active-violet: 240 91% 73%;
+    --focus-ring: 248 100% 76% / 0.4;
   }
 }
 
-/* 🎨 Theme Toggle Class Override */
 .theme-light {
-  --violet-primary: #7a68d7;
-  --violet-secondary: #8873ef;
-  --violet-tertiary: #6366f1;
-  --violet-soft: #efedf6;
-  --text-primary: #333;
-  --text-secondary: #555;
-  --background-primary: #ffffff;
-  --background-secondary: #f8f9fa;
+  --violet-primary: 246 59% 63%;
+  --violet-secondary: 248 79% 70%;
+  --violet-tertiary: 239 84% 67%;
+  --violet-soft: 252 40% 95%;
+  --text-primary: 0 0% 20%;
+  --text-secondary: 0 0% 33%;
+  --background-primary: 0 0% 100%;
+  --background-secondary: 210 17% 98%;
 }
 
 .theme-dark {
-  --violet-primary: #8873ef;
-  --violet-secondary: #9c88ff;
-  --violet-tertiary: #7c7cf8;
-  --violet-soft: #1a1625;
-  --text-primary: #f8f9fa;
-  --text-secondary: #e9ecef;
-  --background-primary: #121212;
-  --background-secondary: #1a1a1a;
+  --violet-primary: 248 79% 70%;
+  --violet-secondary: 248 100% 76%;
+  --violet-tertiary: 240 91% 73%;
+  --violet-soft: 260 17% 10%;
+  --text-primary: 210 17% 98%;
+  --text-secondary: 210 11% 91%;
+  --background-primary: 0 0% 7%;
+  --background-secondary: 0 0% 10%;
 }
+
+/* ========================= 📐 Base Styles ======================== */
 
 body {
   @apply font-primary;
-  color: var(--text-secondary);
-  background-color: var(--background-primary);
+  color: hsl(var(--text-secondary));
+  background-color: hsl(var(--background-primary));
 }
 
-/* ============================== 📐 Layout Utilities ============================== */
+/* ========================= 🏗️ Layout Components ======================== */
 
 .container-body {
   @apply mx-auto w-full max-w-[1320px] px-5;
 }
 
-/* ============================== 📝 Typography System ============================== */
+/* ========================= 📝 Typography System ======================== */
 
 .heading-primary {
   @apply font-tertiary text-[52px] leading-[1.1] font-bold -tracking-[0.5px] mb-8 capitalize;
-  color: var(--text-primary);
+  color: hsl(var(--text-primary));
 }
 
 .heading-secondary {
   @apply font-secondary text-4xl font-bold text-center tracking-tight mb-6 capitalize;
-  color: var(--text-primary);
+  color: hsl(var(--text-primary));
 }
 
 .heading-tertiary {
   @apply font-secondary text-2xl font-bold tracking-tight mb-4 capitalize;
-  color: var(--text-primary);
+  color: hsl(var(--text-primary));
 }
 
 .sub-heading {
   @apply font-secondary text-center -tracking-[0.25px] justify-self-center font-medium max-w-[60ch] mb-20 first-letter:capitalize;
-  color: var(--text-secondary);
+  color: hsl(var(--text-secondary));
 }
 
-/* ============================== 🎨 Component Utilities ============================== */
+/* ========================= 🎨 Button Components ======================== */
 
 .btn-primary {
-  background-color: var(--violet-primary);
+  background-color: hsl(var(--violet-primary));
   color: white;
   transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--hover-violet);
-  box-shadow: 0 8px 16px var(--focus-ring);
+  background-color: hsl(var(--hover-violet));
+  box-shadow: 0 8px 16px hsl(var(--focus-ring));
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--text-primary);
-  border: 2px solid var(--violet-primary);
+  color: hsl(var(--text-primary));
+  border: 2px solid hsl(var(--violet-primary));
   transition: all 0.3s ease;
 }
 
 .btn-secondary:hover {
-  background-color: var(--violet-primary);
+  background-color: hsl(var(--violet-primary));
   color: white;
 }
+
+/* ========================= 🃏 Card Components ======================== */
 
 .card-gradient-violet {
   @apply bg-gradient-hero;
@@ -157,31 +158,35 @@ body {
   @apply bg-gradient-success;
 }
 
-/* ============================== 🎪 Interactive Elements ============================== */
+/* ========================= 🎪 Interactive Elements ======================== */
 
 .interactive-violet {
   transition: all 0.3s ease;
 }
 
 .interactive-violet:hover {
-  color: var(--violet-primary);
+  color: hsl(var(--violet-primary));
   transform: translateY(-2px);
 }
 
 .interactive-violet:focus {
-  outline: 2px solid var(--focus-ring);
+  outline: 2px solid hsl(var(--focus-ring));
   outline-offset: 2px;
 }
 
-/* ============================== 🎚️ Scrollbar Enhancement ============================== */
+/* ========================= 🎚️ Browser Enhancements ======================== */
 
+/**
+ * 🎚️ Custom scrollbar styling
+ * Enhances the default browser scrollbar with branded colors
+ */
 ::-webkit-scrollbar {
   width: 0.75rem;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 9px;
-  background-color: var(--background-secondary);
+  background-color: hsl(var(--background-secondary));
 }
 
 ::-webkit-scrollbar-thumb {
@@ -193,13 +198,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     45deg,
-    var(--violet-primary),
-    var(--violet-secondary)
+    hsl(var(--violet-primary)),
+    hsl(var(--violet-secondary))
   );
 }
 
-/* ============================== 🔍 Search Input Enhancement ============================== */
-
+/**
+ * 🔍 Search input cleanup
+ * Removes default browser search decorations for consistent styling
+ */
 input[type='search']::-webkit-search-decoration,
 input[type='search']::-webkit-search-cancel-button,
 input[type='search']::-webkit-search-results-button,
@@ -207,12 +214,19 @@ input[type='search']::-webkit-search-results-decoration {
   -webkit-appearance: none;
 }
 
-/* ============================== 🎭 Animation Utilities ============================== */
+/* ========================= 🎭 Animation System ======================== */
 
 .fade-in {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/**
+ * 🎬 Keyframe animations for smooth transitions
+ */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -222,10 +236,6 @@ input[type='search']::-webkit-search-results-decoration {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.slide-up {
-  animation: slideUp 0.8s ease-out forwards;
 }
 
 @keyframes slideUp {
@@ -239,7 +249,7 @@ input[type='search']::-webkit-search-results-decoration {
   }
 }
 
-/* ============================== 📱 Responsive Utilities ============================== */
+/* ========================= 📱 Responsive Design ======================== */
 
 @media (max-width: 768px) {
   .heading-primary {

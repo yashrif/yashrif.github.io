@@ -18,78 +18,78 @@ const config: Config = {
 
       /* 🎨 Enhanced Color System - CSS Custom Properties Integration */
       colors: {
-        // CSS Variables Integration for Theme Support
-        'violet-primary': 'var(--violet-primary)',
-        'violet-secondary': 'var(--violet-secondary)',
-        'violet-tertiary': 'var(--violet-tertiary)',
-        'violet-soft': 'var(--violet-soft)',
+        // CSS Variables Integration for Theme Support with HSL
+        'violet-primary': 'hsl(var(--violet-primary) / <alpha-value>)',
+        'violet-secondary': 'hsl(var(--violet-secondary) / <alpha-value>)',
+        'violet-tertiary': 'hsl(var(--violet-tertiary) / <alpha-value>)',
+        'violet-soft': 'hsl(var(--violet-soft) / <alpha-value>)',
 
-        'yellow-innovation': 'var(--yellow-innovation)',
-        'yellow-warm': 'var(--yellow-warm)',
-        'green-success': 'var(--green-success)',
-        'green-growth': 'var(--green-growth)',
+        'yellow-innovation': 'hsl(var(--yellow-innovation) / <alpha-value>)',
+        'yellow-warm': 'hsl(var(--yellow-warm) / <alpha-value>)',
+        'green-success': 'hsl(var(--green-success) / <alpha-value>)',
+        'green-growth': 'hsl(var(--green-growth) / <alpha-value>)',
 
-        'red-attention': 'var(--red-attention)',
-        'red-soft': 'var(--red-soft)',
+        'red-attention': 'hsl(var(--red-attention) / <alpha-value>)',
+        'red-soft': 'hsl(var(--red-soft) / <alpha-value>)',
 
-        'text-primary': 'var(--text-primary)',
-        'text-secondary': 'var(--text-secondary)',
-        'text-muted': 'var(--text-muted)',
-        'bg-primary': 'var(--background-primary)',
-        'bg-secondary': 'var(--background-secondary)',
+        'text-primary': 'hsl(var(--text-primary) / <alpha-value>)',
+        'text-secondary': 'hsl(var(--text-secondary) / <alpha-value>)',
+        'text-muted': 'hsl(var(--text-muted) / <alpha-value>)',
+        'bg-primary': 'hsl(var(--background-primary) / <alpha-value>)',
+        'bg-secondary': 'hsl(var(--background-secondary) / <alpha-value>)',
       },
 
       /* 🌈 Enhanced Background Images */
       backgroundImage: {
         // 🎭 Semantic Gradients with CSS Variables
         'gradient-hero':
-          'linear-gradient(135deg, var(--violet-soft), var(--violet-primary))',
+          'linear-gradient(135deg, hsl(var(--violet-soft)), hsl(var(--violet-primary)))',
         'gradient-innovation':
-          'linear-gradient(135deg, var(--yellow-innovation), var(--yellow-warm))',
+          'linear-gradient(135deg, hsl(var(--yellow-innovation)), hsl(var(--yellow-warm)))',
         'gradient-success':
-          'linear-gradient(135deg, var(--green-success), var(--green-growth))',
+          'linear-gradient(135deg, hsl(var(--green-success)), hsl(var(--green-growth)))',
         'gradient-attention':
-          'linear-gradient(135deg, var(--red-attention), var(--red-soft))',
+          'linear-gradient(135deg, hsl(var(--red-attention)), hsl(var(--red-soft)))',
 
         // Enhanced brand gradients
         'brand-primary':
-          'linear-gradient(135deg, var(--violet-primary), var(--violet-secondary))',
+          'linear-gradient(135deg, hsl(var(--violet-primary)), hsl(var(--violet-secondary)))',
         'brand-accent':
-          'linear-gradient(135deg, var(--yellow-innovation), var(--green-success))',
+          'linear-gradient(135deg, hsl(var(--yellow-innovation)), hsl(var(--green-success)))',
         'brand-subtle':
-          'linear-gradient(135deg, var(--violet-soft), var(--bg-secondary))',
+          'linear-gradient(135deg, hsl(var(--violet-soft)), hsl(var(--background-secondary)))',
 
         // 🎨 Violet Gradient Collection
         'violet-light':
-          'linear-gradient(135deg, #f8f7ff, #f3f1ff, #e5e1ff, var(--violet-soft))',
+          'linear-gradient(135deg, #f8f7ff, #f3f1ff, #e5e1ff, hsl(var(--violet-soft)))',
         'violet-medium':
-          'linear-gradient(135deg, var(--violet-soft), #d1c9f7, var(--violet-primary), var(--violet-secondary))',
+          'linear-gradient(135deg, hsl(var(--violet-soft)), #d1c9f7, hsl(var(--violet-primary)), hsl(var(--violet-secondary)))',
         'violet-deep':
-          'linear-gradient(180deg, var(--violet-secondary), #9c88ff, var(--violet-primary), var(--violet-tertiary))',
+          'linear-gradient(180deg, hsl(var(--violet-secondary)), #9c88ff, hsl(var(--violet-primary)), hsl(var(--violet-tertiary)))',
         'violet-spectrum':
-          'linear-gradient(180deg, var(--violet-soft), #c4b8f5, var(--violet-primary), var(--violet-tertiary))',
+          'linear-gradient(180deg, hsl(var(--violet-soft)), #c4b8f5, hsl(var(--violet-primary)), hsl(var(--violet-tertiary)))',
 
         // 🌟 Innovation Yellow Gradients
         'yellow-soft':
-          'linear-gradient(135deg, #fffbf0, #fff8e6, #fff0cc, var(--yellow-warm))',
+          'linear-gradient(135deg, #fffbf0, #fff8e6, #fff0cc, hsl(var(--yellow-warm)))',
         'yellow-bright':
-          'linear-gradient(135deg, #fff8e6, #ffe066, var(--yellow-innovation), #f5c842)',
+          'linear-gradient(135deg, #fff8e6, #ffe066, hsl(var(--yellow-innovation)), #f5c842)',
         'yellow-intense':
-          'linear-gradient(-135deg, var(--yellow-warm), #f5c842, var(--yellow-innovation), #e6b800)',
+          'linear-gradient(-135deg, hsl(var(--yellow-warm)), #f5c842, hsl(var(--yellow-innovation)), #e6b800)',
 
         // 🌿 Success Green Gradients
         'green-light':
           'linear-gradient(180deg, #f0fdf4, #dcfce7, #bbf7d0, #86efac)',
         'green-vibrant':
-          'linear-gradient(180deg, #dcfce7, #86efac, var(--green-success), var(--green-growth))',
+          'linear-gradient(180deg, #dcfce7, #86efac, hsl(var(--green-success)), hsl(var(--green-growth)))',
         'green-deep':
-          'linear-gradient(-135deg, var(--green-growth), #059669, var(--green-success), #10b981)',
+          'linear-gradient(-135deg, hsl(var(--green-growth)), #059669, hsl(var(--green-success)), #10b981)',
 
         // 🔥 Attention Red Gradients
         'red-soft':
           'linear-gradient(-135deg, #fef2f2, #fecaca, #fca5a5, #f87171)',
         'red-intense':
-          'linear-gradient(-135deg, #fecaca, #f87171, var(--red-attention), var(--red-soft))',
+          'linear-gradient(-135deg, #fecaca, #f87171, hsl(var(--red-attention)), hsl(var(--red-soft)))',
       },
 
       /* 🎯 Enhanced Border Radius */
@@ -101,7 +101,7 @@ const config: Config = {
       /* ✨ Enhanced Drop Shadows */
       dropShadow: {
         sm: '0 4px 4px rgba(122, 104, 215, 0.25)',
-        violet: '0 4px 8px var(--focus-ring)',
+        violet: '0 4px 8px hsl(var(--focus-ring))',
         innovation: '0 4px 8px rgba(253, 208, 71, 0.3)',
         success: '0 4px 8px rgba(12, 166, 120, 0.3)',
       },
@@ -114,8 +114,8 @@ const config: Config = {
         'nav-item': '0 5px 4px -4px rgba(123, 104, 215, 0.7)',
 
         // Enhanced semantic shadows
-        violet: '0 8px 16px var(--focus-ring)',
-        'violet-lg': '0 20px 40px var(--focus-ring)',
+        violet: '0 8px 16px hsl(var(--focus-ring))',
+        'violet-lg': '0 20px 40px hsl(var(--focus-ring))',
         innovation: '0 12px 24px rgba(253, 208, 71, 0.3)',
         success: '0 12px 24px rgba(12, 166, 120, 0.3)',
         attention: '0 8px 16px rgba(240, 62, 62, 0.3)',

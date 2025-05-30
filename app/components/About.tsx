@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import AboutImage from '@/app/assets/img/about.png';
 import {
   content,
   contentTitle,
@@ -12,7 +13,7 @@ import {
   viewportAmount,
   viewportMargin,
 } from '../assets/data/animation';
-import AboutImage from '@/app/assets/img/about.png';
+import Heading from './common/Heading';
 
 const MotionImage = motion(Image);
 
@@ -21,27 +22,10 @@ const About = () => {
     <section id='about' className='py-24'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
-          <motion.h2
-            className='heading-secondary'
-            initial='hidden'
-            whileInView={'visible'}
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={fadeInVariants}
-          >
-            {title}
-          </motion.h2>
-          <motion.h3
-            className='sub-heading'
-            initial='hidden'
-            whileInView={'visible'}
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={fadeInVariants}
-          >
-            {description}
-          </motion.h3>
+          <Heading title={title} description={description} />
 
           <motion.div
-            className='container-body h-full mt-16 grid grid-cols-[45fr_55fr] gap-6 items-start'
+            className='container-body h-full mt-16 grid grid-cols-[55fr_45fr] gap-6 items-start'
             initial={'hidden'}
             whileInView={'visible'}
             viewport={{
@@ -50,20 +34,6 @@ const About = () => {
               amount: viewportAmount,
             }}
           >
-            <motion.div className='z-20'>
-              <h3 className='heading-tertiary'>{contentTitle}</h3>
-              <div className='flex flex-col gap-4'>
-                {content.map((item, index) => (
-                  <p
-                    key={index}
-                    className='text-justify font-medium first-letter:capitalize'
-                  >
-                    {item}
-                  </p>
-                ))}
-              </div>
-            </motion.div>
-
             <motion.div
               className='relative flex justify-center items-center'
               variants={containerVariants}
@@ -83,9 +53,10 @@ const About = () => {
               />
               {/* 🌟 Main decorative eclipse - behind image */}
               <motion.div
-                className='absolute -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-brand-primary/20 shadow-violet-lg z-10'
+                className='absolute -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full shadow-violet-lg z-10 bg-[linear-gradient(to_bottom_left,hsl(var(--violet-soft)),#d1c9f7,hsl(var(--violet-primary)),hsl(var(--violet-secondary)))]'
                 variants={eclipseVariants}
               />
+
               {/* 💫 Success accent - bottom right */}
               <motion.div
                 className='absolute bottom-[15%] right-[10%] w-16 h-16 rotate-45 bg-gradient-success rounded-lg shadow-success'
@@ -108,6 +79,19 @@ const About = () => {
                 className='absolute inset-0 bg-gradient-to-tr from-violet-soft/10 via-transparent to-violet-soft/5 rounded-3xl'
                 variants={glowVariants}
               />
+            </motion.div>
+            <motion.div className='z-20'>
+              <h3 className='heading-tertiary'>{contentTitle}</h3>
+              <div className='flex flex-col gap-4'>
+                {content.map((item, index) => (
+                  <p
+                    key={index}
+                    className='text-justify font-medium first-letter:capitalize'
+                  >
+                    {item}
+                  </p>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </div>

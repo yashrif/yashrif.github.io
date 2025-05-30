@@ -1,9 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5';
-import { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from '@/app/contexts/ThemeContext';
+import { motion } from 'framer-motion';
+import { useContext, useEffect, useState } from 'react';
+import { IoMoonOutline } from 'react-icons/io5';
+import { PiSun } from 'react-icons/pi';
 
 const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);
@@ -70,7 +71,7 @@ const ThemeToggle = () => {
             },
           }}
         >
-          <IoSunnyOutline size={24} />
+          <PiSun size={24} strokeWidth={2} />
         </motion.div>
       )}
 

@@ -126,7 +126,7 @@ const Hero = () => {
               variants={heroImageVariants}
             />
             <motion.div
-              className='absolute block w-[65%] rounded-[50%] bg-violet-medium origin-top-right bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
+              className='absolute block w-[65%] rounded-[50%] bg-violet-medium bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
               variants={eclipseVariants}
             ></motion.div>
           </motion.div>

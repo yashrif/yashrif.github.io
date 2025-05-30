@@ -41,7 +41,7 @@ const Home = () => {
       <AnimatePresence>
         {!states.heroInView && (
           <motion.div
-            className='fixed cursor-pointer text-2xl text-white p-3 bottom-16 right-12 rounded-full bg-light-violet-d7 z-50'
+            className='fixed cursor-pointer text-2xl text-white p-3 bottom-16 right-12 rounded-full bg-violet-secondary z-50'
             initial='hidden'
             animate='visible'
             whileHover='hover'
