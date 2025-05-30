@@ -13,6 +13,7 @@ import {
   viewportAmount,
   viewportMargin,
 } from '../assets/data/animation';
+import { contactVariants, itemVariants } from '../variants';
 
 const Contact: FC = () => {
   return (
@@ -23,7 +24,7 @@ const Contact: FC = () => {
         whileInView='visible'
         viewport={{ amount: viewportAmount, margin: viewportMargin }}
         transition={springSingleBounce}
-        variants={containerVariants}
+        variants={contactVariants}
       >
         {/* Header */}
         <motion.div className='text-center' variants={itemVariants}>
@@ -228,31 +229,3 @@ const Contact: FC = () => {
 };
 
 export default Contact;
-
-// Animation variants
-const containerVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  },
-};

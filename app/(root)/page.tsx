@@ -15,6 +15,7 @@ import Projects from '../components/Projects';
 import Services from '../components/Services';
 import Skills from '../components/Skills';
 import StateContext from '../contexts/StateContext';
+import { homeButtonVariants, homeButtonIconVariants } from '../variants';
 
 const initialState: States = {
   heroInView: false,
@@ -62,51 +63,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const homeButtonVariants = {
-  hidden: {
-    opacity: 0,
-    y: 100,
-  },
-  visible: {
-    opacity: 1,
-    boxShadow: '0 8px 16px rgba(123, 104, 215, 0.8)',
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
-    },
-  },
-  hover: {
-    scale: 1.1,
-    boxShadow: '0 12px 24px rgba(123, 104, 215, 1)',
-    transition: {
-      duration: 0.3,
-      ease: 'easeInOut',
-      when: 'beforeChildren',
-      staggeredChildren: 0.3,
-    },
-  },
-};
-
-const homeButtonIconVariants = {
-  hidden: {
-    opacity: 0,
-    y: 100,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeInOut',
-    },
-  },
-  hover: {
-    y: [0, -10, 0],
-    transition: {
-      times: [0, 0.5, 1],
-      duration: 0.5,
-    },
-  },
-};

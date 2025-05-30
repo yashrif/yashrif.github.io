@@ -7,6 +7,11 @@ import {
   viewportAmount,
   viewportMargin,
 } from '../assets/data/animation';
+import {
+  fadeInVariants,
+  skillCategoryVariants,
+  skillItemVariants,
+} from '../variants';
 
 type SkillItemProps = {
   name: string;
@@ -60,7 +65,7 @@ const SkillCategory: FC<SkillCategoryProps> = ({ title, skills, index }) => {
   return (
     <motion.div
       className='bg-violet-soft p-6 rounded-xl'
-      variants={categoryVariants}
+      variants={skillCategoryVariants}
       custom={index}
     >
       <h3 className='heading-tertiary mb-6'>{title}</h3>
@@ -129,54 +134,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-const fadeInVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut',
-      when: 'beforeChildren',
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const categoryVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.15,
-      duration: 0.5,
-      ease: 'easeOut',
-      when: 'beforeChildren',
-      staggerChildren: 0.08,
-    },
-  }),
-};
-
-const skillItemVariants = {
-  hidden: {
-    opacity: 0,
-    x: -15,
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    x: 0,
-    transition: {
-      delay: i * 0.05,
-      duration: 0.3,
-      ease: 'easeOut',
-    },
-  }),
-};

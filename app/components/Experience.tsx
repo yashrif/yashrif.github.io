@@ -3,6 +3,15 @@ import { motion, useScroll } from 'framer-motion';
 
 import { springSingleBounce, viewportMargin } from '../assets/data/animation';
 import { description, timelineData, title } from '../assets/data/experience';
+import {
+  experienceFlowVariants,
+  timelineLRVariantsVisible,
+  timelineLeftVariants,
+  timelineRightVariants,
+  timelineLRVariantsHold,
+  timelineCircleVariantsOnce,
+  timelineCircleVariants,
+} from '../variants';
 
 type timelineType = {
   organization: string;
@@ -133,7 +142,7 @@ const Experience = () => {
             initial='hidden'
             whileInView={'visible'}
             viewport={{ once: true, margin: viewportMargin }}
-            variants={fadeInVariants}
+            variants={experienceFlowVariants}
           >
             {title}
           </motion.h2>
@@ -143,12 +152,16 @@ const Experience = () => {
             initial='hidden'
             whileInView={'visible'}
             viewport={{ once: true, margin: viewportMargin }}
-            variants={fadeInVariants}
+            variants={experienceFlowVariants}
           >
             {description}
           </motion.h3>
 
-          <motion.div ref={ref} className='relative' variants={fadeInVariants}>
+          <motion.div
+            ref={ref}
+            className='relative'
+            variants={experienceFlowVariants}
+          >
             <ul className='list-none'>
               {timelineData.map(
                 (
@@ -180,94 +193,3 @@ const Experience = () => {
 };
 
 export default Experience;
-
-const fadeInVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      ...springSingleBounce,
-    },
-  },
-};
-
-const timelineLRVariantsVisible = {
-  opacity: 1,
-  x: 0,
-  transition: {
-    duration: 0.75,
-    ease: 'easeOut',
-  },
-};
-
-const timelineLeftVariants = {
-  hidden: {
-    opacity: 0,
-    x: '-50vw',
-  },
-  visible: {
-    ...timelineLRVariantsVisible,
-  },
-};
-
-const timelineRightVariants = {
-  hidden: {
-    opacity: 0,
-    x: '50vw',
-  },
-  visible: { ...timelineLRVariantsVisible },
-};
-
-const timelineLRVariantsHold = {
-  hidden: {
-    opacity: 1,
-    x: 1,
-    scale: 1,
-  },
-  visible: {
-    ...timelineLRVariantsVisible,
-    opacity: 1,
-    scale: [1.015, 1],
-    transition: {
-      ...springSingleBounce,
-    },
-  },
-};
-
-const timelineCircleVariantsOnce = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 650,
-      damping: 60,
-      mass: 8,
-    },
-  },
-};
-
-const timelineCircleVariants = {
-  hidden: {
-    opacity: 1,
-    scale: 1,
-  },
-  visible: {
-    opacity: 1,
-    scale: [1.5, 1],
-    transition: {
-      type: 'spring',
-      stiffness: 650,
-      damping: 80,
-      mass: 15,
-    },
-  },
-};

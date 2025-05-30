@@ -115,7 +115,7 @@ body {
 }
 
 .sub-heading {
-  @apply font-secondary text-center -tracking-[0.25px] justify-self-center font-medium max-w-[60ch] mb-20 first-letter:capitalize;
+  @apply font-primary text-center -tracking-[0.25px] justify-self-center font-medium max-w-[60ch] mb-20 first-letter:capitalize;
   color: hsl(var(--text-secondary));
 }
 

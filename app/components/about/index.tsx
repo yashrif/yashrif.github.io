@@ -4,6 +4,7 @@ import { contentTitle, description, title } from '../../assets/data/about';
 import Heading from '../common/Heading';
 import AboutImage from './AboutImage';
 import ExperienceHighlights from './ExperienceHighlights';
+import { ctaVariants, ctaContentVariants } from '../../variants';
 
 /**
  * 🎯 About component showcasing profile information and skills
@@ -205,39 +206,3 @@ const About = () => {
 };
 
 export default About;
-
-const ctaVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.95,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      mass: 0.8,
-      damping: 20,
-      stiffness: 150,
-      delay: 0.5,
-    },
-  },
-};
-
-const ctaContentVariants = {
-  hidden: {
-    opacity: 0,
-    x: -30,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: 'spring',
-      mass: 0.8,
-      damping: 20,
-      stiffness: 150,
-      delay: 0.2,
-    },
-  },
-};

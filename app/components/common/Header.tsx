@@ -9,6 +9,13 @@ import { contacts, navList } from '@/app/assets/data/header';
 import StateContext from '@/app/contexts/StateContext';
 import ThemeToggle from '@/app/components/ui/ThemeToggle';
 import ThemeConfig from '@/tailwind.config';
+import {
+  navItemVariants,
+  logoVariants,
+  logoTopBorderVariants,
+  logoBottomBorderVariants,
+  contactVariants,
+} from '../../variants';
 
 const theme = ThemeConfig.theme?.extend;
 
@@ -150,93 +157,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const navItemVariants = {
-  hidden: {
-    opacity: 0,
-    y: '-200%',
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.1,
-      when: 'beforeChildren',
-      type: 'spring',
-      mass: 0.8,
-      damping: 9,
-    },
-  }),
-};
-
-const logoVariants = {
-  hidden: { color: 'var(--text-primary)' },
-  visible: { color: 'var(--text-primary)' },
-  hover: {
-    color: 'var(--yellow-innovation)',
-    textShadow: `0 .4rem .4rem rgba(253, 208, 71, 0.25)`,
-    transition: {
-      delay: 1.25,
-    },
-  },
-};
-
-const logoTopBorderVariantsVisible = {
-  rotate: [0, -360],
-  borderColor: ['var(--text-primary)', 'var(--text-primary)'],
-  transition: {
-    times: [0, 1],
-    type: 'tween',
-    ease: 'easeInOut',
-    duration: 0.75,
-    repeat: 1,
-  },
-};
-const logoTopBorderVariants = {
-  hidden: { rotate: [0] },
-  visible: { ...logoTopBorderVariantsVisible },
-  hover: {
-    ...logoTopBorderVariantsVisible,
-    rotate: [-360, 0],
-    borderColor: ['var(--yellow-innovation)', 'var(--yellow-innovation)'],
-  },
-};
-
-const logoBottomBorderVariantsVisible = {
-  opacity: [0, 0, 1],
-  rotate: [0, 75, 0],
-  borderColor: 'var(--text-primary)',
-  transition: {
-    times: [0, 0.85, 1],
-    type: 'tween',
-    ease: 'linear',
-    duration: 1.5,
-    repeat: 0,
-  },
-};
-const logoBottomBorderVariants = {
-  hidden: { rotate: 0, opacity: 1 },
-  visible: { ...logoBottomBorderVariantsVisible },
-  hover: {
-    ...logoBottomBorderVariantsVisible,
-    rotate: [0, -75, 0],
-    borderColor: 'var(--yellow-innovation)',
-  },
-};
-
-const contactVariants = {
-  hidden: {
-    rotate: 0,
-  },
-  hover: {
-    rotate: [0, 20, -20, 20, -20, 20, -20, 20, -20, 20, 0],
-    scale: [1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1],
-    transition: {
-      type: 'tween',
-      ease: 'easeInOut',
-      duration: 1.5,
-      repeat: Infinity,
-      repeatDelay: 1,
-    },
-  },
-};

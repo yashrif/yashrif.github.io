@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { headerVariants, experienceFlowVariants } from '../../variants';
 
 /**
  * 🌟 Experience Highlights component showcasing key professional achievements
@@ -6,7 +7,7 @@ import { motion } from 'framer-motion';
  */
 const ExperienceHighlights = () => {
   return (
-    <motion.div className='relative mt-12' variants={experienceVariants}>
+    <motion.div className='relative mt-12' variants={experienceFlowVariants}>
       {/* 🌊 Flowing Header */}
       <motion.div className='relative mb-8' variants={headerVariants}>
         <div className='absolute inset-0 bg-gradient-to-r from-yellow-innovation/20 via-green-success/10 to-transparent rounded-[3rem] transform -rotate-1'></div>
@@ -62,11 +63,10 @@ const ExperienceHighlights = () => {
               <div className='w-4 h-20 bg-gradient-to-b from-green-success to-green-growth rounded-full'></div>
               <div>
                 <div className='text-lg font-bold text-green-success mb-2'>
-                  Competitive Programming
+                  Coding Challenges
                 </div>
                 <div className='text-text-secondary'>
-                  Programming contests • Algorithm optimization • Problem
-                  solving
+                  Hackathon • Programming contests • Problem solving
                 </div>
               </div>
             </div>
@@ -78,55 +78,3 @@ const ExperienceHighlights = () => {
 };
 
 export default ExperienceHighlights;
-
-const headerVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: 'easeOut',
-    },
-  },
-};
-
-const experienceVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.3,
-      when: 'beforeChildren',
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const experienceFlowVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-    rotate: -2,
-  },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    rotate: i % 2 === 0 ? 1 : -1,
-    transition: {
-      type: 'spring',
-      mass: 0.7,
-      damping: 15,
-      stiffness: 100,
-      delay: i * 0.2,
-    },
-  }),
-};
