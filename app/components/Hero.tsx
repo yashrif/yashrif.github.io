@@ -10,7 +10,6 @@ import {
   profileTitle,
   title,
 } from '@/app/assets/data/hero';
-import HeroImage from '@/app/assets/img/hero.png';
 import { viewportAmount, viewportMargin } from '../assets/data/animation';
 import StateContext from '../contexts/StateContext';
 import Button from './common/Button';
@@ -120,8 +119,11 @@ const Hero = () => {
             variants={containerVariants}
           >
             <MotionImage
-              src={HeroImage}
+              src='/images/hero.png'
               alt='hero'
+              width={0}
+              height={0}
+              sizes='full'
               className='w-[60%] z-40'
               variants={heroImageVariants}
             />

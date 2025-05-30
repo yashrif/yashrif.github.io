@@ -7,7 +7,7 @@ import { IoArrowUpOutline } from 'react-icons/io5';
 import { States } from '@/app/types/states';
 import Footer from '@/app/components/common/Footer';
 import Header from '@/app/components/common/Header';
-import About from '../components/About';
+import About from '../components/about';
 import Contact from '../components/Contact';
 import Experience from '../components/Experience';
 import Hero from '../components/Hero';
