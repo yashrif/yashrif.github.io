@@ -12,11 +12,6 @@ export enum ColorScheme {
   INNOVATION = 'INNOVATION', // Yellow for AI/ML projects
   SUCCESS = 'SUCCESS', // Green for achievements
   ATTENTION = 'ATTENTION', // Red for warnings
-
-  // Legacy Support (gradually phase out)
-  GREEN = 'GREEN',
-  RED = 'RED',
-  YELLOW = 'YELLOW',
 }
 
 /**
@@ -29,9 +24,6 @@ export type ColorSchemeMapping = {
   [ColorScheme.INNOVATION]: 'yellow-innovation';
   [ColorScheme.SUCCESS]: 'green-success';
   [ColorScheme.ATTENTION]: 'red-attention';
-  [ColorScheme.GREEN]: 'green-success';
-  [ColorScheme.RED]: 'red-attention';
-  [ColorScheme.YELLOW]: 'yellow-innovation';
 };
 
 /**

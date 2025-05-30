@@ -76,7 +76,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className='absolute w-full grid grid-cols-[1.5fr_2.5fr_1.5fr] grid-rows-1 items-center bg-violet-soft h-header px-16'
+      className='absolute w-full grid grid-cols-[1.5fr_2.5fr_1.5fr] grid-rows-1 items-center bg-violet-soft h-header px-16 z-50'
       animate={navControl}
     >
       <MotionLink
@@ -133,7 +133,7 @@ const Header = () => {
         >
           <p className={navItemTransition}>{contacts.title}</p>
           <motion.div
-            className='text-xl text-violet-primary p-2 bg-white shadow-violet rounded-full'
+            className='text-lg text-violet-primary p-2 bg-white shadow-violet rounded-full'
             variants={contactVariants}
           >
             <IoCallOutline />
@@ -170,11 +170,11 @@ const navItemVariants = {
 };
 
 const logoVariants = {
-  hidden: { color: (theme?.colors as any)?.light?.['black-33'] },
-  visible: { color: (theme?.colors as any)?.light?.['black-33'] },
+  hidden: { color: 'var(--text-primary)' },
+  visible: { color: 'var(--text-primary)' },
   hover: {
-    color: (theme?.colors as any)?.light?.['yellow-54'],
-    textShadow: `0 .4rem .4rem rgba(202, 174, 84, 0.25)`,
+    color: 'var(--yellow-innovation)',
+    textShadow: `0 .4rem .4rem rgba(253, 208, 71, 0.25)`,
     transition: {
       delay: 1.25,
     },
@@ -183,10 +183,7 @@ const logoVariants = {
 
 const logoTopBorderVariantsVisible = {
   rotate: [0, -360],
-  borderColor: [
-    (theme?.colors as any)?.light?.['black-33'],
-    (theme?.colors as any)?.light?.['black-33'],
-  ],
+  borderColor: ['var(--text-primary)', 'var(--text-primary)'],
   transition: {
     times: [0, 1],
     type: 'tween',
@@ -201,17 +198,14 @@ const logoTopBorderVariants = {
   hover: {
     ...logoTopBorderVariantsVisible,
     rotate: [-360, 0],
-    borderColor: [
-      (theme?.colors as any)?.light?.['yellow-54'],
-      (theme?.colors as any)?.light?.['yellow-54'],
-    ],
+    borderColor: ['var(--yellow-innovation)', 'var(--yellow-innovation)'],
   },
 };
 
 const logoBottomBorderVariantsVisible = {
   opacity: [0, 0, 1],
   rotate: [0, 75, 0],
-  borderColor: (theme?.colors as any)?.light?.['black-33'],
+  borderColor: 'var(--text-primary)',
   transition: {
     times: [0, 0.85, 1],
     type: 'tween',
@@ -226,7 +220,7 @@ const logoBottomBorderVariants = {
   hover: {
     ...logoBottomBorderVariantsVisible,
     rotate: [0, -75, 0],
-    borderColor: (theme?.colors as any)?.light?.['yellow-54'],
+    borderColor: 'var(--yellow-innovation)',
   },
 };
 

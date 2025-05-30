@@ -37,8 +37,16 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     setThemeState(newTheme);
     if (typeof window !== 'undefined') {
       localStorage.setItem('theme-preference', newTheme);
-      // Apply theme class to document
-      document.documentElement.className = `theme-${newTheme}`;
+      // Apply both custom theme class and Tailwind's dark class
+      const htmlElement = document.documentElement;
+      htmlElement.className = `theme-${newTheme}`;
+
+      // Add/remove Tailwind's dark class for dark mode utilities
+      if (newTheme === 'dark') {
+        htmlElement.classList.add('dark');
+      } else {
+        htmlElement.classList.remove('dark');
+      }
     }
   };
 

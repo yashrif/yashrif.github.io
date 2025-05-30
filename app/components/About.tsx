@@ -72,9 +72,9 @@ const About = () => {
               <MotionImage
                 src={AboutImage}
                 alt='About profile'
-                className='w-[55%] z-50 relative'
+                className='w-[55%] z-30'
                 variants={imageVariants}
-              />{' '}
+              />
               {/* ✨ Innovation orb - top left */}
               <motion.div
                 className='absolute top-[10%] left-[15%] w-20 h-20 rounded-full bg-gradient-innovation shadow-innovation backdrop-blur-sm'

@@ -44,12 +44,12 @@ const Hero = () => {
         >
           <motion.div className='z-20' variants={containerVariants}>
             <motion.div className='relative' variants={LeftChildVariants}>
-              <h1 className='heading-primary'>{title}</h1>{' '}
+              <h1 className='heading-primary'>{title}</h1>
               <motion.div
-                className='block w-[20%] pb-[20%] rounded-full bg-gradient-innovation shadow-innovation absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]'
+                className='block w-[20%] pb-[20%] rounded-full bg-yellow-bright shadow-innovation absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]'
                 variants={ballVariants}
               ></motion.div>
-            </motion.div>{' '}
+            </motion.div>
             <motion.div className='flex gap-4' variants={LeftChildVariants}>
               <p className='text-3xl'>&mdash;</p>
               <p className='text-lg font-medium max-w-[50ch] mb-12 text-text-secondary'>
@@ -88,18 +88,18 @@ const Hero = () => {
                   </motion.li>
                 )
               )}
-            </motion.ul>{' '}
+            </motion.ul>
             <motion.div
               className='flex gap-6 items-center'
               variants={LeftChildVariants}
             >
               <p className='font-medium text-text-secondary'>{profileTitle}</p>
 
-              <ul className='list-none flex gap-4'>
+              <ul className='list-none flex gap-3'>
                 {profileLinks.map(({ title, href, icon }) => (
                   <motion.li
                     key={title}
-                    className='group text-xl cursor-pointer transition-all duration-300 text-text-primary rounded-full p-3 bg-bg-secondary shadow-sm hover:text-white hover:bg-violet-primary hover:shadow-violet'
+                    className='group text-xl cursor-pointer transition-all duration-300 text-text-primary rounded-full p-2 bg-bg-secondary dark:bg-white/10 shadow-sm hover:text-white hover:bg-violet-primary hover:shadow-violet'
                     initial={'hidden'}
                     whileHover={'hover'}
                     animate={'hidden'}
@@ -124,9 +124,9 @@ const Hero = () => {
               alt='hero'
               className='w-[60%] z-40'
               variants={heroImageVariants}
-            />{' '}
+            />
             <motion.div
-              className='absolute block w-[65%] rounded-[50%] bg-brand-primary bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
+              className='absolute block w-[65%] rounded-[50%] bg-violet-medium origin-top-right bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
               variants={eclipseVariants}
             ></motion.div>
           </motion.div>

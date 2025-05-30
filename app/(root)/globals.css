@@ -32,23 +32,6 @@
   --hover-violet: #8873ef;
   --active-violet: #6366f1;
   --focus-ring: rgba(122, 104, 215, 0.3);
-
-  /* 🎭 Semantic Gradients */
-  --gradient-hero: linear-gradient(
-    135deg,
-    var(--violet-soft),
-    var(--violet-primary)
-  );
-  --gradient-innovation: linear-gradient(
-    135deg,
-    var(--yellow-innovation),
-    var(--yellow-warm)
-  );
-  --gradient-success: linear-gradient(
-    135deg,
-    var(--green-success),
-    var(--green-growth)
-  );
 }
 
 /* 🌙 Dark Theme Support */
@@ -163,15 +146,15 @@ body {
 }
 
 .card-gradient-violet {
-  background: var(--gradient-hero);
+  @apply bg-gradient-hero;
 }
 
 .card-gradient-innovation {
-  background: var(--gradient-innovation);
+  @apply bg-gradient-innovation;
 }
 
 .card-gradient-success {
-  background: var(--gradient-success);
+  @apply bg-gradient-success;
 }
 
 /* ============================== 🎪 Interactive Elements ============================== */

@@ -17,10 +17,8 @@ export const title = (
 
 export const description = (
   <>
-    Enthusiastic full-stack developer and recent graduate from IIT,
-    Jahangirnagar University, passionate about building dynamic websites and
-    applications. Actively engaged in multiple projects and deeply interested in
-    Machine Learning.
+    Passionate full-stack developer building sleek, modern web apps. Driven by
+    innovation, clean design, and AI. Let’s create something amazing together!
   </>
 );
 
