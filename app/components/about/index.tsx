@@ -5,6 +5,7 @@ import Heading from '../common/Heading';
 import AboutImage from './AboutImage';
 import ExperienceHighlights from './ExperienceHighlights';
 import { ctaVariants, ctaContentVariants } from '../../variants';
+import { ColorScheme } from '@/app/types/color-scheme';
 
 /**
  * 🎯 About component showcasing profile information and skills
@@ -15,7 +16,11 @@ const About = () => {
     <section id='about' className='py-24'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
-          <Heading title={title} description={description} />
+          <Heading
+            title={title}
+            description={description}
+            decorativeColor={ColorScheme.PRIMARY}
+          />
 
           <div className='container-body h-full mt-16 grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-10 md:gap-16 items-start'>
             <AboutImage />

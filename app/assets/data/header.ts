@@ -13,10 +13,6 @@ export const navList = [
     href: '#skills',
   },
   {
-    title: 'Services',
-    href: '#services',
-  },
-  {
     title: 'Projects',
     href: '#projects',
   },

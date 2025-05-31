@@ -5,6 +5,19 @@ export const description =
 export const projects = [
   {
     id: 1,
+    title: 'IIT-JU Website',
+    category: 'Institutional Website',
+    description:
+      'Dynamic, SEO-optimized website for Institute of Information Technology, Jahangirnagar University. Achieved 100% SEO compliance and utilized modern CMS.',
+    technologies: ['Next.js', 'Strapi', 'GraphQL', 'Trello'],
+    image: '/images/iit-ju.png',
+    liveUrl: '#',
+    githubUrl: '#',
+    featured: true,
+    year: '2023-2024',
+  },
+  {
+    id: 2,
     title: 'Roamance',
     category: 'AI-Powered Travel App',
     description:
@@ -17,7 +30,7 @@ export const projects = [
     year: '2024-2025',
   },
   {
-    id: 2,
+    id: 3,
     title: 'StudySync',
     category: 'AI Learning Platform',
     description:
@@ -30,7 +43,7 @@ export const projects = [
     year: '2024',
   },
   {
-    id: 3,
+    id: 4,
     title: 'EcoSync',
     category: 'Waste Management Solution',
     description:
@@ -39,11 +52,11 @@ export const projects = [
     image: '/images/ecosync.png',
     liveUrl: '#',
     githubUrl: '#',
-    featured: true,
+    featured: false,
     year: '2024',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Flourish',
     category: 'Mental Health Platform',
     description:
@@ -56,7 +69,7 @@ export const projects = [
     year: '2023',
   },
   {
-    id: 5,
+    id: 6,
     title: 'DocLab',
     category: 'Healthcare Booking',
     description:
@@ -67,19 +80,6 @@ export const projects = [
     githubUrl: '#',
     featured: false,
     year: '2023',
-  },
-  {
-    id: 6,
-    title: 'IIT-JU Website',
-    category: 'Institutional Website',
-    description:
-      'Dynamic, SEO-optimized website for Institute of Information Technology, Jahangirnagar University. Achieved 100% SEO compliance and utilized modern CMS.',
-    technologies: ['Next.js', 'Strapi', 'GraphQL', 'Trello'],
-    image: '/images/iit-ju.png',
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false,
-    year: '2023-2024',
   },
 ];
 

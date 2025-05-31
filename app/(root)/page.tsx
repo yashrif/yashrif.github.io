@@ -11,8 +11,7 @@ import About from '../components/about';
 import Contact from '../components/Contact';
 import Experience from '../components/Experience';
 import Hero from '../components/Hero';
-import Projects from '../components/Projects';
-import Services from '../components/Services';
+import Projects from '../components/projects';
 import Skills from '../components/Skills';
 import StateContext from '../contexts/StateContext';
 import { homeButtonVariants, homeButtonIconVariants } from '../variants';
@@ -28,12 +27,11 @@ const Home = () => {
 
   return (
     <StateContext.Provider value={value}>
-      <Header />{' '}
+      <Header />
       <div className='flex flex-col gap-24'>
         <Hero />
         <About />
         <Skills />
-        <Services />
         <Projects />
         <Experience />
         <Contact />
