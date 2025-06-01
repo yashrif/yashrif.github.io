@@ -14,7 +14,7 @@ export type TimelineItemType = {
   icon: IconType;
 };
 
-export type ExperienceCategory = 'all' | 'experience' | 'education';
+export type ExperienceCategory = 'experience' | 'education' | 'activity';
 
 export type ExperienceCategoryInfo = {
   label: string;

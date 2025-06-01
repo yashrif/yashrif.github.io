@@ -2,7 +2,7 @@
 import { useRef, useState, useCallback, useMemo } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { HiStar } from 'react-icons/hi2';
-import { HiAcademicCap, HiBriefcase } from 'react-icons/hi2';
+import { HiAcademicCap, HiBriefcase, HiSparkles } from 'react-icons/hi2';
 
 import { viewportMargin } from '../../assets/data/animation';
 import { description, timelineData, title } from '../../assets/data/experience';
@@ -17,21 +17,15 @@ import TimelineContainer from './TimelineContainer';
 import Heading from '../common/Heading';
 
 /**
- * 🎯 Experience categories configuration
+ * 🎯 Experience categories configuration - Updated with three main tabs
  */
 const experienceCategories: Record<ExperienceCategory, ExperienceCategoryInfo> =
   {
-    all: {
-      label: 'All',
-      icon: <HiStar />,
-      gradient: 'bg-gradient-to-r from-violet-primary to-violet-secondary',
-      textColor: 'text-violet-primary',
-    },
     experience: {
       label: 'Experience',
       icon: <HiBriefcase />,
-      gradient: 'bg-gradient-to-r from-yellow-innovation to-yellow-warm',
-      textColor: 'text-yellow-innovation',
+      gradient: 'bg-gradient-to-r from-violet-primary to-violet-secondary',
+      textColor: 'text-violet-primary',
     },
     education: {
       label: 'Education',
@@ -39,11 +33,17 @@ const experienceCategories: Record<ExperienceCategory, ExperienceCategoryInfo> =
       gradient: 'bg-gradient-to-r from-green-success to-green-growth',
       textColor: 'text-green-success',
     },
+    activity: {
+      label: 'Activities',
+      icon: <HiSparkles />,
+      gradient: 'bg-gradient-to-r from-yellow-innovation to-yellow-warm',
+      textColor: 'text-yellow-innovation',
+    },
   };
 
 /**
- * 🌟 Enhanced Experience component with modern design following About section patterns
- * Features tab-like filtering, fluid animations, and improved timeline design
+ * 🌟 Enhanced Experience component with modern three-tab design
+ * Features separate tabs for Experience, Education, and Activities
  * @returns JSX element containing the complete experience section
  */
 const Experience = () => {
@@ -55,7 +55,7 @@ const Experience = () => {
 
   const [timelineScrollPosition, setTimelineScrollPosition] = useState(0);
   const [activeCategory, setActiveCategory] =
-    useState<ExperienceCategory>('all');
+    useState<ExperienceCategory>('experience');
   // 🎯 Handle scroll progress updates
   scrollYProgress.on('change', latest => {
     setTimelineScrollPosition(latest);
@@ -63,13 +63,9 @@ const Experience = () => {
 
   // 🗂️ Filter and sort timeline data based on active category
   const filteredTimelineData = useMemo(() => {
-    let filtered = timelineData;
-
-    if (activeCategory !== 'all') {
-      filtered = timelineData.filter(item => {
-        return item.category === activeCategory;
-      });
-    }
+    const filtered = timelineData.filter(item => {
+      return item.category === activeCategory;
+    });
 
     // 📅 Sort by duration (most recent first)
     return sortTimelineByDuration(filtered);

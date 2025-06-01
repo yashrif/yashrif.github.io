@@ -5,13 +5,18 @@ import {
   FaBolt,
   FaRobot,
   FaGraduationCap,
+  FaCertificate,
+  FaCode,
+  FaMedal,
+  FaProjectDiagram,
 } from 'react-icons/fa';
 
-export const title = 'Experience & Education';
+export const title = 'Experience & Journey';
 export const description =
-  'My professional journey, education, and key milestones in my development career';
+  'My professional experience, educational background, and notable activities in software development';
 
 export const timelineData = [
+  // 🏢 Professional Experience
   {
     organization: 'Geeky Solutions Learnathon 3.0',
     designation: 'Participant | Team Devs',
@@ -30,23 +35,16 @@ export const timelineData = [
     category: 'experience' as const,
     icon: FaUserTie,
   },
+
+  // 🎓 Education
   {
-    organization: 'Therap Javafest 2024',
-    designation: 'Champion | Team AMADEUS',
-    duration: '2024',
+    organization: 'Jahangirnagar University',
+    designation: 'Bachelor in Information and Communication Technology',
+    duration: 'Mar 2020 - Mar 2025',
     description:
-      "Won first place in Therap Javafest 2024 programming competition. Developed 'StudySync' - an AI-powered digital learning platform. Demonstrated exceptional problem-solving skills and teamwork in a competitive programming environment.",
-    category: 'experience' as const,
-    icon: FaTrophy,
-  },
-  {
-    organization: 'Code Samurai BD 2024',
-    designation: 'Finalist | Team JU_AMADEUS',
-    duration: '2024',
-    description:
-      "Reached top 40 finalist position in Code Samurai BD 2024. Developed 'EcoSync' - a comprehensive waste management solution for Dhaka North City Corporation during this day-long hackathon competition.",
-    category: 'experience' as const,
-    icon: FaBolt,
+      "Pursuing Bachelor's degree in Information and Communication Technology from the Institute of Information Technology (IIT), Jahangirnagar University. Focusing on software development, algorithms, data structures, and modern web technologies.",
+    category: 'education' as const,
+    icon: FaGraduationCap,
   },
   {
     organization: 'Stanford University & DeepLearning.AI',
@@ -55,15 +53,35 @@ export const timelineData = [
     description:
       'Completed comprehensive Machine Learning Specialization course on Coursera. Gained deep understanding of supervised learning, unsupervised learning, and neural networks. Applied knowledge to real-world projects and AI-powered applications.',
     category: 'education' as const,
-    icon: FaRobot,
+    icon: FaCertificate,
+  },
+
+  // 🏆 Activities & Competitions
+  {
+    organization: 'Therap Javafest 2024',
+    designation: 'Champion | Team AMADEUS',
+    duration: '2024',
+    description:
+      "🏆 Won first place in Therap Javafest 2024 programming competition. Developed 'StudySync' - an AI-powered digital learning platform. Demonstrated exceptional problem-solving skills and teamwork in a competitive programming environment.",
+    category: 'activity' as const,
+    icon: FaTrophy,
   },
   {
-    organization: 'Jahangirnagar University',
-    designation: 'Bachelor in ICT',
-    duration: 'Mar 2020 - Mar 2025',
+    organization: 'Code Samurai BD 2024',
+    designation: 'Finalist | Team JU_AMADEUS',
+    duration: '2024',
     description:
-      "Pursuing Bachelor's degree in Information and Communication Technology from the Institute of Information Technology (IIT), Jahangirnagar University. Focusing on software development, algorithms, data structures, and modern web technologies.",
-    category: 'education' as const,
-    icon: FaGraduationCap,
+      "🥉 Reached top 40 finalist position in Code Samurai BD 2024. Developed 'EcoSync' - a comprehensive waste management solution for Dhaka North City Corporation during this day-long hackathon competition.",
+    category: 'activity' as const,
+    icon: FaBolt,
+  },
+  {
+    organization: 'National High School Programming Contest (NHSPC)',
+    designation: '6th Position | Team SGTC_MKS',
+    duration: '2018',
+    description:
+      '🏅 Achieved 6th position in the finals of National High School Programming Contest 2018. Demonstrated strong algorithmic thinking and competitive programming skills at the national level.',
+    category: 'activity' as const,
+    icon: FaMedal,
   },
 ];

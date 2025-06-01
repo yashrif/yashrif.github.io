@@ -49,8 +49,49 @@ const TimelineItem: FC<TimelineItemProps> = ({
       }, 150);
   });
 
-  // 🎨 Determine if education category
-  const isEducation = category === 'education';
+  // 🎨 Category-based color configuration
+  const getCategoryColors = () => {
+    switch (category) {
+      case 'education':
+        return {
+          primary: 'green-success',
+          secondary: 'green-growth',
+          gradientClasses:
+            'bg-gradient-to-r from-green-success to-green-growth',
+          fillClass: 'fill-green-success',
+          strokeColor: 'hsl(var(--green-success))',
+        };
+      case 'experience':
+        return {
+          primary: 'violet-primary',
+          secondary: 'violet-secondary',
+          gradientClasses:
+            'bg-gradient-to-r from-violet-primary to-violet-secondary',
+          fillClass: 'fill-violet-primary',
+          strokeColor: 'hsl(var(--violet-primary))',
+        };
+      case 'activity':
+        return {
+          primary: 'yellow-innovation',
+          secondary: 'yellow-warm',
+          gradientClasses:
+            'bg-gradient-to-r from-yellow-innovation to-yellow-warm',
+          fillClass: 'fill-yellow-innovation',
+          strokeColor: 'hsl(var(--yellow-innovation))',
+        };
+      default:
+        return {
+          primary: 'violet-primary',
+          secondary: 'violet-secondary',
+          gradientClasses:
+            'bg-gradient-to-r from-violet-primary to-violet-secondary',
+          fillClass: 'fill-violet-primary',
+          strokeColor: 'hsl(var(--violet-primary))',
+        };
+    }
+  };
+
+  const categoryColors = getCategoryColors();
 
   return (
     <motion.li
@@ -75,11 +116,7 @@ const TimelineItem: FC<TimelineItemProps> = ({
               {organization}
             </motion.h3>
             <motion.div
-              className={`w-20 h-1 ml-auto mb-3 rounded-full ${
-                isEducation
-                  ? 'bg-gradient-to-r from-green-success to-green-growth'
-                  : 'bg-gradient-to-r from-yellow-innovation to-yellow-warm'
-              }`}
+              className={`w-20 h-1 ml-auto mb-3 rounded-full ${categoryColors.gradientClasses}`}
               initial={{ width: 0 }}
               animate={{ width: 80 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
@@ -124,10 +161,7 @@ const TimelineItem: FC<TimelineItemProps> = ({
               className='stroke-[3] fill-violet-soft/50'
               style={{
                 pathLength: scrollYProgress,
-                stroke:
-                  category === 'education'
-                    ? 'hsl(var(--green-success))'
-                    : 'hsl(var(--yellow-innovation))',
+                stroke: categoryColors.strokeColor,
               }}
             />
 
@@ -146,9 +180,7 @@ const TimelineItem: FC<TimelineItemProps> = ({
               cx={75}
               cy={50}
               r={20}
-              className={
-                isEducation ? 'fill-green-success' : 'fill-yellow-innovation'
-              }
+              className={categoryColors.fillClass}
               variants={
                 firstRender
                   ? timelineCircleVariantsOnce
@@ -183,11 +215,7 @@ const TimelineItem: FC<TimelineItemProps> = ({
               {designation}
             </motion.h3>
             <motion.div
-              className={`w-20 h-1 mb-4 rounded-full ${
-                isEducation
-                  ? 'bg-gradient-to-r from-green-success to-green-growth'
-                  : 'bg-gradient-to-r from-yellow-innovation to-yellow-warm'
-              }`}
+              className={`w-20 h-1 mb-4 rounded-full ${categoryColors.gradientClasses}`}
               initial={{ width: 0 }}
               animate={{ width: 80 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
