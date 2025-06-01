@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Berkshire_Swash, Inter, Work_Sans } from 'next/font/google';
 import { Suspense } from 'react';
 
-import { ThemeProvider } from '@/app/contexts/ThemeContext';
+import { ThemeProvider } from '@/app/_contexts/ThemeContext';
 import './globals.css';
 
 const inter = Inter({

@@ -4,17 +4,17 @@ import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { IoArrowUpOutline } from 'react-icons/io5';
 
-import { States } from '@/app/types/states';
-import Footer from '@/app/components/common/Footer';
-import Header from '@/app/components/common/Header';
-import About from '../components/about';
-import Contact from '../components/contact';
-import Experience from '../components/experience';
-import Hero from '../components/Hero';
-import Projects from '../components/projects';
-import Skills from '../components/Skills';
-import StateContext from '../contexts/StateContext';
-import { homeButtonVariants, homeButtonIconVariants } from '../variants';
+import { States } from '@/app/_types/states';
+import Footer from '@/app/_components/common/Footer';
+import Header from '@/app/_components/common/Header';
+import About from '../_components/about';
+import Contact from '../_components/contact';
+import Experience from '../_components/experience';
+import Hero from '../_components/Hero';
+import Projects from '../_components/projects';
+import Skills from '../_components/Skills';
+import StateContext from '../_contexts/StateContext';
+import { homeButtonVariants, homeButtonIconVariants } from '../_variants';
 
 const initialState: States = {
   heroInView: false,
