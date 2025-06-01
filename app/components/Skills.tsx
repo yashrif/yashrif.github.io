@@ -221,7 +221,7 @@ const Skills = () => {
           <Heading
             title={title}
             description={description}
-            decorativeColor={ColorScheme.SUCCESS}
+            decorativeColor={ColorScheme.INNOVATION}
           />
 
           {/* 🌊 Fluid Skills Flow with 2-Column Layout */}

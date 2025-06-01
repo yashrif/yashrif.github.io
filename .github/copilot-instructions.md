@@ -24,6 +24,7 @@ We use tabs, not spaces.
 
 ## Instructions
 
+- use `yarn` instead of `npm`
 - Use the new CSS variables from `globals.css` instead of hardcoded colors
 - Store all the types in the [types](../app/types) folder
 - Don't add unnecessary comments to the code

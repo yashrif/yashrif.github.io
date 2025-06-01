@@ -9,7 +9,7 @@ import Footer from '@/app/components/common/Footer';
 import Header from '@/app/components/common/Header';
 import About from '../components/about';
 import Contact from '../components/Contact';
-import Experience from '../components/Experience';
+import Experience from '../components/experience';
 import Hero from '../components/Hero';
 import Projects from '../components/projects';
 import Skills from '../components/Skills';

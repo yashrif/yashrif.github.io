@@ -19,7 +19,7 @@ const About = () => {
           <Heading
             title={title}
             description={description}
-            decorativeColor={ColorScheme.PRIMARY}
+            decorativeColor={ColorScheme.SUCCESS}
           />
 
           <div className='container-body h-full mt-16 grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-10 md:gap-16 items-start'>
