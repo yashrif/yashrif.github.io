@@ -3,6 +3,9 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// 🖼️ Import hero image
+import { heroImage } from '@/app/_assets/images';
+
 import {
   buttons,
   description,
@@ -129,7 +132,7 @@ const Hero = () => {
             variants={heroContainerVariants}
           >
             <MotionImage
-              src='/images/hero.png'
+              src={heroImage}
               alt='hero'
               width={0}
               height={0}

@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+// 🖼️ Import about image
+import { aboutImage } from '@/app/_assets/images';
+
 import ExperienceHighlights from './ExperienceHighlights';
+
+const MotionImage = motion(Image);
 
 const AboutImage = () => {
   return (
@@ -11,9 +18,11 @@ const AboutImage = () => {
         transition={{ duration: 0.8, ease: 'easeOut' }}
       >
         {/* 🎨 Main profile image */}
-        <motion.img
-          src='/images/about.png'
+        <MotionImage
+          src={aboutImage}
           alt='About profile'
+          width={400}
+          height={400}
           className='w-[55%] z-30'
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}

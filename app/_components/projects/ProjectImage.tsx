@@ -1,9 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 
 type ProjectImageProps = {
-  image: string;
+  image: string | StaticImageData;
   title: string;
   featured: boolean;
   index: number;
