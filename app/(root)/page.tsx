@@ -8,7 +8,7 @@ import { States } from '@/app/types/states';
 import Footer from '@/app/components/common/Footer';
 import Header from '@/app/components/common/Header';
 import About from '../components/about';
-import Contact from '../components/Contact';
+import Contact from '../components/contact';
 import Experience from '../components/experience';
 import Hero from '../components/Hero';
 import Projects from '../components/projects';
