@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { FC } from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { projectCardVariants } from '@/app/_variants/card';
 import { viewportMargin } from '@/app/_assets/data/animation';
 import { ProjectImage } from './ProjectImage';
@@ -18,7 +18,7 @@ type ProjectCardProps = {
   category: string;
   description: string;
   technologies: string[];
-  image: string;
+  image: StaticImageData;
   liveUrl: string;
   githubUrl: string | null;
   featured: boolean;
