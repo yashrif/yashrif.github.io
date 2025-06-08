@@ -2,7 +2,10 @@ import type { Metadata } from 'next';
 import { Berkshire_Swash, Inter, Work_Sans } from 'next/font/google';
 import { Suspense } from 'react';
 
+import { GoogleAnalytics } from '@/app/_components/analytics/GoogleAnalytics';
+import { AnalyticsWrapper } from '@/app/_components/analytics/AnalyticsWrapper';
 import { ThemeProvider } from '@/app/_contexts/ThemeContext';
+import { analyticsConfig } from '@/app/_lib/config/analytics';
 import './globals.css';
 
 const inter = Inter({
@@ -41,11 +44,17 @@ export default function RootLayout({
       >
         <Suspense>
           <ThemeProvider>
-            <div className='relative flex flex-col justify-between min-h-screen overflow-x-hidden'>
-              {children}
-            </div>
+            <AnalyticsWrapper>
+              <div className='relative flex flex-col justify-between min-h-screen overflow-x-hidden'>
+                {children}
+              </div>
+            </AnalyticsWrapper>
           </ThemeProvider>
         </Suspense>
+        {/* 📊 Google Analytics */}
+        {analyticsConfig.isEnabled && (
+          <GoogleAnalytics gaId={analyticsConfig.gaId} />
+        )}
       </body>
     </html>
   );

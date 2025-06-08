@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import classNames from 'classnames';
 
 import { ColorScheme } from '@/app/_types/color-scheme';
+import { analyticsEvents } from '@/app/_lib/analytics/events';
 
 /**
  * 🎯 Enhanced Button Component with New Color Scheme
@@ -9,19 +10,36 @@ import { ColorScheme } from '@/app/_types/color-scheme';
  * @param colorScheme - Color scheme from enhanced enum
  * @param className - Additional CSS classes
  * @param children - Button content
+ * @param analyticsLabel - Label for analytics tracking
+ * @param section - Section name for analytics context
  */
 const Button = ({
   solid,
   colorScheme,
   className,
   children,
+  analyticsLabel,
+  section,
+  onClick,
   ...rest
 }: {
   solid?: boolean;
   colorScheme?: ColorScheme;
   className?: string;
   children: React.ReactNode;
+  analyticsLabel?: string;
+  section?: string;
+  onClick?: () => void;
 }) => {
+  const handleClick = useCallback(() => {
+    // 📊 Track button click if analytics label is provided
+    if (analyticsLabel) {
+      analyticsEvents.buttonClick(analyticsLabel, section);
+    }
+
+    // Execute the original onClick handler
+    onClick?.();
+  }, [analyticsLabel, section, onClick]);
   const getColorClasses = () => {
     if (!colorScheme) return '';
 
@@ -63,7 +81,7 @@ const Button = ({
   );
 
   return (
-    <button {...rest} className={classes}>
+    <button {...rest} onClick={handleClick} className={classes}>
       {children}
     </button>
   );

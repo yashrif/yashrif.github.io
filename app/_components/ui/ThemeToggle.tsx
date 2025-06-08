@@ -1,8 +1,9 @@
 'use client';
 
 import { ThemeContext } from '@/app/_contexts/ThemeContext';
+import { analyticsEvents } from '@/app/_lib/analytics/events';
 import { motion } from 'framer-motion';
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { IoMoonOutline } from 'react-icons/io5';
 import { PiSun } from 'react-icons/pi';
 
@@ -15,17 +16,27 @@ const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
+  // 📊 Handle theme toggle with analytics
+  const handleToggle = useCallback(() => {
+    if (!themeContext) return;
+
+    const { theme, toggleTheme } = themeContext;
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    analyticsEvents.themeToggle(newTheme);
+    toggleTheme();
+  }, [themeContext]);
+
   // 🔄 Don't render anything until mounted and context is available
   if (!mounted || !themeContext) {
     return <div className='w-12 h-12 rounded-full animate-pulse' />;
   }
 
-  const { theme, toggleTheme } = themeContext;
+  const { theme } = themeContext;
   const isDark = theme === 'dark';
 
   return (
     <motion.button
-      onClick={toggleTheme}
+      onClick={handleToggle}
       className='relative flex items-center justify-center w-12 h-12 rounded-full transition-all duration-300'
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}

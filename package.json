@@ -14,6 +14,7 @@
     "commit": "cz"
   },
   "dependencies": {
+    "@next/third-parties": "^15.3.3",
     "@react-three/drei": "^10.0.8",
     "@react-three/fiber": "^9.1.2",
     "@types/three": "^0.176.0",
