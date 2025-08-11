@@ -81,7 +81,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id='experience' className='py-24 bg-violet-soft'>
+    <section id='experience' className='py-16 lg:py-24 bg-violet-soft'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           {/* 🎯 Enhanced Header Section */}

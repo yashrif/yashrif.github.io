@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <StateContext.Provider value={value}>
       <Header />
-      <div className='flex flex-col gap-24'>
+      <div className='flex flex-col gap-16 lg:gap-24'>
         <Hero />
         <About />
         <Skills />
@@ -40,7 +40,7 @@ const Home = () => {
       <AnimatePresence>
         {!states.heroInView && (
           <motion.div
-            className='fixed cursor-pointer text-2xl text-white p-3 bottom-16 right-12 rounded-full bg-violet-secondary z-50'
+            className='fixed cursor-pointer text-xl lg:text-2xl text-white p-3 lg:p-3 bottom-8 lg:bottom-16 right-6 lg:right-12 rounded-full bg-violet-secondary z-50 shadow-lg hover:shadow-xl'
             initial='hidden'
             animate='visible'
             whileHover='hover'

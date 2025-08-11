@@ -69,14 +69,18 @@ const Button = ({
   const classes = classNames(
     className,
     'group',
-    'text-lg',
-    'px-8',
-    'py-5',
+    'text-base lg:text-lg',
+    'px-6 lg:px-8',
+    'py-4 lg:py-5',
     'rounded-button', // Use new button radius
     'transition-all',
     'duration-300',
     'font-medium',
     'cursor-pointer',
+    'min-h-[48px]', // Minimum touch target size
+    'flex',
+    'items-center',
+    'justify-center',
     getColorClasses()
   );
 

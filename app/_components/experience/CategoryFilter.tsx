@@ -26,13 +26,13 @@ const CategoryFilter = ({
 }: CategoryFilterProps) => {
   return (
     <motion.div
-      className='relative mb-16'
+      className='relative mb-12 lg:mb-16'
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
     >
       {/* 🎯 Clean filter buttons container */}
-      <div className='flex items-center justify-center gap-6 flex-wrap'>
+      <div className='flex items-center justify-center gap-3 sm:gap-4 lg:gap-6 flex-wrap px-4'>
         {Object.entries(experienceCategories).map(
           ([key, categoryInfo], index) => (
             <CategoryButton

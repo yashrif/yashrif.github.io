@@ -13,7 +13,7 @@ import { ColorScheme } from '@/app/_types/color-scheme';
  */
 const About = () => {
   return (
-    <section id='about' className='py-24'>
+    <section id='about' className='py-16 lg:py-24'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           <Heading
@@ -22,11 +22,11 @@ const About = () => {
             decorativeColor={ColorScheme.SUCCESS}
           />
 
-          <div className='container-body h-full mt-16 grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-10 md:gap-16 items-start'>
+          <div className='container-body h-full mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-8 lg:gap-16 items-start'>
             <AboutImage />
 
             <motion.div
-              className='z-20 space-y-8 w-full'
+              className='z-20 space-y-6 lg:space-y-8 w-full'
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}

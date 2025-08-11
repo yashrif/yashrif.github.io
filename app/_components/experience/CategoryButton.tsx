@@ -38,8 +38,9 @@ const CategoryButton = ({
     <motion.button
       onClick={handleClick}
       className={`
-        relative px-4 py-2 rounded-full font-medium text-sm transition-all duration-300
+        relative px-4 sm:px-5 lg:px-6 py-3 lg:py-3.5 rounded-full font-medium text-sm lg:text-base transition-all duration-300
         flex items-center gap-2 justify-center cursor-pointer border-2 border-transparent
+        min-h-[48px] min-w-[120px] sm:min-w-[140px]
         ${
           isActive
             ? `${categoryInfo.textColor} bg-bg-secondary shadow-sm`
@@ -61,7 +62,7 @@ const CategoryButton = ({
     >
       {/* 🎨 Icon with enhanced animation */}
       <motion.span
-        className='text-base'
+        className='text-base sm:text-lg'
         animate={{
           rotate: isActive ? [0, 15, -10, 0] : 0,
           scale: isActive ? 1.15 : 1,
@@ -75,7 +76,9 @@ const CategoryButton = ({
       </motion.span>
 
       {/* 📝 Label with clean typography */}
-      <span className='font-semibold tracking-wide'>{categoryInfo.label}</span>
+      <span className='font-semibold tracking-wide text-sm sm:text-base'>
+        {categoryInfo.label}
+      </span>
     </motion.button>
   );
 };

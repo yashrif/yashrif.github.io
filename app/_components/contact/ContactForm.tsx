@@ -20,14 +20,14 @@ const ContactForm = () => {
 
   return (
     <motion.div
-      className='z-20 space-y-8 w-full'
+      className='z-20 space-y-6 lg:space-y-8 w-full'
       initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
     >
       {/* 🎯 Header Section */}
       <motion.div
-        className='space-y-3'
+        className='space-y-2 lg:space-y-3'
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
@@ -35,7 +35,7 @@ const ContactForm = () => {
         <h3 className='heading-tertiary bg-gradient-to-r from-violet-primary to-violet-tertiary bg-clip-text text-transparent'>
           Send a Message
         </h3>
-        <div className='w-16 h-1 bg-gradient-innovation rounded-full'></div>
+        <div className='w-12 lg:w-16 h-1 bg-gradient-innovation rounded-full'></div>
       </motion.div>
 
       {/* 🌊 Fluid Form Container */}
@@ -45,11 +45,11 @@ const ContactForm = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
       >
-        <div className='absolute inset-0 bg-gradient-to-br from-violet-soft/20 via-transparent to-violet-primary/5 rounded-[2rem] transform rotate-1'></div>
-        <div className='absolute inset-2 bg-gradient-to-tl from-violet-primary/5 via-transparent to-violet-soft/15 rounded-[1.5rem] transform -rotate-1'></div>
+        <div className='absolute inset-0 bg-gradient-to-br from-violet-soft/20 via-transparent to-violet-primary/5 rounded-2xl lg:rounded-[2rem] transform rotate-1'></div>
+        <div className='absolute inset-1 lg:inset-2 bg-gradient-to-tl from-violet-primary/5 via-transparent to-violet-soft/15 rounded-xl lg:rounded-[1.5rem] transform -rotate-1'></div>
 
-        <div className='relative p-8'>
-          <form className='space-y-6' onSubmit={handleSubmit}>
+        <div className='relative p-4 lg:p-8'>
+          <form className='space-y-4 lg:space-y-6' onSubmit={handleSubmit}>
             {/* Name Field */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const ContactForm = () => {
             >
               <label
                 htmlFor='name'
-                className='block text-sm font-medium text-text-primary mb-2'
+                className='block text-sm font-medium text-text-primary mb-1.5 lg:mb-2'
               >
                 Full Name
               </label>
@@ -67,7 +67,7 @@ const ContactForm = () => {
                 id='name'
                 name='name'
                 required
-                className='w-full px-6 py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 placeholder:text-text-muted'
+                className='w-full px-4 lg:px-6 py-3 lg:py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 placeholder:text-text-muted text-sm lg:text-base'
                 placeholder='Your Full Name'
               />
             </motion.div>
@@ -80,7 +80,7 @@ const ContactForm = () => {
             >
               <label
                 htmlFor='email'
-                className='block text-sm font-medium text-text-primary mb-2'
+                className='block text-sm font-medium text-text-primary mb-1.5 lg:mb-2'
               >
                 Email Address
               </label>
@@ -89,7 +89,7 @@ const ContactForm = () => {
                 id='email'
                 name='email'
                 required
-                className='w-full px-6 py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 placeholder:text-text-muted'
+                className='w-full px-4 lg:px-6 py-3 lg:py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 placeholder:text-text-muted text-sm lg:text-base'
                 placeholder='your.email@example.com'
               />
             </motion.div>
@@ -102,7 +102,7 @@ const ContactForm = () => {
             >
               <label
                 htmlFor='subject'
-                className='block text-sm font-medium text-text-primary mb-2'
+                className='block text-sm font-medium text-text-primary mb-1.5 lg:mb-2'
               >
                 Subject
               </label>
@@ -111,7 +111,7 @@ const ContactForm = () => {
                 id='subject'
                 name='subject'
                 required
-                className='w-full px-6 py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 placeholder:text-text-muted'
+                className='w-full px-4 lg:px-6 py-3 lg:py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 placeholder:text-text-muted text-sm lg:text-base'
                 placeholder='Project Inquiry / Collaboration'
               />
             </motion.div>
@@ -124,30 +124,30 @@ const ContactForm = () => {
             >
               <label
                 htmlFor='message'
-                className='block text-sm font-medium text-text-primary mb-2'
+                className='block text-sm font-medium text-text-primary mb-1.5 lg:mb-2'
               >
                 Message
               </label>
               <textarea
                 id='message'
                 name='message'
-                rows={6}
+                rows={5}
                 required
-                className='w-full px-6 py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 resize-none placeholder:text-text-muted'
+                className='w-full px-4 lg:px-6 py-3 lg:py-4 bg-bg-secondary/80 border border-violet-soft/50 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-violet-primary focus:border-violet-primary transition-all duration-300 resize-none placeholder:text-text-muted text-sm lg:text-base lg:rows-6'
                 placeholder='Tell me about your project, ideas, or how we can collaborate...'
               />
             </motion.div>
 
             {/* Submit Button */}
             <motion.div
-              className='pt-4'
+              className='pt-2 lg:pt-4'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.6 }}
             >
               <motion.button
                 type='submit'
-                className='w-full bg-gradient-to-r from-violet-primary to-violet-secondary text-white py-4 px-8 rounded-2xl font-medium shadow-violet hover:shadow-violet-lg transition-all duration-300 relative overflow-hidden'
+                className='w-full bg-gradient-to-r from-violet-primary to-violet-secondary text-white py-3 lg:py-4 px-6 lg:px-8 rounded-xl lg:rounded-2xl font-medium shadow-violet hover:shadow-violet-lg transition-all duration-300 relative overflow-hidden text-sm lg:text-base'
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >

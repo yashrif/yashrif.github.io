@@ -19,7 +19,7 @@ type ContactInfoProps = {
 const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
   return (
     <motion.div
-      className='relative space-y-6'
+      className='relative space-y-4 lg:space-y-6'
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.6 }}
@@ -31,11 +31,11 @@ const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 0.8 }}
       >
-        <div className='absolute inset-0 bg-gradient-to-r from-violet-soft/20 via-transparent to-yellow-innovation/10 rounded-[2rem] transform -skew-y-1'></div>
-        <div className='relative p-8 pl-16'>
-          <div className='flex items-center gap-4 mb-4'>
+        <div className='absolute inset-0 bg-gradient-to-r from-violet-soft/20 via-transparent to-yellow-innovation/10 rounded-2xl lg:rounded-[2rem] transform -skew-y-1'></div>
+        <div className='relative p-4 lg:p-8 lg:pl-16'>
+          <div className='flex items-center gap-3 lg:gap-4 mb-3 lg:mb-4'>
             <motion.div
-              className='w-16 h-16 bg-gradient-innovation rounded-full flex items-center justify-center shadow-innovation'
+              className='w-12 h-12 lg:w-16 lg:h-16 bg-gradient-innovation rounded-full flex items-center justify-center shadow-innovation flex-shrink-0'
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{
@@ -44,16 +44,16 @@ const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
                 delay: 1.0,
               }}
             >
-              <IoMail className='text-white text-2xl' />
+              <IoMail className='text-white text-xl lg:text-2xl' />
             </motion.div>
-            <div className='flex-1'>
-              <h4 className='text-xl font-bold text-text-primary mb-2'>
+            <div className='flex-1 min-w-0'>
+              <h4 className='text-lg lg:text-xl font-bold text-text-primary mb-2'>
                 Email
               </h4>
-              <div className='w-24 h-1 bg-gradient-innovation rounded-full mb-3'></div>
+              <div className='w-16 lg:w-24 h-1 bg-gradient-innovation rounded-full mb-2 lg:mb-3'></div>
               <a
                 href={`mailto:${email}`}
-                className='text-text-secondary hover:text-violet-primary transition-colors leading-relaxed'
+                className='text-sm lg:text-base text-text-secondary hover:text-violet-primary transition-colors leading-relaxed break-all'
               >
                 {email}
               </a>
@@ -69,11 +69,11 @@ const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 1.0 }}
       >
-        <div className='absolute inset-0 bg-gradient-to-l from-green-success/15 via-transparent to-violet-primary/10 rounded-[2rem] transform skew-y-1'></div>
-        <div className='relative p-8 pr-16 text-right'>
-          <div className='flex items-center gap-4 mb-4 flex-row-reverse'>
+        <div className='absolute inset-0 bg-gradient-to-l from-green-success/15 via-transparent to-violet-primary/10 rounded-2xl lg:rounded-[2rem] transform skew-y-1'></div>
+        <div className='relative p-4 lg:p-8 lg:pr-16 text-left lg:text-right'>
+          <div className='flex items-center gap-3 lg:gap-4 mb-3 lg:mb-4 lg:flex-row-reverse'>
             <motion.div
-              className='w-16 h-16 bg-gradient-success rounded-full flex items-center justify-center shadow-success'
+              className='w-12 h-12 lg:w-16 lg:h-16 bg-gradient-success rounded-full flex items-center justify-center shadow-success flex-shrink-0'
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{
@@ -82,16 +82,16 @@ const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
                 delay: 1.2,
               }}
             >
-              <IoCall className='text-white text-2xl' />
+              <IoCall className='text-white text-xl lg:text-2xl' />
             </motion.div>
-            <div className='flex-1'>
-              <h4 className='text-xl font-bold text-text-primary mb-2'>
+            <div className='flex-1 min-w-0'>
+              <h4 className='text-lg lg:text-xl font-bold text-text-primary mb-2'>
                 Phone
               </h4>
-              <div className='w-24 h-1 bg-gradient-success rounded-full mb-3 ml-auto'></div>
+              <div className='w-16 lg:w-24 h-1 bg-gradient-success rounded-full mb-2 lg:mb-3 lg:ml-auto'></div>
               <a
                 href={`tel:${phone}`}
-                className='text-text-secondary hover:text-violet-primary transition-colors leading-relaxed'
+                className='text-sm lg:text-base text-text-secondary hover:text-violet-primary transition-colors leading-relaxed'
               >
                 {phone}
               </a>
@@ -107,11 +107,11 @@ const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
         animate={{ opacity: 1, x: 0, scale: 1 }}
         transition={{ duration: 0.8, ease: 'easeOut', delay: 1.2 }}
       >
-        <div className='absolute inset-0 bg-gradient-to-r from-violet-primary/15 via-transparent to-violet-tertiary/10 rounded-[2rem] transform -skew-y-1'></div>
-        <div className='relative p-8 pl-16'>
-          <div className='flex items-center gap-4 mb-4'>
+        <div className='absolute inset-0 bg-gradient-to-r from-violet-primary/15 via-transparent to-violet-tertiary/10 rounded-2xl lg:rounded-[2rem] transform -skew-y-1'></div>
+        <div className='relative p-4 lg:p-8 lg:pl-16'>
+          <div className='flex items-center gap-3 lg:gap-4 mb-3 lg:mb-4'>
             <motion.div
-              className='w-16 h-16 bg-gradient-to-br from-violet-primary to-violet-secondary rounded-full flex items-center justify-center shadow-violet'
+              className='w-12 h-12 lg:w-16 lg:h-16 bg-gradient-to-br from-violet-primary to-violet-secondary rounded-full flex items-center justify-center shadow-violet flex-shrink-0'
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
               transition={{
@@ -120,14 +120,16 @@ const ContactInfo = ({ email, phone, location }: ContactInfoProps) => {
                 delay: 1.4,
               }}
             >
-              <IoLocationOutline className='text-white text-2xl' />
+              <IoLocationOutline className='text-white text-xl lg:text-2xl' />
             </motion.div>
-            <div className='flex-1'>
-              <h4 className='text-xl font-bold text-text-primary mb-2'>
+            <div className='flex-1 min-w-0'>
+              <h4 className='text-lg lg:text-xl font-bold text-text-primary mb-2'>
                 Location
               </h4>
-              <div className='w-24 h-1 bg-gradient-to-br from-violet-primary to-violet-secondary rounded-full mb-3'></div>
-              <p className='text-text-secondary leading-relaxed'>{location}</p>
+              <div className='w-16 lg:w-24 h-1 bg-gradient-to-br from-violet-primary to-violet-secondary rounded-full mb-2 lg:mb-3'></div>
+              <p className='text-sm lg:text-base text-text-secondary leading-relaxed'>
+                {location}
+              </p>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { IoLogoGithub, IoLogoLinkedin, IoHeart } from 'react-icons/io5';
+import { IoLogoGithub, IoLogoLinkedin, IoHeart, IoMail } from 'react-icons/io5';
 import { useCallback } from 'react';
 
 /**
@@ -19,6 +19,13 @@ const Footer = () => {
    */
   const handleSocialClick = useCallback((url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
+  }, []);
+
+  /**
+   * 📧 Handle email click to open default email client
+   */
+  const handleEmailClick = useCallback(() => {
+    window.location.href = 'mailto:yashrif@outlook.com';
   }, []);
 
   /**
@@ -89,6 +96,15 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
+            <motion.button
+              onClick={handleEmailClick}
+              className='group relative w-10 h-10 bg-bg-secondary/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-white transition-all duration-300 hover:shadow-violet cursor-pointer'
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <div className='absolute inset-0 bg-gradient-to-br from-violet-primary to-violet-secondary rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+              <IoMail className='relative text-lg z-10' />
+            </motion.button>
             <motion.button
               onClick={() => handleSocialClick('https://github.com/yashrif')}
               className='group relative w-10 h-10 bg-bg-secondary/80 backdrop-blur-sm rounded-full flex items-center justify-center text-text-secondary hover:text-white transition-all duration-300 hover:shadow-violet cursor-pointer'

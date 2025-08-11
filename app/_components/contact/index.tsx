@@ -26,7 +26,7 @@ const contactData = {
  */
 const Contact = () => {
   return (
-    <section id='contact' className='py-24'>
+    <section id='contact' className='py-16 lg:py-24'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           <Heading
@@ -35,10 +35,10 @@ const Contact = () => {
             decorativeColor={ColorScheme.PRIMARY}
           />
 
-          <div className='container-body h-full mt-16 grid grid-cols-1 lg:grid-cols-[45fr_55fr] gap-10 md:gap-16 items-start'>
+          <div className='w-full mt-12 lg:mt-16 grid grid-cols-1 lg:grid-cols-[45fr_55fr] gap-8 lg:gap-16 items-start'>
             {/* 📞 Contact Information Section */}
             <motion.div
-              className='space-y-8'
+              className='space-y-6 lg:space-y-8 order-2 lg:order-1'
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
@@ -69,7 +69,9 @@ const Contact = () => {
             </motion.div>
 
             {/* 📝 Contact Form Section */}
-            <ContactForm />
+            <div className='order-1 lg:order-2'>
+              <ContactForm />
+            </div>
           </div>
         </div>
       </div>

@@ -17,7 +17,6 @@ import {
   SiAdobeillustrator,
   SiPostgresql,
   SiMysql,
-  SiMongodb,
   SiNodedotjs,
   SiC,
   SiCplusplus,
@@ -66,7 +65,7 @@ export const skillCategories = [
     skills: [
       { name: 'PostgreSQL', icon: <SiPostgresql /> },
       { name: 'MySQL', icon: <SiMysql /> },
-      { name: 'MongoDB', icon: <SiMongodb /> },
+      // { name: 'MongoDB', icon: <SiMongodb /> },
       { name: 'SQL', icon: <FaDatabase /> },
       { name: 'Git', icon: <SiGit /> },
       { name: 'Docker', icon: <SiDocker /> },

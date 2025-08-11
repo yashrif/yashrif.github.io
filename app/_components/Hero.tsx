@@ -43,9 +43,9 @@ const Hero = () => {
   }, [heroInView, states, setStates]);
   return (
     <section id='hero' ref={ref}>
-      <div className='lg:h-[100vh] bg-violet-soft'>
+      <div className='min-h-screen lg:h-[100vh] bg-violet-soft'>
         <motion.div
-          className='container-body pt-header h-full !px-10 grid grid-cols-[45fr_55fr] items-center'
+          className='container-body pt-header h-full grid grid-cols-1 lg:grid-cols-[45fr_55fr] items-center gap-8 lg:gap-0 py-8 lg:py-0'
           initial={'hidden'}
           whileInView={'visible'}
           viewport={{
@@ -54,28 +54,37 @@ const Hero = () => {
             amount: viewportAmount,
           }}
         >
-          <motion.div className='z-20' variants={heroContainerVariants}>
+          <motion.div
+            className='z-20 order-2 lg:order-1'
+            variants={heroContainerVariants}
+          >
             <motion.div className='relative' variants={leftChildVariants}>
-              <h1 className='heading-primary'>{title}</h1>
+              <h1 className='heading-primary text-center lg:text-left'>
+                {title}
+              </h1>
               <motion.div
-                className='block w-[20%] pb-[20%] rounded-full bg-yellow-bright shadow-innovation absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]'
+                className='hidden lg:block w-[20%] pb-[20%] rounded-full bg-yellow-bright shadow-innovation absolute top-0 right-[40%] -translate-x-[10%] -translate-y-[40%] z-[9999]'
                 variants={ballVariants}
               ></motion.div>
             </motion.div>
-            <motion.div className='flex gap-4' variants={leftChildVariants}>
-              <p className='text-3xl'>&mdash;</p>
-              <p className='text-lg font-medium max-w-[50ch] mb-12 text-text-secondary'>
+            <motion.div
+              className='flex gap-4 justify-center lg:justify-start'
+              variants={leftChildVariants}
+            >
+              <p className='text-2xl lg:text-3xl'>&mdash;</p>
+              <p className='text-base lg:text-lg font-medium max-w-[50ch] mb-8 lg:mb-12 text-text-secondary text-center lg:text-left'>
                 {description}
               </p>
             </motion.div>
             <motion.ul
-              className='flex gap-4 mb-20 list-none'
+              className='flex flex-col sm:flex-row gap-4 mb-12 lg:mb-20 list-none justify-center lg:justify-start'
               variants={leftChildVariants}
             >
               {buttons.map(
                 ({ title, icon, href, colorScheme, solid }, index) => (
                   <motion.li
                     key={index}
+                    className='w-full sm:w-auto'
                     initial={'hidden'}
                     whileHover={'hover'}
                     animate={'hidden'}
@@ -102,16 +111,18 @@ const Hero = () => {
               )}
             </motion.ul>
             <motion.div
-              className='flex gap-6 items-center'
+              className='flex flex-col sm:flex-row gap-6 items-center justify-center lg:justify-start'
               variants={leftChildVariants}
             >
-              <p className='font-medium text-text-secondary'>{profileTitle}</p>
+              <p className='font-medium text-text-secondary text-center lg:text-left'>
+                {profileTitle}
+              </p>
 
               <ul className='list-none flex gap-3'>
                 {profileLinks.map(({ title, href, icon }) => (
                   <motion.li
                     key={title}
-                    className='group text-xl cursor-pointer transition-all duration-300 text-text-primary rounded-full p-2 bg-bg-secondary dark:bg-white/10 shadow-sm hover:text-white hover:bg-violet-primary hover:shadow-violet'
+                    className='group text-xl cursor-pointer transition-all duration-300 text-text-primary rounded-full p-3 bg-bg-secondary dark:bg-white/10 shadow-sm hover:text-white hover:bg-violet-primary hover:shadow-violet'
                     initial={'hidden'}
                     whileHover={'hover'}
                     animate={'hidden'}
@@ -128,7 +139,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className='self-end flex justify-center relative overflow-hidden'
+            className='order-1 lg:order-2 self-center lg:self-end flex justify-center relative overflow-hidden'
             variants={heroContainerVariants}
           >
             <MotionImage
@@ -137,11 +148,11 @@ const Hero = () => {
               width={0}
               height={0}
               sizes='full'
-              className='w-[60%] z-40'
+              className='w-[70%] sm:w-[60%] lg:w-[60%] z-40'
               variants={heroImageVariants}
             />
             <motion.div
-              className='absolute block w-[65%] rounded-[50%] bg-violet-medium bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
+              className='absolute block w-[70%] sm:w-[65%] lg:w-[65%] rounded-[50%] bg-violet-medium bottom-0 left-2/4 -translate-x-2/4 translate-y-[20%] z-30'
               variants={eclipseVariants}
             ></motion.div>
           </motion.div>

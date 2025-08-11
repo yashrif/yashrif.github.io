@@ -19,7 +19,7 @@ const TimelineContainer = ({
   timelineScrollPosition,
 }: TimelineContainerProps) => {
   return (
-    <div className='relative mt-8'>
+    <div className='relative mt-6 lg:mt-8'>
       <ul className='list-none relative'>
         {timelineData.map((item, index) => (
           <TimelineItem
@@ -30,9 +30,9 @@ const TimelineContainer = ({
         ))}
       </ul>
 
-      {/* 🌊 Enhanced vertical timeline line with gradient */}
+      {/* 🌊 Enhanced vertical timeline line with gradient - Hidden on mobile */}
       <motion.div
-        className='absolute w-auto top-2 left-2/4 -translate-x-2/4 z-20'
+        className='absolute w-auto top-2 left-2/4 -translate-x-2/4 z-20 hidden lg:block'
         style={{
           height: `${timelineScrollPosition * 100}%`,
         }}

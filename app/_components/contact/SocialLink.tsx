@@ -30,12 +30,12 @@ const SocialLink = ({ href, icon, delay, hoverRotation }: SocialLinkProps) => {
         href={href}
         target='_blank'
         rel='noopener noreferrer'
-        className='flex items-center justify-center w-12 h-12 bg-gradient-to-br from-violet-primary to-violet-secondary text-white rounded-full hover:shadow-violet transition-all duration-300 cursor-pointer'
+        className='flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 bg-gradient-to-br from-violet-primary to-violet-secondary text-white rounded-full hover:shadow-violet transition-all duration-300 cursor-pointer touch-manipulation'
       >
         <motion.div
           whileHover={{ scale: 1.1, rotate: hoverRotation }}
           whileTap={{ scale: 0.95 }}
-          className='text-2xl'
+          className='text-xl lg:text-2xl'
         >
           {icon}
         </motion.div>

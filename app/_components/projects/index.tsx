@@ -14,7 +14,7 @@ import { ProjectCard } from './ProjectCard';
  */
 const Projects = () => {
   return (
-    <section id='projects' className='py-24'>
+    <section id='projects' className='py-16 lg:py-24'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           {/* 🎯 Enhanced Heading with Gradient */}
@@ -26,14 +26,14 @@ const Projects = () => {
 
           {/* 🌊 Fluid Projects Showcase */}
           <motion.div
-            className='w-full mt-16'
+            className='w-full mt-12 lg:mt-16'
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: viewportMargin, amount: 0.1 }}
             transition={{ duration: 0.8 }}
           >
             {/* 🎨 Enhanced Grid with Even Sizing */}
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr'>
               {projects.map((project, index) => (
                 <ProjectCard key={project.id} {...project} index={index} />
               ))}

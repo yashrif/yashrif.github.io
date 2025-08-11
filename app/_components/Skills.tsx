@@ -215,7 +215,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id='skills' className='py-24'>
+    <section id='skills' className='py-16 lg:py-24'>
       <div className='container-body'>
         <div className='flex flex-col items-center justify-center'>
           <Heading
