@@ -1,17 +1,75 @@
 import { motion } from 'framer-motion';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import {
   FaCode,
   FaPaintBrush,
   FaBolt,
   FaTools,
   FaBullseye,
+  FaDatabase
 } from 'react-icons/fa';
+import {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiPython,
+  SiKotlin,
+  SiDart,
+  SiDjango,
+  SiSpringboot,
+  SiFlutter,
+  SiElectron,
+  SiDocker,
+  SiGit,
+  SiLinux,
+  SiFigma,
+  SiAdobeillustrator,
+  SiPostgresql,
+  SiMysql,
+  SiNodedotjs,
+  SiC,
+  SiCplusplus,
+  SiMarkdown,
+} from 'react-icons/si';
+import { TbMathFunction } from 'react-icons/tb';
+import { DiJava } from 'react-icons/di';
+
 
 import { viewportMargin } from '../_assets/data/animation';
-import { description, skillCategories, title } from '../_assets/data/skills';
+import { description, title } from '../_assets/data/skills';
 import Heading from './common/Heading';
 import { ColorScheme } from '../_types/color-scheme';
+import { client } from '@/sanity/lib/client';
+import { SKILLS_QUERY } from '@/sanity/lib/queries';
+
+const skillIconMap: any = {
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiPython,
+  SiKotlin,
+  SiDart,
+  SiDjango,
+  SiSpringboot,
+  SiFlutter,
+  SiElectron,
+  SiDocker,
+  SiGit,
+  SiLinux,
+  SiFigma,
+  SiAdobeillustrator,
+  SiPostgresql,
+  SiMysql,
+  SiNodedotjs,
+  SiC,
+  SiCplusplus,
+  SiMarkdown,
+  FaDatabase,
+  TbMathFunction,
+  DiJava,
+};
 
 type SkillItemProps = {
   name: string;
@@ -164,6 +222,41 @@ const SkillCategory: FC<SkillCategoryProps> = ({
  * @returns JSX element containing the skills section
  */
 const Skills = () => {
+    const [skillCategories, setSkillCategories] = useState<any[]>([]);
+
+    useEffect(() => {
+        const fetchSkills = async () => {
+            const data = await client.fetch(SKILLS_QUERY);
+            const mappedData = data.map((category: any) => ({
+                ...category,
+                skills: category.skills.map((skill: any) => ({
+                    name: skill.name,
+                    icon: (skillIconMap as any)[skill.iconName] ? (skillIconMap as any)[skill.iconName]({}) : <FaCode/> // Using function call to render component or Element directly if it's already element? React icons are components. <SiReact />.
+                    // Actually, imported icons are components. `icon: <SiReact />` works.
+                    // if I have component `SiReact`, I need to render it. `<SiReact />`.
+                    // So in map: `icon: createElement(skillIconMap[skill.iconName])`
+                }))
+            }));
+            // Update: actually I should just pass the component or element.
+            // Let's refine the map logic.
+            const refinedData = data.map((category: any) => ({
+                ...category,
+                skills: category.skills.map((skill: any) => {
+                    const IconComponent = skillIconMap[skill.iconName] || FaCode;
+                    return {
+                        name: skill.name,
+                        icon: <IconComponent />
+                    };
+                })
+            }));
+            setSkillCategories(refinedData);
+        };
+        fetchSkills();
+    }, []);
+
+    // Wait for data
+    if (skillCategories.length === 0) return null; // Or loading state
+
   // 📊 Organize skills into complementary pairs for 2-column layout with distinct color schemes
   const skillPairs = [
     {
@@ -242,16 +335,18 @@ const Skills = () => {
                 }
               >
                 {/* Left Column */}
-                <SkillCategory
-                  title={pair.left.title}
-                  skills={pair.left.skills}
-                  index={pairIndex * 2}
-                  categoryIcon={pair.leftConfig.icon}
-                  iconGradientClass={pair.leftConfig.iconGradient}
-                  shadowClass={pair.leftConfig.shadow}
-                  dividerClass={pair.leftConfig.divider}
-                  alignment='left'
-                />
+                {pair.left && (
+                  <SkillCategory
+                    title={pair.left.title}
+                    skills={pair.left.skills}
+                    index={pairIndex * 2}
+                    categoryIcon={pair.leftConfig.icon}
+                    iconGradientClass={pair.leftConfig.iconGradient}
+                    shadowClass={pair.leftConfig.shadow}
+                    dividerClass={pair.leftConfig.divider}
+                    alignment='left'
+                  />
+                )}
 
                 {/* Right Column (if exists) */}
                 {pair.right && pair.rightConfig && (

@@ -18,7 +18,7 @@ type ProjectCardProps = {
   category: string;
   description: string;
   technologies: string[];
-  image: StaticImageData;
+  image: string | StaticImageData;
   liveUrl: string;
   githubUrl: string | null;
   featured: boolean;

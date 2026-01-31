@@ -1,24 +1,28 @@
 'use client';
-import { useRef, useState, useCallback, useMemo } from 'react';
+import { useRef, useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import { HiStar } from 'react-icons/hi2';
-import { HiAcademicCap, HiBriefcase, HiSparkles } from 'react-icons/hi2';
+import {
+  HiStar,
+  HiAcademicCap,
+  HiBriefcase,
+  HiSparkles,
+} from 'react-icons/hi2';
+import * as FaIcons from 'react-icons/fa';
+import { IconType } from 'react-icons';
 
 import { viewportMargin } from '../../_assets/data/animation';
-import {
-  description,
-  timelineData,
-  title,
-} from '../../_assets/data/experience';
-import { experienceFlowVariants } from '../../_variants/timeline';
+import { description, title } from '../../_assets/data/experience';
 import {
   ExperienceCategory,
   ExperienceCategoryInfo,
+  TimelineItemType,
 } from '@/app/_types/experience';
 import { sortTimelineByDuration } from '../../_utils/date-utils';
 import CategoryFilter from './CategoryFilter';
 import TimelineContainer from './TimelineContainer';
 import Heading from '../common/Heading';
+import { client } from '@/sanity/lib/client';
+import { EXPERIENCE_QUERY } from '@/sanity/lib/queries';
 
 /**
  * 🎯 Experience categories configuration - Updated with three main tabs
@@ -60,10 +64,25 @@ const Experience = () => {
   const [timelineScrollPosition, setTimelineScrollPosition] = useState(0);
   const [activeCategory, setActiveCategory] =
     useState<ExperienceCategory>('experience');
+  const [timelineData, setTimelineData] = useState<TimelineItemType[]>([]);
+
   // 🎯 Handle scroll progress updates
   scrollYProgress.on('change', latest => {
     setTimelineScrollPosition(latest);
   });
+
+  useEffect(() => {
+    const fetchExperience = async () => {
+      const data = await client.fetch(EXPERIENCE_QUERY);
+      const mappedData = data.map((item: any) => ({
+        ...item,
+        category: item.category as ExperienceCategory,
+        icon: (FaIcons as any)[item.icon] || FaIcons.FaCircle, // Fallback icon
+      }));
+      setTimelineData(mappedData);
+    };
+    fetchExperience();
+  }, []);
 
   // 🗂️ Filter and sort timeline data based on active category
   const filteredTimelineData = useMemo(() => {
@@ -73,7 +92,7 @@ const Experience = () => {
 
     // 📅 Sort by duration (most recent first)
     return sortTimelineByDuration(filtered);
-  }, [activeCategory]);
+  }, [activeCategory, timelineData]);
 
   // 📝 Handle category change
   const handleCategoryChange = useCallback((category: ExperienceCategory) => {

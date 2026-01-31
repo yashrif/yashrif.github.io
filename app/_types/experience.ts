@@ -9,7 +9,7 @@ export type TimelineItemType = {
   organization: string;
   designation: string;
   duration: string;
-  description: string;
+  description: any;
   category: ExperienceCategory;
   icon: IconType;
 };

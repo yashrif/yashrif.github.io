@@ -1,4 +1,4 @@
-'use client';
+import { PortableText } from 'next-sanity';
 import { FC, useRef, useState } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { TimelineItemType } from '@/app/_types/experience';
@@ -93,6 +93,12 @@ const TimelineItem: FC<TimelineItemProps> = ({
 
   const categoryColors = getCategoryColors();
 
+  const ptComponents = {
+      block: {
+          normal: ({children}: any) => <p className="mb-2 last:mb-0">{children}</p>,
+      }
+  }
+
   return (
     <motion.li
       ref={ref}
@@ -155,14 +161,14 @@ const TimelineItem: FC<TimelineItemProps> = ({
               >
                 {duration}
               </motion.p>
-              <motion.p
+              <motion.div
                 className='text-sm text-text-secondary leading-relaxed'
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.7 }}
               >
-                {description}
-              </motion.p>
+                 <PortableText value={description} components={ptComponents} />
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -292,14 +298,14 @@ const TimelineItem: FC<TimelineItemProps> = ({
                 animate={{ width: 80 }}
                 transition={{ duration: 0.8, ease: 'easeOut', delay: 0.6 }}
               />
-              <motion.p
+              <motion.div
                 className='text-sm font-medium text-text-secondary max-w-[55ch] first-letter:capitalize text-justify leading-relaxed'
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut', delay: 0.5 }}
               >
-                {description}
-              </motion.p>
+                <PortableText value={description} components={ptComponents} />
+              </motion.div>
             </div>
           </div>
         </motion.div>

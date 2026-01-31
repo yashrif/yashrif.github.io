@@ -1,18 +1,32 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 import { viewportMargin } from '../../_assets/data/animation';
-import { description, projects, title } from '../../_assets/data/projects';
+import { description, title } from '../../_assets/data/projects';
 import { ColorScheme } from '../../_types/color-scheme';
 import Heading from '../common/Heading';
 import { ProjectCard } from './ProjectCard';
+import { client } from '@/sanity/lib/client';
+import { PROJECTS_QUERY } from '@/sanity/lib/queries';
+import { urlFor } from '@/sanity/lib/image';
 
 /**
  * 🚀 Projects component with fluid design inspired by About section
  * @returns JSX element containing the projects showcase
  */
 const Projects = () => {
+  const [projects, setProjects] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const data = await client.fetch(PROJECTS_QUERY);
+      setProjects(data);
+    };
+    fetchProjects();
+  }, []);
+
   return (
     <section id='projects' className='py-16 lg:py-24'>
       <div className='container-body'>
@@ -35,7 +49,20 @@ const Projects = () => {
             {/* 🎨 Enhanced Grid with Even Sizing */}
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr'>
               {projects.map((project, index) => (
-                <ProjectCard key={project.id} {...project} index={index} />
+                <ProjectCard
+                  key={project._id}
+                  id={project._id}
+                  title={project.title}
+                  category='Project' // You might want to add category to schema if needed
+                  description={project.shortDescription}
+                  technologies={project.technologies}
+                  image={project.image ? urlFor(project.image).url() : ''}
+                  liveUrl={project.liveUrl}
+                  githubUrl={project.githubUrl}
+                  featured={project.featured}
+                  year={project.year}
+                  index={index}
+                />
               ))}
             </div>
 
